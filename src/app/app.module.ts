@@ -1,14 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { MasterLayoutComponent } from './layouts/master-layout/master-layout.component';
+import { SidenavComponent } from './layouts/master-layout/sidenav/sidenav.component';
+
+import { SharedModule } from './shared'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthLayoutComponent,
+    MasterLayoutComponent,
+    SidenavComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SharedModule,
+
+
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
