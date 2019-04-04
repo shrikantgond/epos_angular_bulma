@@ -7,14 +7,16 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { MasterLayoutComponent } from './layouts/master-layout/master-layout.component';
 import { SidenavComponent } from './layouts/master-layout/sidenav/sidenav.component';
 
-import { SharedModule } from './shared'
+import { SharedModule } from './shared';
+import { TopnavComponent } from './layouts/master-layout/topnav/topnav.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthLayoutComponent,
     MasterLayoutComponent,
-    SidenavComponent
+    SidenavComponent,
+    TopnavComponent
   ],
   imports: [
     BrowserModule,

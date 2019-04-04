@@ -1,0 +1,64 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+      <!-- <a class="navbar-item" href="#">
+          <img src="Ico.jpg" width="112" height="40">
+      </a> -->
+
+      <div class="navbar-item">
+          <h3 class="page-title">Dashboard</h3>
+      </div>
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+      </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+          <div class="navbar-item">
+            <nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
+              <ul>
+                <li><a href="#">Bulma</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Components</a></li>
+                <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
+              </ul>
+            </nav>
+          </div>
+
+      </div>
+
+      <div class="navbar-end">
+          <div class="navbar-item">
+              <div id="avatar"></div>
+
+              <div class="dropdown is-hoverable" style="margin-right: 20px;">
+                  <div class="dropdown-trigger">
+                      <button class="button" style="border-style: none;" aria-haspopup="true"
+                          aria-controls="dropdown-menu4">
+                          <span>Shrikant Gond</span>
+                          <!-- <span class="icon is-small">
+                              <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          </span> -->
+                          <div style="padding-left:5px;">
+                            <!-- <fa-icon [icon]="faCoffee"></fa-icon> -->
+                            <!-- <fa-icon icon="asterisk" size="3x" [spin]="true"></fa-icon> -->
+                            <fa-icon icon="caret-down"></fa-icon>
+                          </div>
+                      </button>
+                  </div>
+                  <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                      <div class="dropdown-content">
+                          <div class="dropdown-item">
+                              <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</nav>

@@ -1,2 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+// Set your brand colors 
+$primary: #8a4d76;
+$info: #fa7c91;
+$success: #757763;
+$warning: yellow;
+$danger: red;
+$light: #ccc;
+$dark: #444;
+
 @import './assets/bulma/scss/bulma.scss';
+
+body{
+    font-weight: 100;
+    background: #f0f0f0;
+}

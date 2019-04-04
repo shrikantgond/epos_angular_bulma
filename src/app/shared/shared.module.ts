@@ -27,7 +27,13 @@ import {
   faWindowMaximize,
   faStream,
   faBook,
-  faList
+  faList,
+  faChartBar,
+  faUser,
+  faAddressBook,
+  faFile,
+  faSignOutAlt,
+  faFileInvoice
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -55,7 +61,13 @@ library.add(
   faWindowMaximize,
   faStream,
   faBook,
-  faList
+  faList,
+  faChartBar,
+  faUser,
+  faAddressBook,
+  faFile,
+  faSignOutAlt,
+  faFileInvoice
 );
 
 @NgModule({
