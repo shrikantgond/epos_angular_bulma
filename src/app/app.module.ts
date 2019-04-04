@@ -9,6 +9,7 @@ import { SidenavComponent } from './layouts/master-layout/sidenav/sidenav.compon
 
 import { SharedModule } from './shared';
 import { TopnavComponent } from './layouts/master-layout/topnav/topnav.component'
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TopnavComponent } from './layouts/master-layout/topnav/topnav.component
     BrowserModule,
     SharedModule,
 
-
+    // app
+    AppRoutingModule,
     BrowserAnimationsModule
   ],
   providers: [],

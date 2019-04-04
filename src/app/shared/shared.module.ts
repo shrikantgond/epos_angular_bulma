@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -35,6 +36,7 @@ import {
   faSignOutAlt,
   faFileInvoice
 } from '@fortawesome/free-solid-svg-icons';
+import { RouterModule } from '@angular/router';
 
 library.add(
   faAsterisk,
@@ -76,6 +78,12 @@ library.add(
     FontAwesomeModule
   ],
   exports: [
+    CommonModule,
+    FormsModule,
+        ReactiveFormsModule,
+        RouterModule,
+
+        
     FontAwesomeModule,
   ],
   declarations: []
