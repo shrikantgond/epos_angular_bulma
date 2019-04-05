@@ -9,13 +9,13 @@ import { OrderStatusChartComponent } from './pages/order-status-chart/order-stat
 import { SaleStatusChartComponent } from './pages/sale-status-chart/sale-status-chart.component';
 import { TopSellingComponent } from './pages/top-selling/top-selling.component';
 import { InventoryStatusComponent } from './pages/inventory-status/inventory-status.component';
-import { DashboardRoutes } from './dashboard-routing.module';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModule } from '../../shared';
 
 @NgModule({
   imports: [
     CommonModule,
-    DashboardRoutes, 
+    DashboardRoutingModule, 
     SharedModule
   ],
   declarations: [DashboardComponent, TileComponent, PaymentChartComponent, OrderChartComponent, PaymentSummeryChartComponent, OrderStatusChartComponent, SaleStatusChartComponent, TopSellingComponent, InventoryStatusComponent]

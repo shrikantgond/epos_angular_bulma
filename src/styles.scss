@@ -10,7 +10,21 @@ $dark: #444;
 
 @import './assets/bulma/scss/bulma.scss';
 
-body{
-    font-weight: 100;
-    background: #f0f0f0;
+body {
+  font-weight: 100;
+  background: #f0f0f0;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.box {
+  padding: 1.05rem;
+}
+
+.subtitle {
+  line-height: 1;
+  font-weight: 100;
+  font-size: 1.10rem;
 }

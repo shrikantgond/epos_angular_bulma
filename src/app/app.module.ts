@@ -17,7 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
     AuthLayoutComponent,
     MasterLayoutComponent,
     SidenavComponent,
-    TopnavComponent
+    TopnavComponent,    
   ],
   imports: [
     BrowserModule,

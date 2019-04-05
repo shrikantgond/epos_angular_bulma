@@ -1,3 +1,22 @@
-<p>
-  tile works!
-</p>
+<div class="columns is-mobile is-multiline">
+  <div class="column" *ngFor="let tile of tiles">
+    <div class="box">
+      <div class="content">
+        <span class="uppercase">{{tile.title}}</span>
+        <h1 class="h1-custom">{{tile.count}}</h1>
+        <div class="columns is-mobile is-centered">
+          <div class="column">
+            <span style="padding-right:5px;">
+                <fa-icon icon="caret-up" *ngIf="tile.change > 0"></fa-icon>
+                <fa-icon icon="caret-down" *ngIf="tile.change < 0"></fa-icon>
+            </span>              
+             <span [ngClass]="{'positive': tile.change > 0 , 'negative': tile.change < 0}">{{tile.change}}%</span>
+            </div>
+          <div class="column has-text-right ">
+            <a [href]="tile.link" class="button is-rounded is-small">More Info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
