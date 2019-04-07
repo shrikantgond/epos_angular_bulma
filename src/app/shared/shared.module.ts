@@ -40,7 +40,10 @@ import {
   faMailBulk,
   faInbox,
   faBox,
-  faToolbox
+  faToolbox,
+  faSearch,
+  faAngleLeft,
+  faAngleRight
 } from '@fortawesome/free-solid-svg-icons';
 import { RouterModule } from '@angular/router';
 
@@ -78,7 +81,10 @@ library.add(
   faFileInvoice,
   faCalendarAlt,
   faMobileAlt,
-  faToolbox
+  faToolbox,
+  faSearch,
+  faAngleLeft,
+  faAngleRight
 );
 
 @NgModule({
