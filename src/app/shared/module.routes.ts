@@ -7,7 +7,7 @@ export const MODULE_ROUTES: Routes = [
   },
   {
     path: 'orders',
-    loadChildren: '../modules/orders/orders.module#OrdersModule'
+    loadChildren: '../modules/app-orders/app-orders.module#AppOrdersModule'
   },
   {
     path: 'bills',
@@ -19,7 +19,7 @@ export const MODULE_ROUTES: Routes = [
   },
   {
     path: 'menus',
-    loadChildren: '../modules/menus/menus.module#MenusModule'
+    loadChildren: '../modules/app-menus/app-menus.module#AppMenusModule'
   },
   {
     path: 'inventory',
@@ -27,7 +27,7 @@ export const MODULE_ROUTES: Routes = [
   },
   {
     path: 'reports',
-    loadChildren: '../modules/reports/reports.module#ReportsModule'
+    loadChildren: '../modules/app-reports/app-reports.module#AppReportsModule'
   },
   {
     path: 'help',
@@ -35,7 +35,7 @@ export const MODULE_ROUTES: Routes = [
   },
   {
     path: 'settings',
-    loadChildren: '../modules/contact/contact.module#SettingsModule'
+    loadChildren: '../modules/app-settings/app-settings.module#AppSettingsModule'
   }
   
 ];

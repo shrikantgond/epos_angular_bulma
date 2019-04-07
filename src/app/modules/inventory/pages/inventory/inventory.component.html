@@ -1,3 +1,12 @@
-<p>
-  inventory works!
-</p>
+<div class="tabs">
+    <ul>
+      <li [ngClass]="{'is-active': selected_tab == 'inventory'}">
+        <a (click)="selected_tab = 'inventory'">Inventory</a></li>
+      <li [ngClass]="{'is-active': selected_tab == 'vendor'}">
+        <a (click)="selected_tab = 'vendor'">Vendors</a></li>      
+    </ul>
+  </div>
+
+  <app-inventory-list *ngIf="selected_tab == 'inventory'"></app-inventory-list>
+
+  <app-vendor-list *ngIf="selected_tab == 'vendor'"></app-vendor-list>

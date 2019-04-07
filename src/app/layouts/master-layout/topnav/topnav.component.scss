@@ -3,7 +3,25 @@
 }
 
 .page-title{
-    font-size: 24px;
+    font-size: 22px;
     text-transform: uppercase;
     font-weight: 400;
+}
+
+#avatar {
+    /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+    background-image: url('../../../../assets/images/profile_pic.jpg');
+    
+    /* make a square container */
+    width: 35px;
+    height: 35px;
+
+    /* fill the container, preserving aspect ratio, and cropping to fit */
+    background-size: cover;
+
+    /* center the image vertically and horizontally */
+    background-position: top center;
+
+    /* round the edges to a circle with border radius 1/2 container size */
+    border-radius: 50%;
 }

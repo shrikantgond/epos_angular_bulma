@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventoryComponent implements OnInit {
 
+  selected_tab;
   constructor() { }
 
   ngOnInit() {
+    this.selected_tab = "inventory";
   }
 
 }

@@ -1,3 +1,42 @@
-<p>
-  customers works!
-</p>
+<div class="tabs">
+  <ul>
+    <li class="is-active">
+      <a>Customers</a></li>
+    <li><a>Customer Profile</a></li>
+    <li><a>Vendors</a></li>
+    <li><a>Vendor Profiles</a></li>
+  </ul>
+</div>
+
+<div class="columns is-mobile is-multiline">
+
+  <div class="column" *ngFor="let customer of customer_list">
+    <div class="card" [routerLink]="['profile']">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <!-- <img src="../../../../../assets/images/profile_pic.jpg" alt="Image"> -->
+              <div id="avatar"></div>
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-5">{{customer.name}}</p>
+            <p class="subtitle is-6">
+              <span class="columns is-mobile is-centered">
+                <span class="column" style="padding-top: 0px;">
+                  <span>{{customer.email}}</span>
+                </span>
+                <span class="column has-text-right is-one-third" style="padding-top: 0px;font-size: .8rem;">
+                  <span>{{customer.mobile}}</span>
+                </span>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+</div>

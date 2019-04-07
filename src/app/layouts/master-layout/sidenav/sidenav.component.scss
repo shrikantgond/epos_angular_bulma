@@ -10,7 +10,7 @@
   // overflow: hidden;
   // z-index: 1000;
   // margin-bottom: 20px;
-  box-shadow: 0 1px 6px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+  box-shadow: 0 1px 6px rgba(10,10,10,.1), 0 0 0 0px rgba(10,10,10,.1);
 }
 
 .main-menu li>a {  
@@ -18,9 +18,9 @@
   display: flex;
   align-items: center;
   height: 75px;
-  -webkit-transition: .1s ease-in;
-    -moz-transition:  .1s ease-in;
-    transition:  .1s ease-in;
+  -webkit-transition: .6s ease-in;
+    -moz-transition:  .6s ease-in;
+    transition:  .6s ease-in;
   // border-bottom: 1px solid #f0f0f0
 }
 fa-icon{
@@ -59,9 +59,9 @@ nav.main-menu li.active>a,
 .dashboard-page nav.dashboard-menu ul li.active a {  
   color: #3273dc;
   // background-color: #5fa2db;
-  // -webkit-transform: rotateZ(360deg);
-  //     -moz-transform: rotateZ(360deg);
-  //     transform: rotateZ(360deg);
+  -webkit-transform: rotateY(360deg);
+      -moz-transform: rotateY(360deg);
+      transform: rotateY(360deg);
 }
 
 // @font-face {
