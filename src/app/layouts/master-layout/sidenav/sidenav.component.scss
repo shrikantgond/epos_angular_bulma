@@ -2,7 +2,7 @@
   background: #FFFFFF;
   // border-right: 1px solid #e5e5e5;
   position: fixed;
-  top: 0;
+  top: 56px;
   bottom: 0;
   //height: 100%;
   left: 0;
@@ -18,9 +18,9 @@
   display: flex;
   align-items: center;
   height: 75px;
-  -webkit-transition: .6s ease-in;
-    -moz-transition:  .6s ease-in;
-    transition:  .6s ease-in;
+  -webkit-transition: .4s ease-in;
+    -moz-transition:  .4s ease-in;
+    transition:  .4s ease-in;
   // border-bottom: 1px solid #f0f0f0
 }
 fa-icon{
@@ -57,11 +57,11 @@ nav.main-menu li.active>a,
 .dropdown-menu>.active>a:focus,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
 .dashboard-page nav.dashboard-menu ul li.active a {  
-  color: #3273dc;
-  // background-color: #5fa2db;
-  -webkit-transform: rotateY(360deg);
-      -moz-transform: rotateY(360deg);
-      transform: rotateY(360deg);
+  color: white;
+  background-color: #3273dc;
+  // -webkit-transform: rotateY(360deg);
+  //     -moz-transform: rotateY(360deg);
+  //     transform: rotateY(360deg);
 }
 
 // @font-face {

@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
+  selected_menu;
+
   constructor() { }
 
   ngOnInit() {
+    this.selected_menu="dashboard";
   }
 
 }

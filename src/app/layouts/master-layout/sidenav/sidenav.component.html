@@ -2,43 +2,43 @@
 
 <nav class="main-menu has-shadow">
   <ul>
-      <li>
-        <a href="#/dashboard">              
+      <li [ngClass]="{'active': selected_menu=='dashboard'}">
+        <a href="#/dashboard" (click)="selected_menu='dashboard'">              
             <fa-icon icon="chart-bar" size="2x"></fa-icon>              
         </a>
       </li>
-      <li >
-        <a href="#/orders">              
+      <li [ngClass]="{'active': selected_menu=='orders'}">
+        <a href="#/orders" (click)="selected_menu='orders'">              
             <fa-icon icon="edit" size="2x"></fa-icon>              
         </a>
       </li>
-      <li>
-          <a href="#/bills">              
+      <li [ngClass]="{'active': selected_menu=='bills'}">
+          <a href="#/bills" (click)="selected_menu='bills'">              
               <fa-icon icon="file" size="2x"></fa-icon>              
           </a>
       </li>
-      <li >
-        <a href="#/menus">              
+      <li [ngClass]="{'active': selected_menu=='menus'}">
+        <a href="#/menus" (click)="selected_menu='menus'">              
             <fa-icon icon="user" size="2x"></fa-icon>              
         </a>
       </li>
-      <li>
-        <a href="#/inventory">              
+      <li [ngClass]="{'active': selected_menu=='inventory'}">
+        <a href="#/inventory" (click)="selected_menu='inventory'">              
             <fa-icon icon="address-book" size="2x"></fa-icon>              
         </a>
       </li>
-      <li>
-        <a href="#/customers">              
+      <li [ngClass]="{'active': selected_menu=='customers'}">
+        <a href="#/customers" (click)="selected_menu='customers'">              
             <fa-icon icon="book" size="2x"></fa-icon>              
         </a>
       </li>
-      <li>
-        <a href="#/help">              
+      <li [ngClass]="{'active': selected_menu=='help'}">
+        <a href="#/help" (click)="selected_menu='help'">              
             <fa-icon icon="file-invoice" size="2x"></fa-icon>              
         </a>
       </li>
-      <li>
-          <a href="#/reports">              
+      <li [ngClass]="{'active': selected_menu=='reports'}">
+          <a href="#/reports" (click)="selected_menu='reports'">              
               <fa-icon icon="file-invoice" size="2x"></fa-icon>              
           </a>
         </li>
