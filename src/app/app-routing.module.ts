@@ -17,6 +17,7 @@ const routes: Routes = [
   {
     path: '',
     component: MasterLayoutComponent,
+    data: {breadcrumb: 'home'},
     // canActivate: [NoAuthGuard], // Should be replaced with actual auth guard
     children: MODULE_ROUTES
   },

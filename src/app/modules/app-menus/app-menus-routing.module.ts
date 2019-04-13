@@ -7,11 +7,13 @@ import { MenuDetailsComponent } from './pages/menu-details/menu-details.componen
 const routes: Routes = [
   {
     path: '',
-   component: AppMenusComponent
+   component: AppMenusComponent,
+   data: {breadcrumb: 'menus'},
   },
   {
     path: 'menu-details',
-   component: MenuDetailsComponent
+   component: MenuDetailsComponent,
+   data: {breadcrumb: 'menu-details'},
   }
 ];
 

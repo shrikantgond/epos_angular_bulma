@@ -1,65 +1,92 @@
 <nav class="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-      <!-- <a class="navbar-item" href="#">
+    <!-- <a class="navbar-item" href="#">
           <img src="Ico.jpg" width="112" height="40">
       </a> -->
 
-      <div class="navbar-item">
-          <h3 class="page-title">Dashboard</h3>
-      </div>
+    <div class="navbar-item">
+      <h3 class="page-title">Dashboard</h3>
+    </div>
 
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-          data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-      </a>
+    <a role="button" class="navbar-burger burger" [ngClass]="{'is-active': toggle}" (click)="toggle = !toggle"
+      aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-          <div class="navbar-item">
-            <nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
-              <ul>
-                <li><a href="#">Bulma</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Components</a></li>
-                <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
-              </ul>
-            </nav>
-          </div>
-
+  <div id="navbarBasicExample" class="navbar-menu" [ngClass]="{'is-active': toggle}">
+    <div class="navbar-start" *ngIf="!toggle">
+      <div class="navbar-item">
+        <nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
+          <ul>
+            <li *ngFor="let breadcrumb of breadcrumbs">
+              <a [routerLink]="['/'+ breadcrumb.url]"
+              [ngClass]="{'is-active': breadcrumb.is_active}">
+                {{breadcrumb.label}}
+              </a>
+            </li>
+            <!-- <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li> -->
+          </ul>
+        </nav>
       </div>
 
-      <div class="navbar-end">
-          <div class="navbar-item">
-              <div id="avatar"></div>
+    </div>
 
-              <div class="dropdown is-hoverable is-right" style="margin-right: -10px;">
-                  <div class="dropdown-trigger">
-                      <button class="button" style="    border-style: none;
-                      margin-top: 4px" aria-haspopup="true"
-                          aria-controls="dropdown-menu4">
-                          <span>Shrikant Gond</span>
-                          <!-- <span class="icon is-small">
+    <div class="navbar-end" *ngIf="!toggle">
+      <div class="navbar-item">
+        <div id="avatar"></div>
+
+        <div class="dropdown is-hoverable is-right" style="margin-right: -10px;">
+          <div class="dropdown-trigger">
+            <button class="button" style="    border-style: none;
+                      margin-top: 4px" aria-haspopup="true" aria-controls="dropdown-menu4">
+              <span>Shrikant Gond</span>
+              <!-- <span class="icon is-small">
                               <i class="fas fa-angle-down" aria-hidden="true"></i>
                           </span> -->
-                          <div style="padding-left:5px;">
-                            <!-- <fa-icon [icon]="faCoffee"></fa-icon> -->
-                            <!-- <fa-icon icon="asterisk" size="3x" [spin]="true"></fa-icon> -->
-                            <fa-icon icon="caret-down"></fa-icon>
-                          </div>
-                      </button>
-                  </div>
-                  <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                      <div class="dropdown-content">
-                          <div class="dropdown-item">
-                              <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
-                          </div>
-                      </div>
-                  </div>
+              <div style="padding-left:5px;">
+                <!-- <fa-icon [icon]="faCoffee"></fa-icon> -->
+                <!-- <fa-icon icon="asterisk" size="3x" [spin]="true"></fa-icon> -->
+                <fa-icon icon="caret-down"></fa-icon>
               </div>
+            </button>
           </div>
+          <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+            <div class="dropdown-content">
+              <div class="dropdown-item">
+                <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="navbar-item" *ngIf="toggle">
+        <aside class="menu">
+            <p class="menu-label">
+              General
+            </p>
+            <ul class="menu-list">
+              <li><a href="#/dashboard">Dashboard</a></li>
+              <li><a href="#/bills">Bills</a></li>
+              <li><a href="#/orders">Orders</a></li>
+              <li><a href="#/menus">Menus</a></li>
+              <li><a href="#/inventory">Inventory</a></li>
+              <li><a href="#/customers">Customers</a></li>
+              <li><a>Help</a></li>             
+            </ul>
+            <p class="menu-label">
+              Administration
+            </p>
+            <ul class="menu-list">
+                <li><a href="#/dashboard">Masters</a></li>                
+                <li><a>Reports</a></li>
+              </ul>
+          </aside>
+    </div>
+
   </div>
 </nav>

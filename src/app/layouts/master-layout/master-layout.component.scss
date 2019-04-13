@@ -7,3 +7,9 @@
 th{
     font-weight:600;
 }
+
+@media screen and (max-width: 1088px){
+    .is-visible-sidenav {
+      display: none;
+  }
+  }

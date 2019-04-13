@@ -87,19 +87,23 @@ library.add(
   faAngleRight
 );
 
+import { HighchartsChartModule } from 'highcharts-angular';
+
 @NgModule({
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HighchartsChartModule
+
   ],
   exports: [
     CommonModule,
     FormsModule,
-        ReactiveFormsModule,
-        RouterModule,
+    ReactiveFormsModule,
+    RouterModule,
 
-        
     FontAwesomeModule,
+    HighchartsChartModule
   ],
   declarations: []
 })

@@ -1,12 +1,5 @@
-<span class="hchair top_chair_1"></span>
-<span class="hchair top_chair_2"></span>
-<span class="hchair top_chair_3"></span>
-<span class="vchair left_chair_rect"></span>
-<div class="rectangle"></div>
-<span class="vchair right_chair_rect"></span>
-<span class="hchair bottom_chair_1"></span>
-<span class="hchair bottom_chair_2"></span>
-<span class="hchair bottom_chair_3"></span>
-<div class="order_time_rect">06:10</div>
-<div class="table_no_rect">4</div>
-<div class="table_bill_rect">R 40</div>
+<div class="table_square" [routerLink]="['order']" style="cursor:pointer" routerLinkActive="router-link-active">        
+    <div class="order_time" [ngClass]="{'white': order_time==='un'}">{{order_time}}</div>  
+    <div class="table_no" [ngClass]="{'white': table_no==='un'}">{{table_no}}</div>  
+    <div class="table_bill" [ngClass]="{'white': table_bill==='un'}">{{table_bill}}</div>               
+  </div> 

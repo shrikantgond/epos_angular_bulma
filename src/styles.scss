@@ -7,21 +7,26 @@ $warning: yellow;
 $danger: #B92D00;
 $light: #ccc;
 $dark: #444;
+$grey:#f0f0f0;
 
 @import './assets/bulma/scss/bulma.scss';
 
 body {
   font-weight: 100;
-  background: #f0f0f0;
+  background: $grey;
   font-size: .9rem;
 }
 
-.subtitle.is-6{
+*:focus {
+  outline:none;
+}
+
+.subtitle.is-6 {
   font-size: .9rem;
 }
 
-html{
-  background: #f0f0f0;
+html {
+  background: $grey;
 }
 
 .uppercase {
@@ -39,6 +44,36 @@ html{
   font-size: 1.10rem;
 }
 
-.content ul{
+.content ul {
   list-style: none;
+}
+
+
+/* Ripple effect */
+.button:not([disabled]){
+  background-position: center;
+  transition: background 0.6s;
+}
+.button:hover {
+  background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;
+}
+.button:active {
+  background-color: $primary;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/* Button style */
+button {
+  border: none;
+  border-radius: 2px;
+  border-color: $grey;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: $primary;
+  box-shadow: 0 0 4px $grey;
+  outline: none;
 }

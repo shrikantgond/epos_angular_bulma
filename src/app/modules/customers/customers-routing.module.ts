@@ -7,11 +7,13 @@ import { CustomerProfileComponent } from './pages/customer-profile/customer-prof
 const routes: Routes = [
   {
     path: '',
-   component: CustomersComponent
+   component: CustomersComponent,
+   data: {breadcrumb: 'details'}
   },
   {
     path: 'profile',
-   component: CustomerProfileComponent
+   component: CustomerProfileComponent,
+   data: {breadcrumb: 'details'}
   }
 ];
 

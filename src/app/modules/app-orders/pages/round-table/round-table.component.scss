@@ -1,172 +1,40 @@
-.circle {
-    height: 150px;
-    width: 150px;
-    border-color: lightgray;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 50%;
-    display: flex;
+.table_round {
+  background: url('../../../../../assets/images/table_round.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 200px;
+  text-align: center;
 }
 
-.hchair {
-    height: 12px;
-    width: 40px;
-    border-radius: 50%;
-    border-color: lightgray;
-    border-style: solid;
-    border-width: 1px;
-    display: flex;
-}
-
-.vchair {
-    width: 12px;
-    height: 40px;
-    border-radius: 50%;
-    border-color: lightgray;
-    border-style: solid;
-    border-width: 1px;
-    display: flex;
-}
-
-.top_chair {
-    margin-left: 72px;
-    margin-bottom: 4px;
-}
-
-.left_chair {
-    float: left;
-    margin-right: 4px;
-    margin-top: 55px;
-}
-
-.right_chair {
-    float: left;
-    margin-left: 170px;
-    margin-top: -94px;
-}
-
-.bottom_chair {
-    margin-left: 72px;
-    margin-top: 4px;
+.table_square {
+  background: url('../../../../../assets/images/table.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 152px;
+  width: 300px;
+  text-align: center;
 }
 
 .order_time {
-    font-size: 20px;
-    margin-left: 66px;
-    width: 60px;
-    margin-top: -158px;
+  padding-top: 30px;
+  font-size: 18px;
 }
 
 .table_no {
-    font-size: 40px;
-    margin-left: 58px;
-    width: 60px;
-    text-align: center;
-    align-self: center;
-    margin-top: 5px;
+  padding-top: 5px;
+  font-size: 40px;
+  font-weight: 600;
+  margin-left: -4px;
 }
 
 .table_bill {
-    font-size: 20px;
-    margin-left: 70px;
-    width: 60px;
-    height: 65px;
-    margin-top: 0px;
+  padding-top: 10px;
+  font-size: 18px;
 }
 
-
-.rectangle {
-    height: 105px;
-    width: 250px;
-    border-color: lightgray;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 15px;
-    display: flex;
-}
-
-/* .hchair {
-    height: 12px;
-    width: 40px;
-    border-radius: 50%;
-    border-color: lightgray;
-    border-style: solid;
-    border-width: 1px;
-    display: flex;
-}
-
-.vchair {
-    width: 12px;
-    height: 40px;
-    border-radius: 50%;
-    border-color: lightgray;
-    border-style: solid;
-    border-width: 1px;
-    display: flex;
-} */
-
-.top_chair_1 {
-    margin-left: 25px;
-    margin-bottom: -12px;
-}
-
-.top_chair_2 {
-    margin-left: 120px;
-    margin-bottom: -12px;
-}
-
-.top_chair_3 {
-    margin-left: 216px;
-    margin-bottom: 4px;
-}
-
-.left_chair_rect {
-    float: left;
-    margin-right: 4px;
-    margin-top: 32px;
-}
-
-.right_chair_rect {
-    float: left;
-    margin-left: 270px;
-    margin-top: -74px;
-}
-
-.bottom_chair_1 {
-    margin-left: 25px;
-    margin-top: 4px;
-}
-
-.bottom_chair_2 {
-    margin-left: 120px;
-    margin-top: -12px;
-}
-
-.bottom_chair_3 {
-    margin-left: 216px;
-    margin-top: -12px;
-}
-
-.order_time_rect {
-    font-size: 20px;
-    margin-left: 210px;
-    width: 60px;
-    margin-top: -122px;
-}
-
-.table_no_rect {
-    font-size: 40px;
-    /* margin-left: 58px; */
-    width: 265px;
-    text-align: center;
-    align-self: center;
-    margin-top: -10px;
-}
-
-.table_bill_rect {
-    font-size: 20px;
-    margin-left: 25px;
-    width: 60px;
-    height: 50px;
-    margin-top: -5px;
+.white {
+  color: white;
 }
