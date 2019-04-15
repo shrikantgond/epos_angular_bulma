@@ -1,5 +1,15 @@
+$primary: #3F51B5;
+$info: #FFDD00;
+$success: #11D625;
+$warning: yellow;
+$danger: #B92D00;
+$light: #ccc;
+$dark: #444;
+$grey:#f0f0f0;
+$white:#fff;
+
 .main-menu {  
-  background: #FFFFFF;
+  background: $white;
   // border-right: 1px solid #e5e5e5;
   position: fixed;
   top: 56px;
@@ -58,7 +68,7 @@ nav.main-menu li.active>a,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
 .dashboard-page nav.dashboard-menu ul li.active a {  
   color: white;
-  background-color: #3273dc;
+  background-color: $primary;
   // -webkit-transform: rotateY(360deg);
   //     -moz-transform: rotateY(360deg);
   //     transform: rotateY(360deg);
@@ -76,3 +86,64 @@ nav.main-menu li.active>a,
 //   display: block;
 // };
 
+/**
+ * Tooltip Styles
+ */
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 30%;
+  left: 110%;
+  // margin-bottom: 5px;
+  // margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: $primary;
+  color: $white;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 67%;
+  left: 110%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid $primary;
+  border-top: 5px solid $primary;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}

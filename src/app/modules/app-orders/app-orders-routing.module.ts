@@ -7,11 +7,13 @@ import { AppOrderComponent } from './pages/app-order/app-order.component';
 const routes: Routes = [
   {
     path: '',
-   component: AppOrdersComponent
+   component: AppOrdersComponent,
+   data: {breadcrumb: 'orders'},
   },
   {
     path: 'order',
-   component: AppOrderComponent
+   component: AppOrderComponent,
+   data: {breadcrumb: 'order'},
   }
 ];
 

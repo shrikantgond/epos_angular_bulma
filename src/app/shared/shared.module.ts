@@ -43,7 +43,12 @@ import {
   faToolbox,
   faSearch,
   faAngleLeft,
-  faAngleRight
+  faAngleRight,
+  faUserFriends,
+  faUserInjured,
+  faUserCheck,
+  faBookOpen,
+  faClipboardList
 } from '@fortawesome/free-solid-svg-icons';
 import { RouterModule } from '@angular/router';
 
@@ -84,7 +89,11 @@ library.add(
   faToolbox,
   faSearch,
   faAngleLeft,
-  faAngleRight
+  faAngleRight,
+  faUserFriends,
+  faUserCheck,
+  faBookOpen,
+  faClipboardList
 );
 
 import { HighchartsChartModule } from 'highcharts-angular';

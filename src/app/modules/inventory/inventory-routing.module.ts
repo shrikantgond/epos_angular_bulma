@@ -6,7 +6,8 @@ import { InventoryComponent } from './pages/inventory/inventory.component';
 const routes: Routes = [
   {
     path: '',
-   component: InventoryComponent
+   component: InventoryComponent,
+   data: {breadcrumb: 'inventory'},
   }
 ];
 

@@ -8,6 +8,7 @@ $danger: #B92D00;
 $light: #ccc;
 $dark: #444;
 $grey:#f0f0f0;
+$white:#fff;
 
 @import './assets/bulma/scss/bulma.scss';
 
@@ -48,6 +49,9 @@ html {
   list-style: none;
 }
 
+.menu-label{
+  color: $dark;
+}
 
 /* Ripple effect */
 .button:not([disabled]){

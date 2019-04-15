@@ -2,56 +2,56 @@
 
 <nav class="main-menu has-shadow">
   <ul>
-      <li [ngClass]="{'active': selected_menu=='dashboard'}">
-        <a href="#/dashboard" (click)="selected_menu='dashboard'">              
+      <li [ngClass]="{'active': selected_menu==''}">
+        <a href="#/" data-tooltip="Dashboard" (click)="selected_menu=''">              
             <fa-icon icon="chart-bar" size="2x"></fa-icon>              
         </a>
       </li>
       <li [ngClass]="{'active': selected_menu=='orders'}">
-        <a href="#/orders" (click)="selected_menu='orders'">              
+        <a href="#/orders" data-tooltip="Orders" (click)="selected_menu='orders'">              
             <fa-icon icon="edit" size="2x"></fa-icon>              
         </a>
       </li>
       <li [ngClass]="{'active': selected_menu=='bills'}">
-          <a href="#/bills" (click)="selected_menu='bills'">              
+          <a href="#/bills" data-tooltip="Bills" (click)="selected_menu='bills'">              
               <fa-icon icon="file" size="2x"></fa-icon>              
           </a>
       </li>
       <li [ngClass]="{'active': selected_menu=='menus'}">
-        <a href="#/menus" (click)="selected_menu='menus'">              
-            <fa-icon icon="user" size="2x"></fa-icon>              
+        <a href="#/menus" data-tooltip="Menu" (click)="selected_menu='menus'">              
+            <fa-icon icon="book-open" size="2x"></fa-icon>              
         </a>
       </li>
       <li [ngClass]="{'active': selected_menu=='inventory'}">
-        <a href="#/inventory" (click)="selected_menu='inventory'">              
-            <fa-icon icon="address-book" size="2x"></fa-icon>              
+        <a href="#/inventory" data-tooltip="Inventory" (click)="selected_menu='inventory'">              
+            <fa-icon icon="clipboard-list" size="2x"></fa-icon>              
         </a>
       </li>
       <li [ngClass]="{'active': selected_menu=='customers'}">
-        <a href="#/customers" (click)="selected_menu='customers'">              
-            <fa-icon icon="book" size="2x"></fa-icon>              
+        <a href="#/customers" data-tooltip="customers" (click)="selected_menu='customers'">              
+            <fa-icon icon="user-circle" size="2x"></fa-icon>              
         </a>
       </li>
       <li [ngClass]="{'active': selected_menu=='help'}">
-        <a href="#/help" (click)="selected_menu='help'">              
-            <fa-icon icon="file-invoice" size="2x"></fa-icon>              
+        <a href="#/help" data-tooltip="help" (click)="selected_menu='help'">              
+            <fa-icon icon="user-friends" size="2x"></fa-icon>              
         </a>
       </li>
       <li [ngClass]="{'active': selected_menu=='reports'}">
-          <a href="#/reports" (click)="selected_menu='reports'">              
+          <a href="#/reports" data-tooltip="reports" (click)="selected_menu='reports'">              
               <fa-icon icon="file-invoice" size="2x"></fa-icon>              
           </a>
         </li>
 
   </ul>
 
-  <ul class="logout">
+  <!-- <ul class="logout">
       <li>
         <a href="#/settings">              
             <fa-icon icon="sign-out-alt" size="2x"></fa-icon>              
         </a>
       </li>
-  </ul>
+  </ul> -->
 </nav>
 
 <!-- Sidenav End -->

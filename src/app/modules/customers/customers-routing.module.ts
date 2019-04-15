@@ -8,12 +8,12 @@ const routes: Routes = [
   {
     path: '',
    component: CustomersComponent,
-   data: {breadcrumb: 'details'}
+   data: {breadcrumb: 'customers'}
   },
   {
     path: 'profile',
    component: CustomerProfileComponent,
-   data: {breadcrumb: 'details'}
+   data: {breadcrumb: 'profile'}
   }
 ];
 

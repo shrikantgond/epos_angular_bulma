@@ -6,7 +6,8 @@ import { BillsComponent } from './pages/bills/bills.component';
 const routes: Routes = [
   {
     path: '',
-   component: BillsComponent
+   component: BillsComponent,
+   data: {breadcrumb: 'bills'},
   }
 ];
 

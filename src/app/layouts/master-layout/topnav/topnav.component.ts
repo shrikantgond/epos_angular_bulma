@@ -13,6 +13,9 @@ export class TopnavComponent implements OnInit {
   toggle = false;
   breadcrumbs: BreadCrumb[];
   activatedRoute: ActivatedRoute;
+  title:string;
+
+
   constructor(private route: Router, activatedRoute: ActivatedRoute) {
 
     this.routeEvent(this.route);
@@ -27,10 +30,10 @@ export class TopnavComponent implements OnInit {
       }
 
       if (e instanceof NavigationEnd) {
-        this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
+        this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);        
         this.breadcrumbs[this.breadcrumbs.length-1].is_active=true;
-        console.log(this.breadcrumbs);
-
+        this.title = this.breadcrumbs[this.breadcrumbs.length-1].label;
+        this.breadcrumbs = this.breadcrumbs.slice(0,this.breadcrumbs.length-1);
       }
 
     });
