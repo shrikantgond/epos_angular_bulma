@@ -39,10 +39,13 @@ html {
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 0px rgba(10, 10, 10, 0.1)
 }
 
-.subtitle {
+.subtitle, .modal-card-title {
   line-height: 1;
   font-weight: 100;
   font-size: 1.10rem;
+}
+.modal-card-head, .modal-card-foot{
+  padding: 16px;
 }
 
 .content ul {
@@ -53,31 +56,43 @@ html {
   color: $dark;
 }
 
-/* Ripple effect */
-.button:not([disabled]){
-  background-position: center;
-  transition: background 0.6s;
-}
-.button:hover {
-  background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;
-}
-.button:active {
-  background-color: $primary;
-  background-size: 100%;
-  transition: background 0s;
+.field:not(:last-child){
+  padding-bottom: 0%;
 }
 
-/* Button style */
-button {
-  border: none;
-  border-radius: 2px;
-  border-color: $grey;
-  padding: 12px 18px;
-  font-size: 16px;
-  text-transform: uppercase;
-  cursor: pointer;
-  color: white;
-  background-color: $primary;
-  box-shadow: 0 0 4px $grey;
-  outline: none;
+.tabs{
+  margin-bottom: 1rem !important;
 }
+
+/* Ripple effect V2 *******************************************************************/
+.button, .pagination-previous, .pagination-next ,
+.pagination-link {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+.button:after , .pagination-previous:after, .pagination-next:after ,
+.pagination-link:after{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+}
+.button:active:after , 
+.pagination-previous:active:after, .pagination-next:active:after ,
+.pagination-link:active:after {
+  transform: scale(0, 0);
+  opacity: .2;
+  transition: 0s;
+}
+/* Ripple effect V2 *******************************************************************/

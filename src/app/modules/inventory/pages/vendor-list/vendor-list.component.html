@@ -1,124 +1,271 @@
 <div class="box">
-    <div class="content">
-      <div class="heading">
-        <div class="columns">
-          <div class="column is-one-third">
-            <p class="subtitle">Vendors</p>
-          </div>
-          <div class="column">
-            <div class="columns">
-              <div class="column">
-                <div class="field">
-                  <p class="control has-icons-left">
-                    <input class="input is-small is-rounded" type="password" placeholder="Ingredient">
-                    <span class="icon is-small is-left">
-                        <fa-icon icon="search"></fa-icon> 
-                    </span>
-                  </p>
-                </div>
+  <div class="content">
+    <div class="heading">
+      <div class="columns">
+        <div class="column">
+          <p class="subtitle">Vendors</p>
+        </div>
+        <div class="column is-narrow">
+          <div class="columns is-mobile is-multiline">
+            <div class="column is-narrow">
+              <div class="field has-addons">
+                <p class="control has-icons-left">
+                  <input class="input is-rounded is-small" style="padding-left:2.5rem;" type="password"
+                    placeholder="Search Vendors">
+                  <span class="icon is-small is-left">
+                    <fa-icon icon="search"></fa-icon>
+                  </span>
+                </p>
+                <p class="control">
+                  <a class="button is-primary is-small is-rounded">
+                    Search
+                  </a>
+                </p>
               </div>
-              <div class="column is-narrow">
-                <a class="button is-small is-rounded">
-                  Search
-                </a>
-              </div>
-              <div class="column is-narrow">
-                <a class="button is-small is-rounded">
-                  Add Ingredient
-                </a>
-              </div>
+            </div>
+            <div class="column is-narrow">
+              <a class="button is-small is-rounded" (click)="popup_add_vendor=true">
+                Add Vendor
+              </a>
             </div>
           </div>
         </div>
+        <!-- <div class="column">
+          <div class="columns is-mobile is-multiline">
+            <div class="column">
+              <div class="field" style="min-width:200px;">
+                <p class="control has-icons-left">
+                  <input class="input is-small is-rounded" placeholder="Search Vendors">
+                  <span class="icon is-small is-left">
+                    <fa-icon icon="search"></fa-icon>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="column is-narrow">
+              <a class="button is-small is-rounded">
+                Search
+              </a>
+            </div>
+            <div class="column is-narrow">
+              <a class="button is-small is-rounded" (click)="popup_add_vendor=true">
+                Add Ingredient
+              </a>
+            </div>
+          </div>
+        </div> -->
       </div>
-  
-  
-      <table class="table is-hoverable is-fullwidth">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th class="is-hidden-mobile">Mobile</th>
-            <th class="is-hidden-mobile">Email</th>
-            <th>Credit</th>
-            <th class="is-hidden-mobile">Address</th>
-            <th>Inventory Items</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Avinash Traders Pvt. Ltd</td>
-            <td class="is-hidden-mobile">7875000695</td>
-            <td class="is-hidden-mobile">avinashgond@gmail.com</td>
-            <td><progress class="progress is-danger" value="25" max="100">25%</progress></td>
-            <td class="is-hidden-mobile">06-Apr-2019</td>
-            <td>
-              <a class="button is-rounded is-small">
-                <fa-icon icon="list"></fa-icon>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Masala Chai</td>
-            <td class="is-hidden-mobile">Ingredient</td>
-            <td class="is-hidden-mobile">Consumable</td>
-            <td><progress class="progress is-danger" value="25" max="100">25%</progress></td>
-            <td class="is-hidden-mobile">06-Apr-2019</td>
-            <td>
-              <a class="button is-rounded is-small">
-                <fa-icon icon="plus"></fa-icon>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Masala Chai</td>
-            <td class="is-hidden-mobile">Ingredient</td>
-            <td class="is-hidden-mobile">Consumable</td>
-            <td><progress class="progress is-danger" value="25" max="100">25%</progress></td>
-            <td class="is-hidden-mobile">06-Apr-2019</td>
-            <td>
-              <a class="button is-rounded is-small">
-                <fa-icon icon="plus"></fa-icon>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Masala Chai</td>
-            <td class="is-hidden-mobile">Ingredient</td>
-            <td class="is-hidden-mobile">Consumable</td>
-            <td><progress class="progress is-danger" value="25" max="100">25%</progress></td>
-            <td class="is-hidden-mobile">06-Apr-2019</td>
-            <td>
-              <a class="button is-rounded is-small">
-                <fa-icon icon="plus"></fa-icon>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Masala Chai</td>
-            <td class="is-hidden-mobile">Ingredient</td>
-            <td class="is-hidden-mobile">Consumable</td>
-            <td><progress class="progress is-danger" value="25" max="100">25%</progress></td>
-            <td class="is-hidden-mobile">06-Apr-2019</td>
-            <td>
-              <a class="button is-rounded is-small">
-                <fa-icon icon="plus"></fa-icon>
-              </a>
-            </td>
-          </tr>
-  
-  
-        </tbody>
-      </table>
-  
-      <nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">
-        <a class="pagination-previous">Previous</a>
-        <a class="pagination-next">Next page</a>
-        <ul class="pagination-list" style="margin-top:-.5rem;">
-          <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
-          <li><span class="pagination-ellipsis">&hellip;</span></li>
-          <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
-        </ul>
-      </nav>
-  
+    </div>
+
+
+    <table class="table is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th class="is-hidden-mobile">Mobile</th>
+          <th class="is-hidden-mobile">Email</th>
+          <th>Credit</th>
+          <th class="is-hidden-mobile">Address</th>
+          <th>Inventory Items</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of vendor_list">
+          <td>{{item.title}}</td>
+          <td class="is-hidden-mobile">{{item.mobile}}</td>
+          <td class="is-hidden-mobile">{{item.email}}</td>
+          <td><progress class="progress is-danger" [value]="item.credit" max="100"></progress></td>
+          <td class="is-hidden-mobile">{{item.address}}</td>
+          <td>
+            <a class="button is-rounded is-small" (click)="popup_vendor_list=true">
+              <fa-icon icon="list"></fa-icon>
+            </a>
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+    <nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">
+      <a class="pagination-previous">Previous</a>
+      <a class="pagination-next">Next page</a>
+      <ul class="pagination-list" style="margin-top:-.5rem;">
+        <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+        <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <!-- Model Popup for Vendor list -->
+  <div class="modal" [ngClass]="{'is-active': popup_vendor_list}" style="z-index:9999;">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Inventory List</p>
+        <button class="delete" aria-label="close" (click)="popup_vendor_list=false"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Content ... -->
+        <table class="table is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>
+                <div class="field">
+                  <input class="is-checkradio" id="title" type="checkbox" name="title" checked="checked">
+                  <label for="title">Title</label>
+                </div>
+              </th>
+              <th class="is-hidden-mobile">Type</th>
+              <th class="is-hidden-mobile">Category</th>
+              <th>Order Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="field">
+                  <input class="is-checkradio" id="row1" type="checkbox" name="row1" checked="checked">
+                  <label for="row1">Masala Chai</label>
+                </div>
+              </td>
+              <td class="is-hidden-mobile">Ingredient</td>
+              <td class="is-hidden-mobile">Consumable</td>
+              <td><input style="max-width:100px;" class="input is-rounded is-small" type="number" placeholder="20 KG">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="field">
+                  <input class="is-checkradio" id="row2" type="checkbox" name="row2" checked="checked">
+                  <label for="row2">Masala Chai</label>
+                </div>
+              </td>
+              <td class="is-hidden-mobile">Ingredient</td>
+              <td class="is-hidden-mobile">Consumable</td>
+              <td><input style="max-width:100px;" class="input is-rounded is-small" type="number" placeholder="20 KG">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="field">
+                  <input class="is-checkradio" id="row3" type="checkbox" name="row3" checked="checked">
+                  <label for="row3">Masala Chai</label>
+                </div>
+              </td>
+              <td class="is-hidden-mobile">Ingredient</td>
+              <td class="is-hidden-mobile">Consumable</td>
+              <td><input style="max-width:100px;" class="input is-rounded is-small" type="number" placeholder="20 KG">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="field">
+                  <input class="is-checkradio" id="row4" type="checkbox" name="row4" checked="checked">
+                  <label for="row4">Masala Chai</label>
+                </div>
+              </td>
+              <td class="is-hidden-mobile">Ingredient</td>
+              <td class="is-hidden-mobile">Consumable</td>
+              <td><input style="max-width:100px;" class="input is-rounded is-small" type="number" placeholder="20 KG">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="field">
+                  <input class="is-checkradio" id="row5" type="checkbox" name="row5" checked="checked">
+                  <label for="row5">Masala Chai</label>
+                </div>
+              </td>
+              <td class="is-hidden-mobile">Ingredient</td>
+              <td class="is-hidden-mobile">Consumable</td>
+              <td><input style="max-width:100px;" class="input is-rounded is-small" type="number" placeholder="20 KG">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">
+          <a class="pagination-previous">Previous</a>
+          <a class="pagination-next">Next page</a>
+          <ul class="pagination-list" style="margin-top:-.5rem;">
+            <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+            <li><span class="pagination-ellipsis">&hellip;</span></li>
+            <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+          </ul>
+        </nav>
+
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success" (click)="popup_vendor_list=false">Send Requisition</button>
+        <button class="button" (click)="popup_vendor_list=false">Cancel</button>
+      </footer>
     </div>
   </div>
+
+
+  <!-- Model Popup for Add Vendor -->
+  <div class="modal" [ngClass]="{'is-active': popup_add_vendor}" style="z-index:9999;">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Add Vendor</p>
+        <button class="delete" aria-label="close" (click)="popup_add_vendor=false"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Content ... -->
+        <div class="columns field is-mobile is-multiline">
+
+          <div class="column field">
+            <label class="label">Title</label>
+            <p class="control" style="min-width: 340px;">
+              <input class="input is-rounded is-small" type="text" placeholder="Aarti Kirana Distributers Pvt. Ltd.">
+            </p>
+          </div>
+
+          <div class="column field">
+            <label class="label">Mobile</label>
+            <p class="control" style="min-width: 200px;">
+              <input class="input is-rounded is-small" type="text" placeholder="9421883354">
+            </p>
+          </div>
+
+          <div class="column field">
+            <label class="label">Email</label>
+            <p class="control" style="min-width: 300px;">
+              <input class="input is-rounded is-small" type="text" placeholder="example@gmail.com">
+            </p>
+          </div>
+
+          <div class="column field">
+            <label class="label">Credit Limit</label>
+            <p class="control" style="min-width: 300px;">
+              <input class="input is-rounded is-small" type="number" placeholder="Rs 5000">
+            </p>
+          </div>
+
+          <div class="column field">
+              <label class="label">Expiry Date</label>
+              <p class="control has-icons-left" style="min-width: 200px;">
+                <input class="input is-rounded is-small" type="date">
+                <span class="icon is-small is-left">
+                  <fa-icon icon="calendar-alt"></fa-icon>
+                </span>
+              </p>
+            </div>
+
+
+        </div>
+
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success" (click)="popup_add_vendor=false">Add Vendor</button>
+        <button class="button" (click)="popup_add_vendor=false">Cancel</button>
+      </footer>
+    </div>
+  </div>
+  <!-- Model Popup for Add Vendor -->
+
+</div>

@@ -2,263 +2,270 @@
 
   <div class="column is-two-thirds-desktop" aria-label="Menu items">
 
-      <div class="field">
-          <p class="control has-icons-left">
-              <input class="input is-rounded is-small" type="text" placeholder="Search Menu Item">
-              <span class="icon is-small is-left">
-                  <fa-icon icon="search"></fa-icon> 
-              </span>
-          </p>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input is-rounded is-small" type="text" placeholder="Search Menu Item">
+        <span class="icon is-small is-left">
+          <fa-icon icon="search"></fa-icon>
+        </span>
+      </p>
+    </div>
+
+    <div class="columns is-mobile is-multiline" style="margin-bottom:-16px;">
+      <div class="column field is-narrow" style="margin-right: 10px;margin-bottom: -10px;">
+        <p class="control has-icons-left">
+          <input class="input is-rounded is-small" style="padding-left:2.5rem;" type="password" placeholder="From Date">
+          <span class="icon is-small is-left">
+            <fa-icon icon="calendar-alt"></fa-icon>
+          </span>
+        </p>
       </div>
-
-      <div class="tabs">
-          <ul>
-              <li class="is-active">
-                  <a>All</a></li>
-              <li><a>Paid</a></li>
-              <li><a>Unpaid</a></li>
-          </ul>
-          <div class="field" style="margin-right: 10px;">
-              <p class="control has-icons-left">
-                  <input class="input is-rounded is-small" style="padding-left:2.5rem;" type="password"
-                      placeholder="From Date">
-                  <span class="icon is-small is-left">
-                      <fa-icon icon="calendar-alt"></fa-icon>
-                  </span>
-              </p>
-          </div>
-          <div class="field">
-              <p class="control has-icons-left">
-                  <input class="input is-rounded is-small" style="padding-left:2.5rem;" type="password"
-                      placeholder="To Date">
-                  <span class="icon is-small is-left">
-                      <fa-icon icon="calendar-alt"></fa-icon>
-                  </span>
-              </p>
-          </div>
+      <div class="column field is-narrow">
+        <p class="control has-icons-left">
+          <input class="input is-rounded is-small" style="padding-left:2.5rem;" type="password" placeholder="To Date">
+          <span class="icon is-small is-left">
+            <fa-icon icon="calendar-alt"></fa-icon>
+          </span>
+        </p>
       </div>
+      <div class="column is-narrow">
+        <a class="button is-small is-rounded" style="width: 100px;">
+          <!-- <span class="icon is-small">
+                          <fa-icon icon="search"></fa-icon>
+                          </span> -->
+          Search
+        </a>
+      </div>
+    </div>
 
+    <div class="tabs">
+      <ul>
+        <li class="is-active">
+          <a>All</a></li>
+        <li><a>Paid</a></li>
+        <li><a>Unpaid</a></li>
+      </ul>
+    </div>
 
-      <div class="columns is-mobile is-multiline">
-          <div class="column">
+    <div class="columns is-mobile is-multiline">
+      <div class="column">
 
-              <div class="box">
-                  <div class="content">
+        <div class="box">
+          <div class="content">
 
-                      <table class="table is-hoverable is-fullwidth">
-                          <thead>
-                              <tr>
-                                  <th>Bill No.</th>
-                                  <th>Customer Name</th>
-                                  <th>Payment Status</th>
-                                  <th class="is-hidden-mobile">Amount</th>
-                                  <th class="is-hidden-mobile">Date Time</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td>19321001</td>
-                                  <td>Aarti Gond</td>
-                                  <td>Unpaid</td>
-                                  <td class="is-hidden-mobile">40</td>
-                                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
-                              </tr>
-                              <tr>
-                                  <td>19321002</td>
-                                  <td>Shrikant Gond</td>
-                                  <td>Paid</td>
-                                  <td class="is-hidden-mobile">20</td>
-                                  <td class="is-hidden-mobile">21 Mar 2019 16:24:00</td>
-                              </tr>
-                              <tr>
-                                  <td>19321001</td>
-                                  <td>Aarti Gond</td>
-                                  <td>Unpaid</td>
-                                  <td class="is-hidden-mobile">40</td>
-                                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
-                              </tr>
-                              <tr>
-                                  <td>19321001</td>
-                                  <td>Aarti Gond</td>
-                                  <td>Unpaid</td>
-                                  <td class="is-hidden-mobile">40</td>
-                                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
-                              </tr>
-                              <tr>
-                                  <td>19321001</td>
-                                  <td>Aarti Gond</td>
-                                  <td>Unpaid</td>
-                                  <td class="is-hidden-mobile">40</td>
-                                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
-                              </tr>
-                              <tr>
-                                  <td>19321001</td>
-                                  <td>Aarti Gond</td>
-                                  <td>Unpaid</td>
-                                  <td class="is-hidden-mobile">40</td>
-                                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
-                              </tr>
-                              <tr>
-                                  <td>19321001</td>
-                                  <td>Aarti Gond</td>
-                                  <td>Unpaid</td>
-                                  <td class="is-hidden-mobile">40</td>
-                                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
-                              </tr>
+            <table class="table is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Bill No.</th>
+                  <th>Customer Name</th>
+                  <th>Payment Status</th>
+                  <th class="is-hidden-mobile">Amount</th>
+                  <th class="is-hidden-mobile">Date Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>19321001</td>
+                  <td>Aarti Gond</td>
+                  <td>Unpaid</td>
+                  <td class="is-hidden-mobile">40</td>
+                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
+                </tr>
+                <tr>
+                  <td>19321002</td>
+                  <td>Shrikant Gond</td>
+                  <td>Paid</td>
+                  <td class="is-hidden-mobile">20</td>
+                  <td class="is-hidden-mobile">21 Mar 2019 16:24:00</td>
+                </tr>
+                <tr>
+                  <td>19321001</td>
+                  <td>Aarti Gond</td>
+                  <td>Unpaid</td>
+                  <td class="is-hidden-mobile">40</td>
+                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
+                </tr>
+                <tr>
+                  <td>19321001</td>
+                  <td>Aarti Gond</td>
+                  <td>Unpaid</td>
+                  <td class="is-hidden-mobile">40</td>
+                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
+                </tr>
+                <tr>
+                  <td>19321001</td>
+                  <td>Aarti Gond</td>
+                  <td>Unpaid</td>
+                  <td class="is-hidden-mobile">40</td>
+                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
+                </tr>
+                <tr>
+                  <td>19321001</td>
+                  <td>Aarti Gond</td>
+                  <td>Unpaid</td>
+                  <td class="is-hidden-mobile">40</td>
+                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
+                </tr>
+                <tr>
+                  <td>19321001</td>
+                  <td>Aarti Gond</td>
+                  <td>Unpaid</td>
+                  <td class="is-hidden-mobile">40</td>
+                  <td class="is-hidden-mobile">21 Mar 2019 16:22:00</td>
+                </tr>
 
-                          </tbody>
-                      </table>
+              </tbody>
+            </table>
 
-                      <nav class="pagination is-rounded  is-small" role="navigation" aria-label="pagination">
-                          <a class="pagination-previous">Previous</a>
-                          <a class="pagination-next">Next page</a>
-                          <ul class="pagination-list" style="margin-top:-.5rem;">
-                              <li><a class="pagination-link is-current  is-small" aria-current="page"
-                                      aria-label="Goto page 1">1</a></li>
-                              <li><span class="pagination-ellipsis">&hellip;</span></li>
-                              <li><a class="pagination-link is-small" aria-label="Page 46">235</a></li>
-                          </ul>
-                      </nav>
-
-                  </div>
-              </div>
+            <nav class="pagination is-rounded  is-small" role="navigation" aria-label="pagination">
+              <a class="pagination-previous">Previous</a>
+              <a class="pagination-next">Next page</a>
+              <ul class="pagination-list" style="margin-top:-.5rem;">
+                <li><a class="pagination-link is-current  is-small" aria-current="page" aria-label="Goto page 1">1</a>
+                </li>
+                <li><span class="pagination-ellipsis">&hellip;</span></li>
+                <li><a class="pagination-link is-small" aria-label="Page 46">235</a></li>
+              </ul>
+            </nav>
 
           </div>
+        </div>
+
       </div>
+    </div>
 
 
   </div>
 
-  <div class="column" aria-label="KOT list">
+  <div class="column" aria-label="KOT list" style="padding-top:0px;">
 
-      <div class="tabs">
-          <ul>
-              <li class="is-active">
-                  <a>
-                      <!-- <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span> -->
-                      <span>All</span>
-                  </a>
-              </li>
-              <li>
-                  <a>
-                      <!-- <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span> -->
-                      <span>Kot 1</span>
-                  </a>
-              </li>
-              <li>
-                  <a>
-                      <!-- <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span> -->
-                      <span>Kot 2</span>
-                  </a>
-              </li>
+    <div class="tabs">
+      <ul>
+        <li class="is-active">
+          <a>
+            <!-- <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span> -->
+            <span>All</span>
+          </a>
+        </li>
+        <li>
+          <a>
+            <!-- <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span> -->
+            <span>Kot 1</span>
+          </a>
+        </li>
+        <li>
+          <a>
+            <!-- <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span> -->
+            <span>Kot 2</span>
+          </a>
+        </li>
 
-          </ul>
-      </div>
+      </ul>
+    </div>
 
-      <div class="box">
+    <div class="box">
+      <div class="content">
+
+        <table class="table is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>Menu Item</th>
+              <th>Rate</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tea Powder</td>
+              <td>12</td>
+              <td>2</td>
+              <td>24</td>
+            </tr>
+            <tr>
+              <td>Tripple Schezwan manchurian rice</td>
+              <td>40</td>
+              <td>1</td>
+              <td>40</td>
+            </tr>
+            <tr>
+              <td>Tea Powder</td>
+              <td>12</td>
+              <td>2</td>
+              <td>24</td>
+            </tr>
+            <tr>
+              <td>Tea Powder</td>
+              <td>12</td>
+              <td>2</td>
+              <td>24</td>
+            </tr>
+            <tr>
+              <td>Tea Powder</td>
+              <td>12</td>
+              <td>2</td>
+              <td>24</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <div class="box">
           <div class="content">
-
-              <table class="table is-hoverable is-fullwidth">
-                  <thead>
-                      <tr>
-                          <th>Menu Item</th>
-                          <th>Rate</th>
-                          <th>Quantity</th>
-                          <th>Price</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>Tea Powder</td>
-                          <td>12</td>
-                          <td>2</td>
-                          <td>24</td>
-                      </tr>
-                      <tr>
-                          <td>Tripple Schezwan manchurian rice</td>
-                          <td>40</td>
-                          <td>1</td>
-                          <td>40</td>
-                      </tr>
-                      <tr>
-                          <td>Tea Powder</td>
-                          <td>12</td>
-                          <td>2</td>
-                          <td>24</td>
-                      </tr>
-                      <tr>
-                          <td>Tea Powder</td>
-                          <td>12</td>
-                          <td>2</td>
-                          <td>24</td>
-                      </tr>
-                      <tr>
-                          <td>Tea Powder</td>
-                          <td>12</td>
-                          <td>2</td>
-                          <td>24</td>
-                      </tr>
-
-                  </tbody>
-              </table>
-
-              <div class="box">
-                  <div class="content">
-                      <div class="columns is-mobile">
-                          <div class="column is-one-third">
-                              <div class="block">
-                                  <a class="button is-small is-rounded is-primary"
-                                      style="width:100px;margin-top:25px;margin-bottom: 10px;">Add KOT</a>
-                                  <a class="button is-small is-rounded is-info" style="width:100px;margin-bottom: 10px;">Pay
-                                      Now</a>
-                                  <a class="button is-small is-rounded is-danger"
-                                      style="width:100px;margin-bottom: 10px;">Cancel</a>
-                              </div>
-                          </div>
-
-                          <div class="column">
-                              <div class="columns is-mobile">
-                                  <div class="column" style="padding:0.2rem 0.5rem;">Total Amount</div>
-                                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs 156
-                                  </div>
-                              </div>
-                              <div class="columns is-mobile">
-                                  <div class="column" style="padding:0.2rem 0.5rem;">Discount</div>
-                                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">10%
-                                  </div>
-                              </div>
-                              <div class="columns is-mobile">
-                                  <div class="column" style="padding:0.2rem 0.5rem;">Coupon(s)</div>
-                                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">-
-                                  </div>
-                              </div>
-                              <div class="columns is-mobile">
-                                  <div class="column" style="padding:0.2rem 0.5rem;">Tax SGST</div>
-                                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs 7
-                                  </div>
-                              </div>
-                              <div class="columns is-mobile">
-                                  <div class="column" style="padding:0.2rem 0.5rem;">Tax CGST</div>
-                                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs 7
-                                  </div>
-                              </div>
-                              <div class="columns is-mobile">
-                                  <div class="column" style="padding:0.2rem 0.5rem;"><b>Payable</b></div>
-                                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;"><b>Rs
-                                          160</b>
-                                  </div>
-                              </div>
-
-                          </div>
-
-                      </div>
-
-
-                  </div>
+            <div class="columns is-mobile">
+              <div class="column is-one-third">
+                <div class="block">
+                  <a class="button is-small is-rounded is-primary"
+                    style="width:100px;margin-top:25px;margin-bottom: 10px;">Add KOT</a>
+                  <a class="button is-small is-rounded is-info" style="width:100px;margin-bottom: 10px;">Pay
+                    Now</a>
+                  <a class="button is-small is-rounded is-danger" style="width:100px;margin-bottom: 10px;">Cancel</a>
+                </div>
               </div>
 
+              <div class="column">
+                <div class="columns is-mobile">
+                  <div class="column" style="padding:0.2rem 0.5rem;">Total Amount</div>
+                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs 156
+                  </div>
+                </div>
+                <div class="columns is-mobile">
+                  <div class="column" style="padding:0.2rem 0.5rem;">Discount</div>
+                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">10%
+                  </div>
+                </div>
+                <div class="columns is-mobile">
+                  <div class="column" style="padding:0.2rem 0.5rem;">Coupon(s)</div>
+                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">-
+                  </div>
+                </div>
+                <div class="columns is-mobile">
+                  <div class="column" style="padding:0.2rem 0.5rem;">Tax SGST</div>
+                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs 7
+                  </div>
+                </div>
+                <div class="columns is-mobile">
+                  <div class="column" style="padding:0.2rem 0.5rem;">Tax CGST</div>
+                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs 7
+                  </div>
+                </div>
+                <div class="columns is-mobile">
+                  <div class="column" style="padding:0.2rem 0.5rem;"><b>Payable</b></div>
+                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;"><b>Rs
+                      160</b>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+
           </div>
+        </div>
+
       </div>
+    </div>
 
   </div>
 

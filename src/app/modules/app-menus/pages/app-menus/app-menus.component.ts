@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppMenusComponent implements OnInit {
 
+  popup_add_menu=false;
   constructor() { }
 
   ngOnInit() {

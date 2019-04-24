@@ -5,6 +5,7 @@ import { SharedModule } from '../../shared';
 import { CustomersRoutingModule } from './customers-routing.module';
 import { CustomerProfileComponent } from './pages/customer-profile/customer-profile.component';
 import { CustomerTopOrdersComponent } from './pages/customer-top-orders/customer-top-orders.component';
+import { CustomerListComponent } from './pages/customer-list/customer-list.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { CustomerTopOrdersComponent } from './pages/customer-top-orders/customer
     CustomersRoutingModule,
     SharedModule
   ],
-  declarations: [CustomersComponent, CustomerProfileComponent, CustomerTopOrdersComponent]
+  declarations: [CustomersComponent, CustomerProfileComponent, CustomerTopOrdersComponent, CustomerListComponent]
 })
 export class CustomersModule { }

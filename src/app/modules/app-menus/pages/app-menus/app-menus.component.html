@@ -2,28 +2,29 @@
   <div class="content">
     <div class="heading">
       <div class="columns">
-        <div class="column is-one-third">
+        <div class="column">
           <p class="subtitle">Menu List</p>
         </div>
-        <div class="column">
-          <div class="columns">
-            <div class="column">
-              <div class="field">
-                <p class="control has-icons-left">
-                  <input class="input is-small is-rounded" type="password" placeholder="Ingredient">
-                  <span class="icon is-small is-left">                    
-                    <fa-icon icon="search"></fa-icon> 
-                  </span>
-                </p>
-              </div>
+        <div class="column is-narrow">
+          <div class="columns is-mobile is-multiline">
+            <div class="column is-narrow">
+                <div class="field has-addons">
+                    <p class="control has-icons-left">
+                        <input class="input is-rounded is-small" style="padding-left:2.5rem;" type="password"
+                            placeholder="From Date">
+                        <span class="icon is-small is-left">
+                            <fa-icon icon="search"></fa-icon>
+                        </span>
+                    </p>
+                    <p class="control">
+                      <a class="button is-primary is-small is-rounded">
+                        Search
+                      </a>
+                    </p>
+                  </div>
             </div>
             <div class="column is-narrow">
-              <a class="button is-small is-rounded">
-                Search
-              </a>
-            </div>
-            <div class="column is-narrow">
-              <a class="button is-small is-rounded">
+              <a class="button is-small is-rounded" (click)="popup_add_menu=true">
                 Add Menu
               </a>
             </div>
@@ -91,3 +92,59 @@
 
   </div>
 </div>
+
+  <!-- Model Popup for Add Inventory -->
+  <div class="modal" [ngClass]="{'is-active': popup_add_menu}" style="z-index:9999;">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Add Menu</p>
+          <button class="delete" aria-label="close" (click)="popup_add_menu=false"></button>
+        </header>
+        <section class="modal-card-body">
+          <!-- Content ... -->
+          <div class="columns field is-mobile is-multiline">
+  
+            <div class="column field is-full" style="width: 100%;">
+              <label class="label">Title</label>
+              <p class="control">
+                <input class="input is-rounded is-small" type="text" placeholder="Text input">
+              </p>
+            </div>
+  
+            <div class="column field is-half">
+              <label class="label">Type</label>
+              <p class="control">
+                <span class="select is-rounded is-small" style="width: 100%;">
+                  <select style="width: 100%;">
+                    <option>Ingredient</option>
+                    <option>Utensil</option>
+                  </select>
+                </span>
+              </p>
+            </div>            
+  
+            <div class="column field is-half">
+              <label class="label">Price</label>
+              <p class="control" style="width: 100%">
+                <input class="input is-rounded is-small" type="number" placeholder="Text input" maxlength="2">
+              </p>
+            </div>
+  
+            <div class="column field is-half">
+              <label class="label">Max Quantity</label>
+              <p class="control" style="width: 100%;">
+                <input class="input is-rounded is-small" type="number" placeholder="Text input" maxlength="2">
+              </p>
+            </div>
+  
+          </div>
+  
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success" (click)="popup_add_menu=false">Add Menu</button>
+          <button class="button" (click)="popup_add_menu=false">Cancel</button>
+        </footer>
+      </div>
+    </div>
+    <!-- Model Popup for Add Inventory -->

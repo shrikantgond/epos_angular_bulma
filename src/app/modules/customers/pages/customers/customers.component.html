@@ -1,42 +1,36 @@
-<div class="tabs">
-  <ul>
-    <li class="is-active">
-      <a>Customers</a></li>
-    <li><a>Customer Profile</a></li>
-    <li><a>Vendors</a></li>
-    <li><a>Vendor Profiles</a></li>
-  </ul>
-</div>
+<!-- <div class="columns is-mobile">
 
-<div class="columns is-mobile is-multiline">
-
-  <div class="column" *ngFor="let customer of customer_list">
-    <div class="card" [routerLink]="['profile']">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image is-48x48">
-              <!-- <img src="../../../../../assets/images/profile_pic.jpg" alt="Image"> -->
-              <div id="avatar"></div>
-            </figure>
-          </div>
-          <div class="media-content">
-            <p class="title is-5">{{customer.name}}</p>
-            <p class="subtitle is-6">
-              <span class="columns is-mobile is-centered">
-                <span class="column" style="padding-top: 0px;">
-                  <span>{{customer.email}}</span>
-                </span>
-                <span class="column has-text-right is-one-third" style="padding-top: 0px;font-size: .8rem;">
-                  <span>{{customer.mobile}}</span>
-                </span>
-              </span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="column field has-text-right" style="max-width:420px;">
+    <p class="control has-icons-left">
+      <input class="input is-rounded is-small" style="padding-left:2.5rem;" type="password"
+        placeholder="Search Customer">
+      <span class="icon is-small is-left">
+        <fa-icon icon="search"></fa-icon>
+      </span>
+    </p>
   </div>
 
- 
-</div>
+  <div class="column is-narrow">
+    <a class="button is-small is-rounded" style="width: 100px;">
+      Search
+    </a>
+  </div>
+
+</div> -->
+
+<div class="field has-addons">
+    <p class="control has-icons-left" style="width: 100%; margin-bottom:16px;" >
+      <input class="input is-rounded is-small" type="text"
+        placeholder="Search Customers">
+      <span class="icon is-small is-left">
+        <fa-icon icon="search"></fa-icon>
+      </span>
+    </p>
+    <p class="control">
+      <a class="button is-primary is-small is-rounded">
+        Search
+      </a>
+    </p>
+  </div>
+
+<app-customer-list></app-customer-list>

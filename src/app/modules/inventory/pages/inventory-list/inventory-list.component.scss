@@ -1,0 +1,11 @@
+.disabled {
+    background-color: #fff;
+    border-color: #dbdbdb;
+    box-shadow: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.field:not(:last-child){
+    margin-bottom: 0px;
+}

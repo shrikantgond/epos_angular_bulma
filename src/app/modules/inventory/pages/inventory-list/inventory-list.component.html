@@ -2,29 +2,30 @@
   <div class="content">
     <div class="heading">
       <div class="columns">
-        <div class="column is-one-third">
+        <div class="column">
           <p class="subtitle">Inventory Items</p>
         </div>
-        <div class="column">
-          <div class="columns">
-            <div class="column">
-              <div class="field">
+        <div class="column is-narrow">
+          <div class="columns is-mobile is-multiline">
+            <div class="column is-narrow">
+              <div class="field has-addons">
                 <p class="control has-icons-left">
-                  <input class="input is-small is-rounded" type="password" placeholder="Ingredient">
+                  <input class="input is-rounded is-small" style="padding-left:2.5rem;" type="text"
+                    placeholder="Search inventory">
                   <span class="icon is-small is-left">
-                    <fa-icon icon="search"></fa-icon> 
+                    <fa-icon icon="search"></fa-icon>
                   </span>
+                </p>
+                <p class="control">
+                  <a class="button is-primary is-small is-rounded">
+                    Search
+                  </a>
                 </p>
               </div>
             </div>
             <div class="column is-narrow">
-              <a class="button is-small is-rounded">
-                Search
-              </a>
-            </div>
-            <div class="column is-narrow">
-              <a class="button is-small is-rounded">
-                Add Ingredient
+              <a class="button is-small is-rounded" (click)="popup_add_inventory=true">
+                Add Inventory
               </a>
             </div>
           </div>
@@ -39,76 +40,31 @@
           <th>Title</th>
           <th class="is-hidden-mobile">Type</th>
           <th class="is-hidden-mobile">Category</th>
-          <th>Quantity</th>
+          <th class="is-hidden-mobile">Quantity</th>
           <th class="is-hidden-mobile">Expiry Date</th>
-          <th>Buy More</th>
+          <th>Order Quantity</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Masala Chai</td>
-          <td class="is-hidden-mobile">Ingredient</td>
-          <td class="is-hidden-mobile">Consumable</td>
-          <td><progress class="progress is-danger" value="25" max="100">25%</progress></td>
-          <td class="is-hidden-mobile">06-Apr-2019</td>
-          <td>
-            <a class="button is-rounded is-small">
-              <fa-icon icon="plus"></fa-icon>
-            </a>
+        <tr *ngFor="let itm of inventory_list">
+          <td>{{itm.title}}</td>
+          <td class="is-hidden-mobile">{{itm.type}}</td>
+          <td class="is-hidden-mobile">{{itm.category}}</td>
+          <td class="is-hidden-mobile"><progress class="progress"
+              [ngClass]="{'is-success': itm.quantity>70 , 'is-info': itm.quantity<71 && itm.quantity>20, 'is-danger': itm.quantity<21}"
+              [value]="itm.quantity" max="100"></progress></td>
+          <td class="is-hidden-mobile">{{itm.expiry_date}}</td>
+          <td><input style="max-width:100px;" class="input is-rounded is-small" type="number" placeholder="20 KG">
           </td>
+          <td><a class="button is-rounded is-small"
+              [ngClass]="{'disabled': itm.quantity>70, 'is-primary': itm.quantity<71 }"
+              (click)="popup_inventory_list=itm.quantity<71">Send Requisition</a></td>
         </tr>
-        <tr>
-          <td>Masala Chai</td>
-          <td class="is-hidden-mobile">Ingredient</td>
-          <td class="is-hidden-mobile">Consumable</td>
-          <td><progress class="progress is-danger" value="25" max="100">25%</progress></td>
-          <td class="is-hidden-mobile">06-Apr-2019</td>
-          <td>
-            <a class="button is-rounded is-small">
-              <fa-icon icon="plus"></fa-icon>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>Masala Chai</td>
-          <td class="is-hidden-mobile">Ingredient</td>
-          <td class="is-hidden-mobile">Consumable</td>
-          <td><progress class="progress is-danger" value="25" max="100">25%</progress></td>
-          <td class="is-hidden-mobile">06-Apr-2019</td>
-          <td>
-            <a class="button is-rounded is-small">
-              <fa-icon icon="plus"></fa-icon>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>Masala Chai</td>
-          <td class="is-hidden-mobile">Ingredient</td>
-          <td class="is-hidden-mobile">Consumable</td>
-          <td><progress class="progress is-danger" value="25" max="100">25%</progress></td>
-          <td class="is-hidden-mobile">06-Apr-2019</td>
-          <td>
-            <a class="button is-rounded is-small">
-              <fa-icon icon="plus"></fa-icon>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>Masala Chai</td>
-          <td class="is-hidden-mobile">Ingredient</td>
-          <td class="is-hidden-mobile">Consumable</td>
-          <td><progress class="progress is-danger" value="25" max="100">25%</progress></td>
-          <td class="is-hidden-mobile">06-Apr-2019</td>
-          <td>
-            <a class="button is-rounded is-small">
-              <fa-icon icon="plus"></fa-icon>
-            </a>
-          </td>
-        </tr>
-
 
       </tbody>
     </table>
+
 
     <nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">
       <a class="pagination-previous">Previous</a>
@@ -121,4 +77,84 @@
     </nav>
 
   </div>
+
+
+
+
+  <!-- Model Popup for Add Inventory -->
+  <div class="modal" [ngClass]="{'is-active': popup_add_inventory}" style="z-index:9999;">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Add new Inventory</p>
+        <button class="delete" aria-label="close" (click)="popup_add_inventory=false"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Content ... -->
+        <div class="columns field is-mobile is-multiline">
+
+          <div class="column field is-full" style="width: 100%;">
+            <label class="label">Title</label>
+            <p class="control">
+              <input class="input is-rounded is-small" type="text" placeholder="Text input">
+            </p>
+          </div>
+
+          <div class="column field is-half">
+            <label class="label">Type</label>
+            <p class="control">
+              <span class="select is-rounded is-small" style="width: 100%;">
+                <select style="width: 100%;">
+                  <option>Ingredient</option>
+                  <option>Utensil</option>
+                </select>
+              </span>
+            </p>
+          </div>
+          <div class="column field is-half">
+            <label class="label">Category</label>
+            <p class="control">
+              <span class="select is-rounded is-small" style="width: 100%;">
+                <select style="width: 100%;">
+                  <option>Consumable</option>
+                  <option>Non-Consumable</option>
+                </select>
+              </span>
+            </p>
+          </div>
+
+          <div class="column field is-half">
+            <label class="label">Expiry Date</label>
+            <p class="control has-icons-left" style="width: 100%;">
+              <input class="input is-rounded is-small" type="date">
+              <span class="icon is-small is-left">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </span>
+            </p>
+          </div>
+
+          <div class="column field is-half">
+            <label class="label">Quantity</label>
+            <p class="control" style="width: 100%">
+              <input class="input is-rounded is-small" type="number" placeholder="Text input" maxlength="2">
+            </p>
+          </div>
+
+          <div class="column field is-half">
+            <label class="label">Max Quantity</label>
+            <p class="control" style="width: 100%;">
+              <input class="input is-rounded is-small" type="number" placeholder="Text input" maxlength="2">
+            </p>
+          </div>
+
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success" (click)="popup_add_inventory=false">Add Inventory</button>
+        <button class="button" (click)="popup_add_inventory=false">Cancel</button>
+      </footer>
+    </div>
+  </div>
+  <!-- Model Popup for Add Inventory -->
+
 </div>
