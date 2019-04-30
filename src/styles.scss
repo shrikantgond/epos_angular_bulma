@@ -65,13 +65,14 @@ html {
 }
 
 /* Ripple effect V2 *******************************************************************/
-.button, .pagination-previous, .pagination-next ,
+.button,a,.link, .pagination-previous, .pagination-next ,
 .pagination-link {
   position: relative;
   overflow: hidden;
   transform: translate3d(0, 0, 0);
+  cursor: pointer;
 }
-.button:after , .pagination-previous:after, .pagination-next:after ,
+.button:after,a:after,.link:after , .pagination-previous:after, .pagination-next:after ,
 .pagination-link:after{
   content: "";
   display: block;
@@ -88,7 +89,7 @@ html {
   opacity: 0;
   transition: transform .5s, opacity 1s;
 }
-.button:active:after , 
+.button:active:after ,a:active:after,.link:active:after, 
 .pagination-previous:active:after, .pagination-next:active:after ,
 .pagination-link:active:after {
   transform: scale(0, 0);

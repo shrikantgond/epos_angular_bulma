@@ -48,7 +48,8 @@ import {
   faUserInjured,
   faUserCheck,
   faBookOpen,
-  faClipboardList
+  faClipboardList,
+  faWindowClose
 } from '@fortawesome/free-solid-svg-icons';
 import { RouterModule } from '@angular/router';
 
@@ -93,7 +94,8 @@ library.add(
   faUserFriends,
   faUserCheck,
   faBookOpen,
-  faClipboardList
+  faClipboardList,
+  faWindowClose
 );
 
 import { HighchartsChartModule } from 'highcharts-angular';

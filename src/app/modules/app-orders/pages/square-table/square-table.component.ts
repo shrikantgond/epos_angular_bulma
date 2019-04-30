@@ -10,6 +10,7 @@ export class SquareTableComponent implements OnInit {
   @Input('order-time') order_time: string;
   @Input('table-no') table_no: string;
   @Input('table-bill') table_bill: string;
+  @Input('occupied') occupied: boolean;
 
   constructor() { }
 
