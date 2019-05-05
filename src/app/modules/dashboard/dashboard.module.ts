@@ -11,6 +11,7 @@ import { TopSellingComponent } from './pages/top-selling/top-selling.component';
 import { InventoryStatusComponent } from './pages/inventory-status/inventory-status.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModule } from '../../shared';
+import { LoadingContainerComponent } from 'src/app/loading-container/loading-container.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { SharedModule } from '../../shared';
     DashboardRoutingModule, 
     SharedModule
   ],
-  declarations: [DashboardComponent, TileComponent, PaymentChartComponent, OrderChartComponent, PaymentSummeryChartComponent, OrderStatusChartComponent, SaleStatusChartComponent, TopSellingComponent, InventoryStatusComponent]
+  declarations: [ 
+    LoadingContainerComponent, DashboardComponent, TileComponent, PaymentChartComponent, OrderChartComponent, PaymentSummeryChartComponent, OrderStatusChartComponent, SaleStatusChartComponent, TopSellingComponent, InventoryStatusComponent]
 })
 export class DashboardModule { }

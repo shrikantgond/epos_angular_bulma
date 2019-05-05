@@ -49,7 +49,9 @@ import {
   faUserCheck,
   faBookOpen,
   faClipboardList,
-  faWindowClose
+  faWindowClose,
+  faCircle,
+  faSpinner
 } from '@fortawesome/free-solid-svg-icons';
 import { RouterModule } from '@angular/router';
 
@@ -95,7 +97,8 @@ library.add(
   faUserCheck,
   faBookOpen,
   faClipboardList,
-  faWindowClose
+  faWindowClose,
+  faSpinner
 );
 
 import { HighchartsChartModule } from 'highcharts-angular';
@@ -104,7 +107,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    HighchartsChartModule
+    HighchartsChartModule,
 
   ],
   exports: [

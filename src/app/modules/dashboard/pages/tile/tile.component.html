@@ -13,7 +13,8 @@
              <span [ngClass]="{'positive': tile.change > 0 , 'negative': tile.change < 0}">{{tile.change}}%</span>
             </div>
           <div class="column has-text-right ">
-            <a [href]="tile.link" class="button is-rounded is-small">More Info</a>
+            <!-- <a [href]="tile.link" class="button is-rounded is-small">More Info</a> -->
+            <a (click)="getTiles()" class="button is-rounded is-small">More Info</a>
           </div>
         </div>
       </div>

@@ -10,6 +10,9 @@ import { SidenavComponent } from './layouts/master-layout/sidenav/sidenav.compon
 import { SharedModule } from './shared';
 import { TopnavComponent } from './layouts/master-layout/topnav/topnav.component'
 import { AppRoutingModule } from './app-routing.module';
+import { RootStoreModule } from './store/root-store.module';
+import { HttpClientModule } from '@angular/common/http'; 
+import { LoadingContainerComponent } from './loading-container/loading-container.component';
 
 @NgModule({
   declarations: [
@@ -17,15 +20,17 @@ import { AppRoutingModule } from './app-routing.module';
     AuthLayoutComponent,
     MasterLayoutComponent,
     SidenavComponent,
-    TopnavComponent,    
+    TopnavComponent,  
   ],
   imports: [
     BrowserModule,
     SharedModule,
+    RootStoreModule,
 
     // app
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
