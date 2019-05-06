@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApplicationState } from 'src/app/store/root.state';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { News } from 'src/app/store/news-store/news';
+//import { News } from 'src/app/store/news-store/news';
 
 @Component({
   selector: 'app-tile',

@@ -1,6 +1,6 @@
 import { createDefaultLoadable, Loadable, onLoadableLoad, } from '../loadable/loadable';
 import { DashboardActionsUnion, OrderChartActionsTypes, PaymentChartActionsTypes } from './dashboard-store.actions';
-import { withLoadable } from '../loadable/with-loadable';
+//import { withLoadable } from '../loadable/with-loadable';
 import { IOrderChartModel } from 'src/app/models/order-chart.model';
 
 export interface Dashboard extends Loadable {
