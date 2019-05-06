@@ -1,28 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';
-import {catchError, delay, map, switchMap} from 'rxjs/operators';
+import {catchError, map, switchMap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
-import {Observable, of, pipe, throwError} from 'rxjs';
-import {LoadDashboardError, LoadDashboardSuccess, DashboardActionsTypes} from './dashboard-store.actions';
-import { IChartModel } from 'src/app/models/order-chart.model';
+import {of} from 'rxjs';
+import {LoadOrderChartError, LoadOrderChartSuccess, OrderChartActionsTypes, LoadPaymentChartSuccess, LoadPaymentChartError, PaymentChartActionsTypes} from './dashboard-store.actions';
+import { mockOrderChartApiResponse, mockPaymentChartApiResponse } from 'src/app/mocks/dashboard.mocks';
 
-function mockApiResponse(): Observable<IChartModel> {
-  return of({    
-    chart: { type: 'column' },
-    title: { text: 'Payment Chart' },
-    xAxis: { categories: ['10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'],
-      title: { text: null } },
-    yAxis: { min: 0, title: { text: 'Price'}, labels: { overflow: 'justify' } },
-    tooltip: { valueSuffix: ' Rupees' },
-    plotOptions: { bar: { dataLabels: { enabled: true } } },
-    credits: {enabled: false},
-    series: [{name: 'Sales', data: [1000*Math.random(), 1000*Math.random(), 1000*Math.random(), 1000*Math.random(), 2, 133, 156, 947, 408, 6]}]
-})
-  .pipe(
-    delay(1000)
-  )
-  //return throwError(new Error('This is custom error'));
-}
 
 @Injectable()
 export class DashboardEffects {
@@ -32,13 +15,25 @@ export class DashboardEffects {
   }
 
   @Effect()
-  loadDashboard = this.actions$.pipe(
-    ofType(DashboardActionsTypes.Load),
+  loadOrderChart = this.actions$.pipe(
+    ofType(OrderChartActionsTypes.Load),
     switchMap(action => {
       // return this.http.get('some url');
-      return mockApiResponse().pipe(
-        map((response: any) => new LoadDashboardSuccess({entities: response})),
-        catchError(error => of(new LoadDashboardError(error)))
+      return mockOrderChartApiResponse().pipe(
+        map((response: any) => new LoadOrderChartSuccess({orderchart: response})),
+        catchError(error => of(new LoadOrderChartError(error)))
+      );
+    }),
+  );
+
+  @Effect()
+  loadPaymentChart = this.actions$.pipe(
+    ofType(PaymentChartActionsTypes.Load),
+    switchMap(action => {
+      // return this.http.get('some url');
+      return mockPaymentChartApiResponse().pipe(
+        map((response: any) => new LoadPaymentChartSuccess({paymentchart: response})),
+        catchError(error => of(new LoadPaymentChartError(error)))
       );
     }),
   );

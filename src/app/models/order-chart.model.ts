@@ -1,4 +1,4 @@
-export interface IChartModel {    
+export interface IOrderChartModel {    
     chart: IChartType;
     title: ITitle;
     xAxis: IXAxis;

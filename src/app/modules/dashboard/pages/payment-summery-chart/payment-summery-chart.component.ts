@@ -61,7 +61,7 @@ export class PaymentSummeryChartComponent implements OnInit {
   }; // required
 
   chartCallback = function (chart) {
-    console.log(chart);
+    //console.log(chart);
   } // optional function, defaults to null
   updateFlag = false; // optional boolean
   oneToOneFlag = true; // optional boolean, defaults to false

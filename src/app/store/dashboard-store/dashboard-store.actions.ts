@@ -1,24 +1,52 @@
 import {Action} from '@ngrx/store';
-import { IChartModel } from 'src/app/models/order-chart.model';
+import { IOrderChartModel } from 'src/app/models/order-chart.model';
 
-export enum DashboardActionsTypes {
-  Load = '[Dashboard] LOAD',
-  LoadSuccess = '[Dashboard] LOAD SUCCESS',
-  LoadError = '[Dashboard] LOAD ERROR',
+
+//#region  Order Chart Action Types
+export enum OrderChartActionsTypes {
+  Load = '[OrderChart] LOAD',
+  LoadSuccess = '[OrderChart] LOAD SUCCESS',
+  LoadError = '[OrderChart] LOAD ERROR',
 }
 
-export class LoadDashboard implements Action {
-  readonly type = DashboardActionsTypes.Load;
+export class LoadOrderChart implements Action {
+  readonly type = OrderChartActionsTypes.Load;
 }
 
-export class LoadDashboardSuccess implements Action {
-  readonly type = DashboardActionsTypes.LoadSuccess;
-  constructor(public payload: {entities: IChartModel}) {}
+export class LoadOrderChartSuccess implements Action {
+  readonly type = OrderChartActionsTypes.LoadSuccess;
+  constructor(public payload: {orderchart: IOrderChartModel}) {}
 }
 
-export class LoadDashboardError implements Action {
-  readonly type = DashboardActionsTypes.LoadError;
+export class LoadOrderChartError implements Action {
+  readonly type = OrderChartActionsTypes.LoadError;
   constructor(public error: any) {}
 }
+//#endregion
 
-export type DashboardActionsUnion = LoadDashboard | LoadDashboardSuccess | LoadDashboardError;
+
+//#region  Payment Chart Action Types
+export enum PaymentChartActionsTypes {
+  Load = '[PaymentChart] LOAD',
+  LoadSuccess = '[PaymentChart] LOAD SUCCESS',
+  LoadError = '[PaymentChart] LOAD ERROR',
+}
+
+export class LoadPaymentChart implements Action {
+  readonly type = PaymentChartActionsTypes.Load;
+}
+
+export class LoadPaymentChartSuccess implements Action {
+  readonly type = PaymentChartActionsTypes.LoadSuccess;
+  constructor(public payload: {paymentchart: IOrderChartModel}) {}
+}
+
+export class LoadPaymentChartError implements Action {
+  readonly type = PaymentChartActionsTypes.LoadError;
+  constructor(public error: any) {}
+}
+//#endregion
+
+
+export type DashboardActionsUnion = LoadOrderChart | LoadOrderChartSuccess | LoadOrderChartError
+| LoadPaymentChart | LoadPaymentChartSuccess | LoadPaymentChartError;

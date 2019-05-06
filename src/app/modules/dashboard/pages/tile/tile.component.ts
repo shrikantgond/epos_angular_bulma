@@ -12,18 +12,17 @@ import { News } from 'src/app/store/news-store/news';
 export class TileComponent implements OnInit {
 
   tiles: ITile[];
-  news$: Observable<News>;
 
   constructor(private store: Store<ApplicationState>) {
 
-    this.news$ = this.store.select<News>((state: any) => state['news'].news);    
+    // this.news$ = this.store.select<News>((state: any) => state['news'].news);    
     
-    this.store
-    .select<News>((state: any) => state['news'].news) // the complete state this time!!!
-    .subscribe((completeState: any) => {
-      console.log("completeState");
-      console.log(completeState);
-    });
+    // this.store
+    // .select<News>((state: any) => state['news'].news) // the complete state this time!!!
+    // .subscribe((completeState: any) => {
+    //   console.log("completeState");
+    //   console.log(completeState);
+    // });
 
    }
 
