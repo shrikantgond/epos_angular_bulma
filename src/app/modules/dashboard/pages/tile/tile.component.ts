@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplicationState } from 'src/app/store/root.state';
+import { ApplicationState } from 'src/app/store/application.state';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 //import { News } from 'src/app/store/news-store/news';

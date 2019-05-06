@@ -1,5 +1,5 @@
 import {Component, Input } from '@angular/core';
-import { Loadable } from '../store/loadable/loadable';
+import { ApplicationState } from '../store/application.state';
 
 @Component({
   selector: 'loading-container',
@@ -7,5 +7,5 @@ import { Loadable } from '../store/loadable/loadable';
   styleUrls: ['./loading-container.component.scss']
 })
 export class LoadingContainerComponent {
-  @Input() loadable: Loadable;
+  @Input() loadable: ApplicationState;
 }

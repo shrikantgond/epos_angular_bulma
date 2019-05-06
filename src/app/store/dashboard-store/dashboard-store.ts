@@ -1,16 +1,17 @@
-import { createDefaultLoadable, Loadable, onLoadableLoad, } from '../loadable/loadable';
+//import { createDefaultLoadable, Loadable, onLoadableLoad, } from '../loadable/loadable';
 import { DashboardActionsUnion, OrderChartActionsTypes, PaymentChartActionsTypes } from './dashboard-store.actions';
 //import { withLoadable } from '../loadable/with-loadable';
 import { IOrderChartModel } from 'src/app/models/order-chart.model';
+import { ApplicationState, createDefaultApplicationState } from '../application.state';
 
-export interface Dashboard extends Loadable {
+export interface Dashboard extends ApplicationState {
   orderchart: IOrderChartModel;
   paymentchart: IOrderChartModel;
 }
 
 export function createDefaultDashboard(): Dashboard {
   return {
-    ...createDefaultLoadable(),
+    ...createDefaultApplicationState(),
     orderchart: createDefaultOrderChart(),
     paymentchart: createDefaultPaymentChart(),
   };
@@ -24,33 +25,25 @@ export function DashboardReducer(state: Dashboard = createDefaultDashboard(), ac
     case PaymentChartActionsTypes.Load:      
       return {
         ...state,
-        loading: true,
-        success: false,
-        error: null,
+        loading: true,success: false, error: null,
       }
     case OrderChartActionsTypes.LoadError:
     case PaymentChartActionsTypes.LoadError:
       return {
         ...state,
-        loading: false,
-        success: false,
-        error: action.error,
+        loading: false, success: false, error: action.error,
       };
     case OrderChartActionsTypes.LoadSuccess:
       return {
         ...state,
         orderchart: action.payload.orderchart,
-        loading: false,
-        success: true,
-        error: null,
+        loading: false, success: true, error: null,
       };
     case PaymentChartActionsTypes.LoadSuccess:
       return {
         ...state,
         paymentchart: action.payload.paymentchart,
-        loading: false,
-        success: true,
-        error: null,
+        loading: false, success: true, error: null,
       };
     default:
       return state;
@@ -64,7 +57,6 @@ export function DashboardReducer(state: Dashboard = createDefaultDashboard(), ac
 //     errorActionType: OrderChartActionsTypes.LoadError,
 //   })(state, action);
 // }
-
 
 
 function createDefaultOrderChart(): IOrderChartModel {

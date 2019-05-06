@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { Observable } from 'rxjs';
-import { ApplicationState } from 'src/app/store/root.state';
+import { ApplicationState } from 'src/app/store/application.state';
 import { Store } from '@ngrx/store';
 import { LoadOrderChart, LoadPaymentChart } from 'src/app/store/dashboard-store/dashboard-store.actions';
 import { Dashboard } from 'src/app/store/dashboard-store/dashboard-store';
