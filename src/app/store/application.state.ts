@@ -31,7 +31,7 @@ export function LoadedApplicationState(): ApplicationState {
 export function ErrorApplicationState(error: Error): ApplicationState {
   return {
     loading: false,
-    success: true,
+    success: false,
     error: error,
   };
 }

@@ -9,14 +9,14 @@
           </div>
           <div class="column has-text-right">
               <label class="toggle is-small" style="width: 150px;text-align: left;">                
-                  <input class="toggle-checkbox" type="checkbox" (change)="isorderchart = !isorderchart">
+                  <input class="toggle-checkbox" type="checkbox" (change)="checkOrderPayment();">
                   <div class="toggle-switch"></div>
                   <span class="toggle-label" *ngIf="isorderchart">Orders</span>
                   <span class="toggle-label" *ngIf="!isorderchart">Payments</span>
                 </label>
-            <a class="button is-rounded is-small" (click)="load()">
+            <!-- <a class="button is-rounded is-small" (click)="load()">
               <fa-icon icon="spinner"></fa-icon>
-            </a>
+            </a> -->
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@
           [(update)]="updateFlag"
           [oneToOne]="oneToOneFlag"
           [runOutsideAngular]="false" 
-          style="width: 100%; height: 400px; display: block;"
+          style="width: 90%; height: 400px; display: block;"
         ></highcharts-chart>
     </loading-container>
     

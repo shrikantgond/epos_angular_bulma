@@ -45,7 +45,7 @@ export class OrderChartComponent implements OnInit,OnDestroy {
 
   checkOrderPayment(){
     this.isorderchart = !this.isorderchart;
-    //console.log('checked :'+ this.isorderchart);
+    this.load();
   }
 
   ngOnInit() {
