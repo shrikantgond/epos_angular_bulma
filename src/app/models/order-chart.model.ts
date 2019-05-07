@@ -1,4 +1,4 @@
-export interface IOrderChartModel {    
+export interface IOrderChartModel {
     chart: IChartType;
     title: ITitle;
     xAxis: IXAxis;
@@ -10,36 +10,80 @@ export interface IOrderChartModel {
 }
 
 export interface IChartType {
-    type: string;    
+    type: string;
 }
 export interface ITitle {
-    text: string;    
+    text: string;
 }
 export interface IXAxis {
     categories: string[];
     title: ITitle;
 }
 export interface IYAxis {
-    min: number; 
-    title: ITitle; 
+    min: number;
+    title: ITitle;
     labels: IOverflow;
 }
 export interface IOverflow {
-    overflow: string;    
+    overflow: string;
 }
 export interface Itooltip {
-    valueSuffix: string;    
+    valueSuffix: string;
 }
 export interface IPlotOptions {
-    bar: IBarOption;    
+    bar: IBarOption;
 }
 export interface IBarOption {
-    dataLabels: IEnabled;    
+    dataLabels: IEnabled;
 }
 export interface IEnabled {
-    enabled: boolean;    
+    enabled: boolean;
 }
 export interface ISeries {
-    name: string;    
+    name: string;
     data: number[];
+}
+
+export function DefaultChart(): IOrderChartModel {
+    return {
+        chart: { type: 'column' },
+        title: { text: 'Title' },
+        xAxis: {
+            categories: ['10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'],
+            title: { text: null }
+        },
+        yAxis: { min: 0, title: { text: 'Price' }, labels: { overflow: 'justify' } },
+        tooltip: { valueSuffix: ' Rupees' },
+        plotOptions: { bar: { dataLabels: { enabled: true } } },
+        credits: { enabled: false },
+        series: [{ name: 'Sales', data: [107, 31, 635, 203, 2, 133, 156, 947, 408, 6] }]
+    };
+}
+
+export function DefaultOrderChart(): IOrderChartModel {
+    return {
+        ...DefaultChart(),
+        title: { text: null },
+        xAxis: {
+            categories: ['10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'],
+            title: { text: null }
+        },
+        yAxis: { min: 0, title: { text: 'Orders' }, labels: { overflow: 'justify' } },
+        tooltip: { valueSuffix: ' Orders' },
+        series: [{ name: 'Orders', data: [107, 31, 635, 203, 2, 133, 156, 947, 408, 6] }]
+    };
+}
+
+export function DefaultPaymentChart(): IOrderChartModel {
+    return {
+        ...DefaultChart(),
+        title: { text: null },
+        xAxis: {
+            categories: ['10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'],
+            title: { text: null }
+        },
+        yAxis: { min: 0, title: { text: 'Price' }, labels: { overflow: 'justify' } },
+        tooltip: { valueSuffix: ' Rupees' },
+        series: [{ name: 'Sales', data: [107, 31, 635, 203, 2, 133, 156, 947, 408, 6] }]
+    };
 }

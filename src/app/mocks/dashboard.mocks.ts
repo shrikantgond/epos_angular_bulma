@@ -1,19 +1,15 @@
 import {Observable, of, pipe, throwError} from 'rxjs';
-import { IOrderChartModel } from 'src/app/models/order-chart.model';
+import { IOrderChartModel, DefaultChart, DefaultOrderChart } from 'src/app/models/order-chart.model';
 import {catchError, delay, map, switchMap} from 'rxjs/operators';
 
 export function mockOrderChartApiResponse(): Observable<IOrderChartModel> {
     return of({    
-      chart: { type: 'column' },
-      title: { text: null },
+      ...DefaultOrderChart(),      
       xAxis: { categories: ['10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'],
-        title: { text: null } },
-      yAxis: { min: 0, title: { text: 'Orders'}, labels: { overflow: 'justify' } },
-      tooltip: { valueSuffix: ' Orders' },
-      plotOptions: { bar: { dataLabels: { enabled: true } } },
-      credits: {enabled: false},
-      series: [{name: 'Orders', data: [50*Math.random(), 50*Math.random(), 50*Math.random(), 50*Math.random(), 
-        50*Math.random(), 50*Math.random(), 50*Math.random(), 50*Math.random(), 50*Math.random(), 50*Math.random()]}]
+        title: { text: null } },      
+      series: [{name: 'Orders', data: [Math.floor(50*Math.random()), Math.floor(50*Math.random()), Math.floor(50*Math.random()), Math.floor(50*Math.random()), 
+        Math.floor(50*Math.random()), Math.floor(50*Math.random()), Math.floor(50*Math.random()), Math.floor(50*Math.random()), 
+        Math.floor(50*Math.random()), Math.floor(50*Math.random())]}]
   })
     .pipe(
       delay(1000)
@@ -31,7 +27,9 @@ export function mockOrderChartApiResponse(): Observable<IOrderChartModel> {
       tooltip: { valueSuffix: ' Rupees' },
       plotOptions: { bar: { dataLabels: { enabled: true } } },
       credits: {enabled: false},
-      series: [{name: 'Sales', data: [1000*Math.random(), 1000*Math.random(), 1000*Math.random(), 1000*Math.random(), 2, 133, 156, 947, 408, 6]}]
+      series: [{name: 'Sales', data: [Math.floor(1000*Math.random()), Math.floor(1000*Math.random()), 
+        Math.floor(1000*Math.random()), Math.floor(1000*Math.random()), Math.floor(1000*Math.random()), Math.floor(1000*Math.random()),
+        Math.floor(1000*Math.random()), Math.floor(1000*Math.random()), Math.floor(1000*Math.random()), Math.floor(1000*Math.random())]}]
   })
     .pipe(
       delay(1000)
