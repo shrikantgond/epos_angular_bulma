@@ -7,11 +7,11 @@
         </div>
         <div class="column has-text-right ">
           <!-- <a class="button is-rounded is-small">White</a> -->
-          <label class="toggle is-small">
+          <!-- <label class="toggle is-small">
             <input class="toggle-checkbox" type="checkbox" checked>
             <div class="toggle-switch"></div>
             <span class="toggle-label">Bluetooth</span>
-          </label>
+          </label> -->
 
           <a class="button is-rounded is-small" (click)="load()">
               <fa-icon icon="spinner"></fa-icon>
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <loading-container [loadable]="(paymentsummarychart$ | async)" style="display: flex;">
+    <loading-container [loadable]="(paymentsummarychart$ | async)">
       <highcharts-chart [Highcharts]="Highcharts" [constructorType]="chartConstructor" 
       [options]="(paymentsummarychart$ | async).chartdata"
         [callbackFunction]="chartCallback" [(update)]="updateFlag" [oneToOne]="oneToOneFlag" [runOutsideAngular]="false"        

@@ -7,8 +7,54 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- inline spinner styles to be able to display spinner right away -->
+  <style type="text/css">
+    @keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-flicker {
+   -webkit-animation: flickerAnimation 1.5s infinite;
+   -moz-animation: flickerAnimation 1.5s infinite;
+   -o-animation: flickerAnimation 1.5s infinite;
+    animation: flickerAnimation 1.5s infinite;
+    
+}
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  height: 100%;
+}
+  </style>
+
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+      <!-- loading layout replaced by app after startupp -->
+      <div class="animate-flicker">
+          <img style="margin:0 auto" class="Absolute-Center" 
+          alt="Loading..."
+          height="25" src="../../../../assets/images/icon_blue.svg" width="75">
+      </div>
+
+  </app-root>
 </body>
 </html>
