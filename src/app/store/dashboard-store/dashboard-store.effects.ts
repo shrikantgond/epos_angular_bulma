@@ -4,7 +4,7 @@ import {catchError, map, switchMap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {of} from 'rxjs';
 import * as actions from './dashboard-store.actions';
-import { mockOrderChartApiResponse, mockPaymentChartApiResponse } from 'src/app/mocks/dashboard.mocks';
+import * as mocks from 'src/app/mocks/dashboard.mocks';
 
 
 @Injectable()
@@ -19,7 +19,7 @@ export class DashboardEffects {
     ofType(actions.OrderChartActionsTypes.Load),
     switchMap(action => {
       // return this.http.get('some url');
-      return mockOrderChartApiResponse().pipe(
+      return mocks.mockOrderChartApiResponse().pipe(
         map((response: any) => new actions.LoadOrderChartSuccess({orderchart: response})),
         catchError(error => of(new actions.LoadOrderChartError(error)))
       );
@@ -31,11 +31,24 @@ export class DashboardEffects {
     ofType(actions.PaymentChartActionsTypes.Load),
     switchMap(action => {
       // return this.http.get('some url');
-      return mockPaymentChartApiResponse().pipe(
+      return mocks.mockPaymentChartApiResponse().pipe(
         map((response: any) => new actions.LoadPaymentChartSuccess({paymentchart: response})),
         catchError(error => of(new actions.LoadPaymentChartError(error)))
       );
     }),
   );
+
+  @Effect()
+  loadPaymentSummaryChart = this.actions$.pipe(
+    ofType(actions.PaymentSummaryChartActionsTypes.Load),
+    switchMap(action => {
+      // return this.http.get('some url');
+      return mocks.mockPaymentSummaryChartApiResponse().pipe(
+        map((response: any) => new actions.LoadPaymentSummaryChartSuccess({paymentsummarychart: response})),
+        catchError(error => of(new actions.LoadPaymentSummaryChartError(error)))
+      );
+    }),
+  );
+
 }
 

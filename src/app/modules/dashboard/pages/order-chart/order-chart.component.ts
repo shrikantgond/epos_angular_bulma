@@ -4,7 +4,10 @@ import { Observable } from 'rxjs';
 import { ApplicationState } from 'src/app/store/application.state';
 import { Store } from '@ngrx/store';
 import { LoadOrderChart, LoadPaymentChart } from 'src/app/store/dashboard-store/dashboard-store.actions';
-import { Dashboard } from 'src/app/store/dashboard-store/dashboard-store';
+import { OrderChartState } from 'src/app/store/dashboard-store/states/orderchart.state';
+import { DashboardState } from 'src/app/store/dashboard-store/dashboard-store';
+import { PaymentChartState } from 'src/app/store/dashboard-store/states/paymentchart.state';
+
 
 @Component({
   selector: 'app-order-chart',
@@ -13,7 +16,8 @@ import { Dashboard } from 'src/app/store/dashboard-store/dashboard-store';
 })
 export class OrderChartComponent implements OnInit,OnDestroy {
 
-  dashboard$: Observable<Dashboard>;
+  orderchart$: Observable<OrderChartState>;
+  paymentchart$: Observable<PaymentChartState>;
   isorderchart: boolean = true; 
 
   Highcharts = Highcharts; // required
@@ -26,9 +30,12 @@ export class OrderChartComponent implements OnInit,OnDestroy {
   runOutsideAngular = false; // optional boolean, defaults to false
 
   constructor(private store: Store<ApplicationState>) { 
-    this.dashboard$ = this.store.select<Dashboard>((state: any) => state['dashboard'].dashboard);
+    this.orderchart$ = this.store.select<OrderChartState>((state: any) => state['orderchart']);
+    this.paymentchart$ = this.store.select<PaymentChartState>((state: any) => state['paymentchart']);
     this.load();
-    this.store.select<Dashboard>((state: any) => state['dashboard'].dashboard)
+    this.store.select<PaymentChartState>((state: any) => state['paymentchart'])
+    .subscribe((chart: any) => { console.log(chart); });
+    this.store.select<OrderChartState>((state: any) => state['orderchart'])
     .subscribe((chart: any) => { console.log(chart); });
   }
 
@@ -49,7 +56,7 @@ export class OrderChartComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit() {
-    //this.dashboard$ = this.store.select<Dashboard>((state: any) => state['dashboard'].dashboard);
+    //this.dashboard$ = this.store.select<Dashboard>((state: any) => state['dashboard'].dashboard);    
   }
 
   ngOnDestroy(){    

@@ -1,48 +1,58 @@
-import { DashboardActionsUnion, OrderChartActionsTypes, PaymentChartActionsTypes } from './dashboard-store.actions';
-import { IOrderChartModel, DefaultOrderChart, DefaultPaymentChart } from 'src/app/models/order-chart.model';
-import * as app from '../application.state';
+import * as actions from './dashboard-store.actions';
+import * as orderchartstate from './states/orderchart.state'
+import { OrderChartReducer } from './reducers/orderchart.reducer';
 
-export interface Dashboard extends app.ApplicationState {
-  orderchart: IOrderChartModel;
-  paymentchart: IOrderChartModel;
+export type DashboardState = {
+  orderchart: orderchartstate.OrderChartState;
+  //paymentchart: chart_model.IChartModel;
+  //paymentsummarychart: chart_model.IChartModel;
 }
 
-export function DefaultDashboard(): Dashboard {
-  return {
-    ...app.DefaultApplicationState(),
-    orderchart: DefaultOrderChart(),
-    paymentchart: DefaultPaymentChart(),
+export function DefaultDashboardState(): DashboardState {
+  return {    
+    orderchart: orderchartstate.DefaultOrderChartState(),
+    //paymentchart: chart_model.DefaultPaymentChart(),
+    //paymentsummarychart: chart_model.DefaultPaymentSummaryChart(),
   };
 }
 
-export function DashboardReducer(state: Dashboard = DefaultDashboard(), action: DashboardActionsUnion): Dashboard {
+export function DashboardReducer(state: DashboardState = DefaultDashboardState(), action: actions.DashboardActions): DashboardState {
   //console.log('Action '+action.type)
   switch (action.type) {
 
-    case OrderChartActionsTypes.Load:      
-    case PaymentChartActionsTypes.Load:      
+    case actions.OrderChartActionsTypes.Load:
+    case actions.OrderChartActionsTypes.LoadSuccess:
+    case actions.OrderChartActionsTypes.LoadError:
       return {
         ...state,
-        ...app.LoadingApplicationState(),        
-      }
-    case OrderChartActionsTypes.LoadError:
-    case PaymentChartActionsTypes.LoadError:
-      return {
-        ...state,
-        ...app.ErrorApplicationState(action.error),
-      };
-    case OrderChartActionsTypes.LoadSuccess:
-      return {
-        ...state,
-        ...app.LoadedApplicationState(),
-        orderchart: action.payload.orderchart,        
-      };
-    case PaymentChartActionsTypes.LoadSuccess:
-      return {
-        ...state,
-        ...app.LoadedApplicationState(),
-        paymentchart: action.payload.paymentchart,        
-      };
+        orderchart: OrderChartReducer(state.orderchart,action),
+      }      
+
+    // case actions.OrderChartActionsTypes.LoadError:
+    // //case actions.PaymentChartActionsTypes.LoadError:
+    // //case actions.PaymentSummaryChartActionsTypes.LoadError:
+    //   return {
+    //     ...state,
+    //     ...app.ErrorApplicationState(action.error),
+    //   };
+    // case actions.OrderChartActionsTypes.LoadSuccess:
+    //   return {
+    //     ...state,
+    //     ...app.LoadedApplicationState(),
+    //     orderchart: action.payload.orderchart,
+    //   };
+    // case actions.PaymentChartActionsTypes.LoadSuccess:
+    //   return {
+    //     ...state,
+    //     ...app.LoadedApplicationState(),
+    //     paymentchart: action.payload.paymentchart,
+    //   };
+    // case actions.PaymentSummaryChartActionsTypes.LoadSuccess:
+    //   return {
+    //     ...state,
+    //     ...app.LoadedApplicationState(),
+    //     paymentsummarychart: action.payload.paymentsummarychart,
+    //   };
     default:
       return state;
   }

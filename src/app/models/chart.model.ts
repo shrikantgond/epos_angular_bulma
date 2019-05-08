@@ -1,4 +1,4 @@
-export interface IOrderChartModel {
+export interface IChartModel {
     chart: IChartType;
     title: ITitle;
     xAxis: IXAxis;
@@ -44,7 +44,7 @@ export interface ISeries {
     data: number[];
 }
 
-export function DefaultChart(): IOrderChartModel {
+export function DefaultChart(): IChartModel {
     return {
         chart: { type: 'column' },
         title: { text: 'Title' },
@@ -60,7 +60,7 @@ export function DefaultChart(): IOrderChartModel {
     };
 }
 
-export function DefaultOrderChart(): IOrderChartModel {
+export function DefaultOrderChart(): IChartModel {
     return {
         ...DefaultChart(),
         title: { text: null },
@@ -74,7 +74,7 @@ export function DefaultOrderChart(): IOrderChartModel {
     };
 }
 
-export function DefaultPaymentChart(): IOrderChartModel {
+export function DefaultPaymentChart(): IChartModel {
     return {
         ...DefaultChart(),
         title: { text: null },
@@ -85,5 +85,26 @@ export function DefaultPaymentChart(): IOrderChartModel {
         yAxis: { min: 0, title: { text: 'Price' }, labels: { overflow: 'justify' } },
         tooltip: { valueSuffix: ' Rupees' },
         series: [{ name: 'Sales', data: [107, 31, 635, 203, 2, 133, 156, 947, 408, 6] }]
+    };
+}
+
+export function DefaultPaymentSummaryChart(): IChartModel {
+    return {
+        ...DefaultChart(),
+        chart: {
+            type: 'bar'
+          },
+          title: {
+            text: 'Payment Summery Chart'
+          },
+          xAxis: {
+            categories: ['Cash', 'Card', 'Wallet', 'Credit'],
+            title: { text: null }
+          },
+          yAxis: { min: 0, title: { text: 'Price' }, labels: { overflow: 'justify' } },
+          series: [{
+            name: 'Sales',
+            data: [107, 31, 635, 203]
+          }]
     };
 }

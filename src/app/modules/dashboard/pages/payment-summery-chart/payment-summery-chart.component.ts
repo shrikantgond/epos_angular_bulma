@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { Observable } from 'rxjs';
+import { DashboardState } from 'src/app/store/dashboard-store/dashboard-store';
+import { ApplicationState } from 'src/app/store/application.state';
+import { Store } from '@ngrx/store';
+import { LoadPaymentSummaryChart } from 'src/app/store/dashboard-store/dashboard-store.actions';
+import { OrderChartState } from 'src/app/store/dashboard-store/states/orderchart.state';
+import { PaymentSummaryChartState } from 'src/app/store/dashboard-store/states/paymentsummarychart.state';
 
 @Component({
   selector: 'app-payment-summery-chart',
@@ -8,58 +15,10 @@ import * as Highcharts from 'highcharts';
 })
 export class PaymentSummeryChartComponent implements OnInit {
 
-
+  paymentsummarychart$: Observable<PaymentSummaryChartState>;
 
   Highcharts = Highcharts; // required
   chartConstructor = 'chart'; // optional string, defaults to 'chart'
-  chartOptions = {
-
-    chart: {
-      type: 'bar'
-    },
-    title: {
-      text: 'Payment Summery Chart'
-    },
-    // subtitle: {
-    //   text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
-    // },
-    xAxis: {
-      categories: ['Cash', 'Card', 'Wallet', 'Credit'],
-      title: {
-        text: null
-      }
-    },
-    yAxis: {
-      min: 0,
-      title: {
-        text: 'Price',
-        align: 'high'
-      },
-      labels: {
-        overflow: 'justify'
-      }
-    },
-    tooltip: {
-      valueSuffix: ' Rupees'
-    },
-    plotOptions: {
-      bar: {
-        dataLabels: {
-          enabled: true
-        }
-      }
-    },
-
-    credits: {
-      enabled: false
-    },
-    series: [{
-      name: 'Sales',
-      data: [107, 31, 635, 203]
-    }]
-
-  }; // required
-
   chartCallback = function (chart) {
     //console.log(chart);
   } // optional function, defaults to null
@@ -68,9 +27,21 @@ export class PaymentSummeryChartComponent implements OnInit {
   runOutsideAngular = false; // optional boolean, defaults to false
 
 
+  constructor(private store: Store<ApplicationState>) {     
+    this.paymentsummarychart$ = this.store.select<PaymentSummaryChartState>((state: any) => state['paymentsummarychart']);
+    this.load();
+    this.store.select<PaymentSummaryChartState>((state: any) => state['paymentsummarychart'])
+    .subscribe((chart: any) => { console.log(chart); });
+    
+  }
 
-
-  constructor() { }
+  load() {
+    const action = new LoadPaymentSummaryChart();    
+      this.store.dispatch(action); console.log(action);
+    //   Highcharts.charts.forEach(function(chart) {
+    //     chart.reflow();
+    // });
+  }
 
   ngOnInit() {
   }
