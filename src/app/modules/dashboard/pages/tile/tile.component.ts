@@ -26,10 +26,7 @@ export class TileComponent implements OnInit {
 
    load() {
     const action = new LoadTile();    
-      this.store.dispatch(action); console.log(action);
-    //   Highcharts.charts.forEach(function(chart) {
-    //     chart.reflow();
-    // });
+      this.store.dispatch(action);    
   }
 
   ngOnInit() {

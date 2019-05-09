@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { ApplicationState } from 'src/app/store/application.state';
+import { Observable } from 'rxjs';
+import { OrderStatusChartState } from 'src/app/store/dashboard-store/states/OrderStatusChart.state';
+import { Store } from '@ngrx/store';
+import { LoadOrderStatusChart } from 'src/app/store/dashboard-store/actions/orderstatuschart.actions';
 
 @Component({
   selector: 'app-order-status-chart',
@@ -8,57 +13,10 @@ import * as Highcharts from 'highcharts';
 })
 export class OrderStatusChartComponent implements OnInit {
 
+  orderstatuschart$: Observable<OrderStatusChartState>;
 
   Highcharts = Highcharts; // required
   chartConstructor = 'chart'; // optional string, defaults to 'chart'
-  chartOptions = {
-
-    chart: {
-      type: 'bar'
-    },
-    title: {
-      text: 'Order Status'
-    },
-    // subtitle: {
-    //   text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
-    // },
-    xAxis: {
-      categories: ['Table', 'Take Away', 'Online', 'Third Party', 'Corporate'],
-      title: {
-        text: null
-      }
-    },
-    yAxis: {
-      min: 0,
-      title: {
-        text: 'Price',
-        align: 'high'
-      },
-      labels: {
-        overflow: 'justify'
-      }
-    },
-    tooltip: {
-      valueSuffix: ' Rupees'
-    },
-    plotOptions: {
-      bar: {
-        dataLabels: {
-          enabled: true
-        }
-      }
-    },
-
-    credits: {
-      enabled: false
-    },
-    series: [{
-      name: 'Sales',
-      data: [107, 31, 635, 203, 2]
-    }]
-
-  }; // required
-
   chartCallback = function (chart) {
     //console.log(chart);
   } // optional function, defaults to null
@@ -69,9 +27,17 @@ export class OrderStatusChartComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private store: Store<ApplicationState>) {     
+    this.orderstatuschart$ = this.store.select<OrderStatusChartState>((state: any) => state['orderstatuschart']);
+    this.load();
+  }
 
   ngOnInit() {
+  }
+
+  load() {
+    const action = new LoadOrderStatusChart();    
+      this.store.dispatch(action); 
   }
 
 }

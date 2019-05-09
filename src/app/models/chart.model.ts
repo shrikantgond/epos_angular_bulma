@@ -108,3 +108,24 @@ export function DefaultPaymentSummaryChart(): IChartModel {
           }]
     };
 }
+
+export function DefaultOrderStatusChart(): IChartModel {
+    return {
+        ...DefaultChart(),
+        chart: {
+            type: 'bar'
+          },
+          title: {
+            text: 'Order Status Chart'
+          },
+          xAxis: {
+            categories: ['Table', 'Take Away', 'Online', 'Third Party', 'Corporate'],
+            title: { text: null }
+          },
+          yAxis: { min: 0, title: { text: 'Price' }, labels: { overflow: 'justify' } },
+          series: [{
+            name: 'Sales',
+            data: [107, 31, 635, 203, 90]
+          }]
+    };
+}

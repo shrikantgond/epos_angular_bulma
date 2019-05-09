@@ -28,17 +28,11 @@ export class PaymentSummeryChartComponent implements OnInit {
   constructor(private store: Store<ApplicationState>) {     
     this.paymentsummarychart$ = this.store.select<PaymentSummaryChartState>((state: any) => state['paymentsummarychart']);
     this.load();
-    // this.store.select<PaymentSummaryChartState>((state: any) => state['paymentsummarychart'])
-    // .subscribe((chart: any) => { console.log(chart); });
-    
   }
 
   load() {
     const action = new LoadPaymentSummaryChart();    
-      this.store.dispatch(action); console.log(action);
-    //   Highcharts.charts.forEach(function(chart) {
-    //     chart.reflow();
-    // });
+      this.store.dispatch(action); 
   }
 
   ngOnInit() {

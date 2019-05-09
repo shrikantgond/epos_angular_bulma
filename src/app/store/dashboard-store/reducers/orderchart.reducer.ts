@@ -3,7 +3,6 @@ import { OrderChartActions, OrderChartActionsTypes } from '../actions/orderchart
 import * as app from '../../application.state';
 
 export function OrderChartReducer(state: OrderChartState = DefaultOrderChartState(), action: OrderChartActions): OrderChartState {
-    //console.log('Action '+action.type)
     switch (action.type) {
 
         case OrderChartActionsTypes.Load:
@@ -22,24 +21,6 @@ export function OrderChartReducer(state: OrderChartState = DefaultOrderChartStat
               ...state,
               ...app.ErrorApplicationState(action.error),
             };
-        //   case actions.OrderChartActionsTypes.LoadSuccess:
-        //     return {
-        //       ...state,
-        //       ...app.LoadedApplicationState(),
-        //       orderchart: action.payload.orderchart,
-        //     };
-        //   case actions.PaymentChartActionsTypes.LoadSuccess:
-        //     return {
-        //       ...state,
-        //       ...app.LoadedApplicationState(),
-        //       paymentchart: action.payload.paymentchart,
-        //     };
-        //   case actions.PaymentSummaryChartActionsTypes.LoadSuccess:
-        //     return {
-        //       ...state,
-        //       ...app.LoadedApplicationState(),
-        //       paymentsummarychart: action.payload.paymentsummarychart,
-        //     };
         default:
             return state;
     }

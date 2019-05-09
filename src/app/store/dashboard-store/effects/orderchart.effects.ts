@@ -10,8 +10,7 @@ import * as actions from '../actions/orderchart.actions';
 @Injectable()
 export class OrderChartEffects {
 
-  constructor(private actions$: Actions, private http: HttpClient) {
-    //console.log('hi')
+  constructor(private actions$: Actions, private http: HttpClient) {    
   }
 
   @Effect()
@@ -25,31 +24,7 @@ export class OrderChartEffects {
         catchError(error => of(new actions.LoadOrderChartError(error)))
       );
     }),
-  );
-
-  // @Effect()
-  // loadPaymentChart = this.actions$.pipe(
-  //   ofType(actions.PaymentChartActionsTypes.Load),
-  //   switchMap(action => {
-  //     // return this.http.get('some url');
-  //     return mocks.mockPaymentChartApiResponse().pipe(
-  //       map((response: any) => new actions.LoadPaymentChartSuccess({paymentchart: response})),
-  //       catchError(error => of(new actions.LoadPaymentChartError(error)))
-  //     );
-  //   }),
-  // );
-
-  // @Effect()
-  // loadPaymentSummaryChart = this.actions$.pipe(
-  //   ofType(actions.PaymentSummaryChartActionsTypes.Load),
-  //   switchMap(action => {
-  //     // return this.http.get('some url');
-  //     return mocks.mockPaymentSummaryChartApiResponse().pipe(
-  //       map((response: any) => new actions.LoadPaymentSummaryChartSuccess({paymentsummarychart: response})),
-  //       catchError(error => of(new actions.LoadPaymentSummaryChartError(error)))
-  //     );
-  //   }),
-  // );
+  );  
 
 }
 

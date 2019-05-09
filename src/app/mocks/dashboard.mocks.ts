@@ -2,6 +2,7 @@ import { Observable, of, pipe, throwError, interval } from 'rxjs';
 import { IChartModel, DefaultChart, DefaultOrderChart, DefaultPaymentChart } from 'src/app/models/chart.model';
 import { ITileModel, DefaultTiles } from 'src/app/models/tile.model'
 import { catchError, delay, map, switchMap, mergeMap } from 'rxjs/operators';
+import { ITopSellingModel } from '../models/topselling.model';
 
 export function mockOrderChartApiResponse(): Observable<IChartModel> {
   return of({
@@ -76,14 +77,38 @@ export function mockPaymentSummaryChartApiResponse(): Observable<IChartModel> {
     yAxis: { min: 0, title: { text: 'Price' }, labels: { overflow: 'justify' } },
     series: [{
       name: 'Sales',
-      data: [Math.floor(1000 * Math.random()), Math.floor(1000 * Math.random()), 
-        Math.floor(1000 * Math.random()), Math.floor(1000 * Math.random())]
+      data: [Math.floor(1000 * Math.random()), Math.floor(1000 * Math.random()),
+      Math.floor(1000 * Math.random()), Math.floor(1000 * Math.random())]
     }]
   })
     .pipe(
       delay(1000)
     )
-  //return throwError(new Error('This is custom error'));
+}
+
+export function mockOrderStatusChartApiResponse(): Observable<IChartModel> {
+  return of({
+    ...DefaultPaymentChart(),
+    chart: {
+      type: 'bar'
+    },
+    title: {
+      text: 'Order Status Chart'
+    },
+    xAxis: {
+      categories: ['Table', 'Take Away', 'Online', 'Third Party', 'Corporate'],
+      title: { text: null }
+    },
+    yAxis: { min: 0, title: { text: 'Price' }, labels: { overflow: 'justify' } },
+    series: [{
+      name: 'Sales',
+      data: [Math.floor(1000 * Math.random()), Math.floor(1000 * Math.random()),
+      Math.floor(1000 * Math.random()), Math.floor(1000 * Math.random()), Math.floor(1000 * Math.random())]
+    }]
+  })
+    .pipe(
+      delay(1000)
+    )
 }
 
 
@@ -108,10 +133,37 @@ export function mockTileApiResponse(): Observable<ITileModel[]> {
   },
   {
     title: 'TOP SELLING',
-    count: 'Tea',
+    count: 'Tea, Coffee...',
     change: 0,
     link: '#'
   }])
+    .pipe(
+      delay(1000)
+    )
+}
+
+export function mockTopSellingApiResponse(): Observable<ITopSellingModel[]> {
+  return of([{
+    title: 'Masala Chai',
+    quantity: Math.floor(20 * Math.random()),
+  },
+  {
+    title: 'Tripple Schewan Fried Rice',
+    quantity: Math.floor(50 * Math.random()),
+  },
+  {
+    title: 'Special Masala Dosa',
+    quantity: Math.floor(50 * Math.random()),
+  },
+  {
+    title: 'Onion Uttapa',
+    quantity: Math.floor(50 * Math.random()),
+  },
+  {
+    title: 'Maggie',
+    quantity: Math.floor(25 * Math.random()),
+  }
+  ])
     .pipe(
       delay(1000)
     )

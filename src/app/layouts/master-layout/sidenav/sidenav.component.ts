@@ -21,8 +21,7 @@ export class SidenavComponent implements OnInit {
         if (url.indexOf("/")>0) {
           url = url.substring(0,url.indexOf("/"));
         }
-        this.selected_menu = url;
-        console.log(this.selected_menu);
+        this.selected_menu = url;        
       }
 
     });

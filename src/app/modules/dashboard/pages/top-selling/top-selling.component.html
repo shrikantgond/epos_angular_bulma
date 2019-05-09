@@ -20,7 +20,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let item of (topselling$ | async)">
+            <td>{{item.title}}</td>
+            <td>{{item.quantity}}</td>
+          </tr>
+          <!-- <tr>
             <td>Masala Chai</td>
             <td>68</td>
           </tr>
@@ -39,11 +43,7 @@
           <tr>
             <td>Masala Chai</td>
             <td>68</td>
-          </tr>
-          <tr>
-            <td>Masala Chai</td>
-            <td>68</td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
 
