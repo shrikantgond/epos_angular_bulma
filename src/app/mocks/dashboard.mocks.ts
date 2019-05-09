@@ -1,15 +1,20 @@
 import { Observable, of, pipe, throwError, interval } from 'rxjs';
 import { IChartModel, DefaultChart, DefaultOrderChart, DefaultPaymentChart } from 'src/app/models/chart.model';
+import { ITileModel, DefaultTiles } from 'src/app/models/tile.model'
 import { catchError, delay, map, switchMap, mergeMap } from 'rxjs/operators';
 
 export function mockOrderChartApiResponse(): Observable<IChartModel> {
-    return of({    
-      ...DefaultOrderChart(),      
-      xAxis: { categories: ['10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'],
-        title: { text: null } },      
-      series: [{name: 'Orders', data: [Math.floor(50*Math.random()), Math.floor(50*Math.random()), Math.floor(50*Math.random()), Math.floor(50*Math.random()), 
-        Math.floor(50*Math.random()), Math.floor(50*Math.random()), Math.floor(50*Math.random()), Math.floor(50*Math.random()), 
-        Math.floor(50*Math.random()), Math.floor(50*Math.random())]}]
+  return of({
+    ...DefaultOrderChart(),
+    xAxis: {
+      categories: ['10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'],
+      title: { text: null }
+    },
+    series: [{
+      name: 'Orders', data: [Math.floor(50 * Math.random()), Math.floor(50 * Math.random()), Math.floor(50 * Math.random()), Math.floor(50 * Math.random()),
+      Math.floor(50 * Math.random()), Math.floor(50 * Math.random()), Math.floor(50 * Math.random()), Math.floor(50 * Math.random()),
+      Math.floor(50 * Math.random()), Math.floor(50 * Math.random())]
+    }]
   })
     .pipe(
       delay(1000)
@@ -71,11 +76,43 @@ export function mockPaymentSummaryChartApiResponse(): Observable<IChartModel> {
     yAxis: { min: 0, title: { text: 'Price' }, labels: { overflow: 'justify' } },
     series: [{
       name: 'Sales',
-      data: [107, 31, 635, 203]
+      data: [Math.floor(1000 * Math.random()), Math.floor(1000 * Math.random()), 
+        Math.floor(1000 * Math.random()), Math.floor(1000 * Math.random())]
     }]
   })
     .pipe(
       delay(1000)
     )
   //return throwError(new Error('This is custom error'));
+}
+
+
+export function mockTileApiResponse(): Observable<ITileModel[]> {
+  return of([{
+    title: 'TOTAL ORDERS',
+    count: Math.floor(50 * Math.random()).toString(),
+    change: Math.floor(50 * Math.random()),
+    link: '#'
+  },
+  {
+    title: 'TOTAL CUSTOMERS',
+    count: Math.floor(50 * Math.random()).toString(),
+    change: Math.floor(50 * Math.random()),
+    link: '#'
+  },
+  {
+    title: 'TOTAL SALE',
+    count: Math.floor(50 * Math.random()).toString(),
+    change: Math.floor(50 * Math.random()),
+    link: '#'
+  },
+  {
+    title: 'TOP SELLING',
+    count: 'Tea',
+    change: 0,
+    link: '#'
+  }])
+    .pipe(
+      delay(1000)
+    )
 }

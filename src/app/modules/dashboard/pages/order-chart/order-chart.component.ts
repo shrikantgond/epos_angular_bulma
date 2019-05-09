@@ -3,10 +3,10 @@ import * as Highcharts from 'highcharts';
 import { Observable } from 'rxjs';
 import { ApplicationState } from 'src/app/store/application.state';
 import { Store } from '@ngrx/store';
-import { LoadOrderChart, LoadPaymentChart } from 'src/app/store/dashboard-store/dashboard-store.actions';
 import { OrderChartState } from 'src/app/store/dashboard-store/states/orderchart.state';
-import { DashboardState } from 'src/app/store/dashboard-store/dashboard-store';
 import { PaymentChartState } from 'src/app/store/dashboard-store/states/paymentchart.state';
+import { LoadOrderChart } from 'src/app/store/dashboard-store/actions/orderchart.actions';
+import { LoadPaymentChart } from 'src/app/store/dashboard-store/actions/paymentchart.actions';
 
 
 @Component({
@@ -33,10 +33,10 @@ export class OrderChartComponent implements OnInit,OnDestroy {
     this.orderchart$ = this.store.select<OrderChartState>((state: any) => state['orderchart']);
     this.paymentchart$ = this.store.select<PaymentChartState>((state: any) => state['paymentchart']);
     this.load();
-    this.store.select<PaymentChartState>((state: any) => state['paymentchart'])
-    .subscribe((chart: any) => { console.log(chart); });
-    this.store.select<OrderChartState>((state: any) => state['orderchart'])
-    .subscribe((chart: any) => { console.log(chart); });
+    // this.store.select<PaymentChartState>((state: any) => state['paymentchart'])
+    // .subscribe((chart: any) => { console.log(chart); });
+    // this.store.select<OrderChartState>((state: any) => state['orderchart'])
+    // .subscribe((chart: any) => { console.log(chart); });
   }
 
   load() {

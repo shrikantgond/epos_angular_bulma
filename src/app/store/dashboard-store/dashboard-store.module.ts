@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardEffects } from './dashboard-store.effects';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { OrderChartReducer } from './reducers/orderchart.reducer';
@@ -9,17 +8,19 @@ import { PaymentChartReducer } from './reducers/paymentchart.reducer';
 import { PaymentChartEffects } from './effects/paymentchart.effects';
 import { PaymentSummaryChartReducer } from './reducers/paymentsummarychart.reducer';
 import { PaymentSummaryChartEffects } from './effects/paymentsummarychart.effects';
+import { TileReducer } from './reducers/tile.reducer';
+import { TileEffects } from './effects/tile.effects';
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    //StoreModule.forFeature('dashboard', {DashboardReducer}),
+    CommonModule,    
     StoreModule.forFeature('orderchart', OrderChartReducer),
     StoreModule.forFeature('paymentchart', PaymentChartReducer),
     StoreModule.forFeature('paymentsummarychart', PaymentSummaryChartReducer),
-    EffectsModule.forFeature([OrderChartEffects,PaymentChartEffects,PaymentSummaryChartEffects])
+    StoreModule.forFeature('tiles', TileReducer),
+    EffectsModule.forFeature([OrderChartEffects,PaymentChartEffects,PaymentSummaryChartEffects,TileEffects])
   ],
-  providers: [OrderChartEffects,PaymentChartEffects,PaymentSummaryChartEffects]
+  providers: [OrderChartEffects,PaymentChartEffects,PaymentSummaryChartEffects,TileEffects]
 })
 export class DashboardStoreModule { }

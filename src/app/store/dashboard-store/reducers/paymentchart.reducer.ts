@@ -14,6 +14,7 @@ export function PaymentChartReducer(state: PaymentChartState = DefaultPaymentCha
         case PaymentChartActionsTypes.LoadSuccess:
             return {
                 ...state,
+                chartdata: action.payload.paymentchart,
                 ...app.LoadedApplicationState(),
             }
           case PaymentChartActionsTypes.LoadError:          

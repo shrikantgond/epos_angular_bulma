@@ -18,8 +18,7 @@ export class PaymentSummaryChartEffects {
   loadPaymentSummaryChart = this.actions$.pipe(
     ofType(actions.PaymentSummaryChartActionsTypes.Load),
     switchMap(action => {
-      //console.log('loadPaymentSummaryChart');
-      // return this.http.get('some url');
+      console.log('loadPaymentSummaryChart api called');
       return mocks.mockPaymentSummaryChartApiResponse().pipe(
         map((response: any) => new actions.LoadPaymentSummaryChartSuccess({ paymentsummarychart: response })),
         catchError(error => of(new actions.LoadPaymentSummaryChartError(error)))

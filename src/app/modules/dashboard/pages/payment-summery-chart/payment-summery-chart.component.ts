@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { Observable } from 'rxjs';
-import { DashboardState } from 'src/app/store/dashboard-store/dashboard-store';
 import { ApplicationState } from 'src/app/store/application.state';
 import { Store } from '@ngrx/store';
-import { LoadPaymentSummaryChart } from 'src/app/store/dashboard-store/dashboard-store.actions';
-import { OrderChartState } from 'src/app/store/dashboard-store/states/orderchart.state';
 import { PaymentSummaryChartState } from 'src/app/store/dashboard-store/states/paymentsummarychart.state';
+import { LoadPaymentSummaryChart } from 'src/app/store/dashboard-store/actions/paymentsummarychart.actions';
 
 @Component({
   selector: 'app-payment-summery-chart',
@@ -30,8 +28,8 @@ export class PaymentSummeryChartComponent implements OnInit {
   constructor(private store: Store<ApplicationState>) {     
     this.paymentsummarychart$ = this.store.select<PaymentSummaryChartState>((state: any) => state['paymentsummarychart']);
     this.load();
-    this.store.select<PaymentSummaryChartState>((state: any) => state['paymentsummarychart'])
-    .subscribe((chart: any) => { console.log(chart); });
+    // this.store.select<PaymentSummaryChartState>((state: any) => state['paymentsummarychart'])
+    // .subscribe((chart: any) => { console.log(chart); });
     
   }
 

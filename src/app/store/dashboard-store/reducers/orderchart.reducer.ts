@@ -14,6 +14,7 @@ export function OrderChartReducer(state: OrderChartState = DefaultOrderChartStat
         case OrderChartActionsTypes.LoadSuccess:
             return {
                 ...state,
+                chartdata: action.payload.orderchart,
                 ...app.LoadedApplicationState(),
             }
           case OrderChartActionsTypes.LoadError:          

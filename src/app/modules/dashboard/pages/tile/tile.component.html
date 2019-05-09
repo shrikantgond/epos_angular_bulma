@@ -1,11 +1,11 @@
 <div class="columns is-mobile is-multiline">
-  <div class="column" *ngFor="let tile of tiles">
+  <div class="column" *ngFor="let tile of (tiles$ | async)">
     <div class="box">
       <div class="content">
         <span class="uppercase">{{tile.title}}</span>
         <h1 class="h1-custom">{{tile.count}}</h1>
         <div class="columns is-mobile is-centered">
-          <div class="column">
+          <div class="column" *ngIf="tile.change !=0">
             <span style="padding-right:5px;">
                 <fa-icon icon="caret-up" *ngIf="tile.change > 0"></fa-icon>
                 <fa-icon icon="caret-down" *ngIf="tile.change < 0"></fa-icon>

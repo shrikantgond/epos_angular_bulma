@@ -18,7 +18,7 @@ export class PaymentChartEffects {
   loadPaymentChart = this.actions$.pipe(    
     ofType(actions.PaymentChartActionsTypes.Load),
     switchMap(action => {
-      //console.log('loadPaymentChart');
+      console.log('loadPaymentChart api called');
       // return this.http.get('some url');
       return mocks.mockPaymentChartApiResponse().pipe(
         map((response: any) => new actions.LoadPaymentChartSuccess({paymentchart: response})),

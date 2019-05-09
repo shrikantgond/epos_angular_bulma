@@ -18,6 +18,7 @@ export class OrderChartEffects {
   loadOrderChart = this.actions$.pipe(
     ofType(actions.OrderChartActionsTypes.Load),
     switchMap(action => {
+      console.log('loadOrderChart api called');
       // return this.http.get('some url');
       return mocks.mockOrderChartApiResponse().pipe(
         map((response: any) => new actions.LoadOrderChartSuccess({orderchart: response})),
