@@ -6,53 +6,38 @@
             <p class="subtitle">Inventory Status</p>
           </div>
           <div class="column has-text-right ">
-            <a class="button is-rounded is-small">White</a>
+              <a class="button is-rounded is-small" (click)="load()">
+                  <fa-icon icon="spinner"></fa-icon>
+                </a>
           </div>
         </div>
       </div>
 
+      <loading-container [loadable]="(inventorystatus$ | async)">
       <table class="table is-hoverable is-fullwidth">
         <thead>
           <tr>
             <th>Inventory</th>
-            <th>Progress</th>
+            <th>Quantity</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Tea Powder</td>
-            <td><progress class="progress is-danger" value="25" max="100">25%</progress>
+          <tr *ngFor="let itm of (inventorystatus$ | async).inventorystatus">
+            <td>{{itm.title}}</td>
+            <td><progress class="progress" 
+              [ngClass]="{'is-success': itm.quantity>70 , 'is-info': itm.quantity<71 && itm.quantity>20, 'is-danger': itm.quantity<21}"
+              [value]="itm.quantity" max="100">{{itm.quantity}}}%</progress>
             </td>
-            <td><a class="button is-rounded is-small is-info ">Send Requisition</a></td>
-          </tr>
-          <tr>
-            <td>Sugar</td>
-            <td><progress class="progress is-warning" value="45" max="100">45%</progress>
-            </td>
-            <td><a class="button is-rounded is-small" disabled>Send Requisition</a></td>
-          </tr>
-          <tr>
-            <td>Salt</td>
-            <td><progress class="progress is-warning" value="55" max="100">55%</progress>
-            </td>
-            <td><a class="button is-rounded is-small" disabled>Send Requisition</a></td>
-          </tr>
-          <tr>
-            <td>White Bread</td>
-            <td><progress class="progress is-danger" value="35" max="100">75%</progress>
-            </td>
-            <td><a class="button is-rounded is-small is-info ">Send Requisition</a></td>
-          </tr>
-          <tr>
-            <td>Green Chilli Powder</td>
-            <td><progress class="progress is-success" value="75" max="100">75%</progress>
-            </td>
-            <td><a class="button is-rounded is-small" disabled>Send Requisition</a></td>
-          </tr>
+            <td><a class="button is-rounded is-small" [routerLink]="itm.actionlink"
+              [ngClass]="{'is-success': itm.quantity>70 , 'is-info': itm.quantity<71 && itm.quantity>20, 'is-danger': itm.quantity<21}"
+              [attr.disabled]="itm.isactionable ? 'disabled' : null">Send Requisition</a></td>
+          </tr>          
 
         </tbody>
       </table>
+    </loading-container>
+
 
       <nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">
         <a class="pagination-previous">Previous</a>

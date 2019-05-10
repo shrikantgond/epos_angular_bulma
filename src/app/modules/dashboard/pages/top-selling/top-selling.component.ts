@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { LoadTopSelling } from 'src/app/store/dashboard-store/actions/topselling.actions';
 import { ITopSellingModel } from 'src/app/models/topselling.model';
+import { TopSellingState } from 'src/app/store/dashboard-store/states/topselling.state';
 
 @Component({
   selector: 'app-top-selling',
@@ -12,13 +13,13 @@ import { ITopSellingModel } from 'src/app/models/topselling.model';
 })
 export class TopSellingComponent implements OnInit {
 
-  topselling$: Observable<ITopSellingModel[]>;
+  topselling$: Observable<TopSellingState>;
 
   constructor(private store: Store<ApplicationState>) {     
-    this.topselling$ = this.store.select<ITopSellingModel[]>((state: any) => state['topselling'].topselling);
+    this.topselling$ = this.store.select<TopSellingState>((state: any) => state['topselling']);
     this.load();
-   /*  this.store.select<ITopSellingModel[]>((state: any) => state)
-    .subscribe((chart: any) => { console.log('ad'); console.log(chart); }); */
+    // this.store.select<TopSellingState>((state: any) => state['topselling'])
+    // .subscribe((chart: any) => { console.log('ad'); console.log(chart); }); 
 
   }
 

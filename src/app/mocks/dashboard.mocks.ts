@@ -148,7 +148,7 @@ export function mockTopSellingApiResponse(): Observable<ITopSellingModel[]> {
     quantity: Math.floor(20 * Math.random()),
   },
   {
-    title: 'Tripple Schewan Fried Rice',
+    title: 'Tripple Schewan Fried Rice Schewan Fried Rice',
     quantity: Math.floor(50 * Math.random()),
   },
   {
@@ -164,6 +164,48 @@ export function mockTopSellingApiResponse(): Observable<ITopSellingModel[]> {
     quantity: Math.floor(25 * Math.random()),
   }
   ])
+    .pipe(
+      delay(1000)
+    )
+}
+
+export function mockInventoryStatusApiResponse(): Observable<ITopSellingModel[]> {
+  return of([{
+    title:'Tea Powder',        
+    quantity:Math.floor(80 * Math.random()),
+    isactionable: false
+},
+{
+    title:'Sugar',        
+    quantity:Math.floor(40 * Math.random()),
+    isactionable: true,
+    actionlink:'inventory'
+},
+{
+    title:'Salt',        
+    quantity:Math.floor(90 * Math.random()),
+    isactionable: false,
+    actionlink:'inventory'
+},
+// {
+//     title:'White Bread',        
+//     quantity:Math.floor(50 * Math.random()),
+//     isactionable: true,
+//     actionlink:'inventory'
+// },
+// {
+//     title:'Amul Butter',        
+//     quantity:Math.floor(80 * Math.random()),
+//     isactionable: false,
+//     actionlink:'inventory'
+// },
+{
+    title:'Safolla RiceBran Helth plus oil',        
+    quantity:Math.floor(25 * Math.random()),
+    isactionable: true,
+    actionlink:'inventory'
+},
+])
     .pipe(
       delay(1000)
     )
