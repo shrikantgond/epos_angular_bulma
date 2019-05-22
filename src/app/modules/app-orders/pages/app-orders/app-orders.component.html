@@ -1,36 +1,23 @@
 <div class="tabs">
   <ul>
-      <li class="is-active"><a>All Tables</a></li>
-      <li><a>Available</a></li>
-      <li><a>Occupied</a></li>
-      <li><a>Take Away</a></li>
-      <li><a>Third Party</a></li>
-      <li><a>Corporate</a></li>
+    <li [ngClass]="{'is-active': tabindex === 0}"><a (click)="onTabChange(0);">All Tables</a></li>
+    <li [ngClass]="{'is-active': tabindex === 1}"><a (click)="onTabChange(1);">Available</a></li>
+    <li [ngClass]="{'is-active': tabindex === 2}"><a (click)="onTabChange(2);">Occupied</a></li>
+    <li disabled="disabled" [ngClass]="{'is-active': tabindex === 3}"><a>Take Away</a></li>
+    <li [ngClass]="{'is-active': tabindex === 4}"><a>Third Party</a></li>
+    <li [ngClass]="{'is-active': tabindex === 5}"><a>Corporate</a></li>
   </ul>
 </div>
-
+<loading-container [loadable]="(tables$ | async)">
 <div class="columns is-1 is-mobile is-centered is-multiline">
-  <div class="column">
-    <app-round-table table-no="1"></app-round-table>
-  </div>
-  <div class="column">
-    <app-round-table table-no="2" table-bill="R 43" order-time="18:05" occupied="true"></app-round-table>
-  </div>
-  <div class="column">
-    <app-square-table table-no="3"></app-square-table>
-  </div>
-  <div class="column">
-    <app-round-table table-no="4" table-bill="R 8" order-time="00:20" occupied="true"></app-round-table>
-  </div>
-  <div class="column">
-    <app-square-table table-no="5"></app-square-table>
-  </div>
-  <div class="column">
-    <app-square-table table-no="6"></app-square-table>
-  </div>
-  <div class="column">
-    <app-square-table table-no="7" order-time="00:20" table-bill="R 478" occupied="true"></app-square-table>
-  </div>
-  
-</div>
  
+    <div class="column" *ngFor="let item of (tbls$ | async)">
+      <app-round-table *ngIf='item.type===1' [table-no]="item.table_no" [table-bill]="item.bill_amt"
+        [order-time]="item.elapsed_time" [occupied]="item.status==2"></app-round-table>
+      <app-square-table *ngIf="item.type===2" [table-no]="item.table_no" [table-bill]="item.bill_amt"
+        [order-time]="item.elapsed_time" [occupied]="item.status==2"></app-square-table>
+    </div>
+
+</div>
+
+</loading-container>

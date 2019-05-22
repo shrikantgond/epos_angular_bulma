@@ -4,11 +4,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { DashboardStoreModule } from './dashboard-store/dashboard-store.module';
+import { OrderStoreModule } from './order-store/order-store.module';
 
 @NgModule({
   imports: [
     CommonModule,
     DashboardStoreModule,
+    OrderStoreModule,
     StoreModule.forRoot({}),//(initialReducerMap, { initialState: getInitialState }),
     EffectsModule.forRoot([]),//.forRoot([NewsEffects]),
     StoreDevtoolsModule.instrument({

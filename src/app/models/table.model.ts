@@ -1,0 +1,64 @@
+export interface ITableModel{
+    table_no:number;
+    status:number;
+    bill_amt?:number;
+    elapsed_time?:string;
+    type:number;
+  }
+
+  export function DefaultTables(): ITableModel[] {
+    return [{
+        table_no:1,
+        status:2,
+        bill_amt:44.65,
+        elapsed_time:'08:10',
+        type:1
+    },
+    {
+        table_no:2,
+        status:1,
+        type:1
+    },
+    {
+        table_no:3,
+        status:1,
+        type:2
+    },
+    {
+        table_no:4,
+        status:2,
+        bill_amt:44.65,
+        elapsed_time:'08:10',
+        type:2
+    },
+    {
+        table_no:5,
+        status:2,
+        bill_amt:44.65,
+        elapsed_time:'08:10',
+        type:1
+    },
+    {
+        table_no:6,
+        status:2,
+        bill_amt:44.65,
+        elapsed_time:'08:10',
+        type:1
+    },
+    {
+        table_no:7,
+        status:2,
+        bill_amt:44.65,
+        elapsed_time:'08:10',
+        type:1
+    },
+    {
+        table_no:8,
+        status:2,
+        bill_amt:44.65,
+        elapsed_time:'08:10',
+        type:2
+    }
+    
+]
+}

@@ -6,6 +6,7 @@ import { SharedModule } from 'src/app/shared';
 import { RoundTableComponent } from './pages/round-table/round-table.component';
 import { SquareTableComponent } from './pages/square-table/square-table.component';
 import { AppOrderComponent } from './pages/app-order/app-order.component';
+import { LoadingContainerComponent } from 'src/app/loading-container/loading-container.component';
 
 @NgModule({
   imports: [

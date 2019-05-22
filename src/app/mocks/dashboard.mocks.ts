@@ -133,7 +133,7 @@ export function mockTileApiResponse(): Observable<ITileModel[]> {
   },
   {
     title: 'TOP SELLING',
-    count: 'Tea, Coffee...',
+    count: 'Tea, Coffee, Special Masala Dosa',
     change: 0,
     link: '#'
   }])

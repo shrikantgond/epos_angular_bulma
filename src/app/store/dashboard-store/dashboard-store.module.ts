@@ -15,7 +15,7 @@ import { OrderStatusChartEffects } from './effects/orderstatuschart.effects';
 import { TopSellingReducer } from './reducers/topselling.reducer';
 import { TopSellingEffects } from './effects/topselling.effects';
 import { InventoryStatusReducer } from './reducers/inventorystatus.reducer';
-import { InventoryStatusEffects } from './effects/inventorystatus.effects.1';
+import { InventoryStatusEffects } from './effects/inventorystatus.effects';
 
 @NgModule({
   declarations: [],

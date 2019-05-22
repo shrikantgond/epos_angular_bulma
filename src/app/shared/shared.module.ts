@@ -102,6 +102,7 @@ library.add(
 );
 
 import { HighchartsChartModule } from 'highcharts-angular';
+import { LoadingContainerComponent } from '../loading-container/loading-container.component';
 
 @NgModule({
   imports: [
@@ -117,8 +118,9 @@ import { HighchartsChartModule } from 'highcharts-angular';
     RouterModule,
 
     FontAwesomeModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    LoadingContainerComponent
   ],
-  declarations: []
+  declarations: [LoadingContainerComponent]
 })
 export class SharedModule { }

@@ -19,110 +19,21 @@
 
     <div class="tabs">
       <ul>
-        <li class="is-active"><a>All</a></li>
-        <li><a>Hot Drinks</a></li>
-        <li><a>Cold Drinks</a></li>
-        <li><a>Snacks</a></li>
-        <li><a>Others</a></li>
+        <li [ngClass]="{'is-active': tabcode === ''}"><a (click)="onTabChange('');">All</a></li>
+        <li [ngClass]="{'is-active': tabcode === 'hd'}"><a (click)="onTabChange('hd');">Hot Drinks</a></li>
+        <li [ngClass]="{'is-active': tabcode === 'cd'}"><a (click)="onTabChange('cd');">Cold Drinks</a></li>
+        <li [ngClass]="{'is-active': tabcode === 'sn'}"><a (click)="onTabChange('sn');">Snacks</a></li>
+        <li [ngClass]="{'is-active': tabcode === 'ot'}"><a (click)="onTabChange('ot');">Others</a></li>
       </ul>
     </div>
 
 
     <div class="columns is-1 is-mobile is-multiline">
-      <div class="column">
-        <div class="box menu-item link">
+      <div class="column" *ngFor="let item of (menus$ | async)">
+        <div class="box menu-item link" (click)="addmenuitem(item)">
           <div class="content has-text-centered">
-            <div>Masala Chai</div>
-            <div>R 12 * 2</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="box menu-item link">
-          <div class="content has-text-centered">
-            <div class="menu-item">Tripple Schezwan manchurian rice</div>
-            <div>R 40 * 1</div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box menu-item link">
-          <div class="content has-text-centered">
-            <div>Masala Chai</div>
-            <div>R 12 * 2</div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box menu-item link">
-          <div class="content has-text-centered">
-            <div>Masala Chai</div>
-            <div>R 12 * 2</div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box menu-item link">
-          <div class="content has-text-centered">
-            <div>Masala Chai</div>
-            <div>R 12 * 2</div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box menu-item link">
-          <div class="content has-text-centered">
-            <div>Masala Chai</div>
-            <div>R 12 * 2</div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box menu-item link">
-          <div class="content has-text-centered">
-            <div>Masala Chai</div>
-            <div>R 12 * 2</div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box menu-item link">
-          <div class="content has-text-centered">
-            <div>Masala Chai</div>
-            <div>R 12 * 2</div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box menu-item link">
-          <div class="content has-text-centered">
-            <div>Masala Chai</div>
-            <div>R 12 * 2</div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box menu-item link">
-          <div class="content has-text-centered">
-            <div>Masala Chai</div>
-            <div>R 12 * 2</div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box menu-item link">
-          <div class="content has-text-centered">
-            <div>Masala Chai</div>
-            <div>R 12 * 6</div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box menu-item link">
-          <div class="content has-text-centered">
-            <div>Masala Chai</div>
-            <div>R 12 * 2</div>
+            <div>{{item.title}}</div>
+            <div style="font-weight:bold;">R {{item.rate}}</div>
           </div>
         </div>
       </div>
@@ -135,18 +46,11 @@
 
   <div class="column" aria-label="KOT list">
 
-    <!-- <div class="box">
-                <div class="content columns is-mobile">
-                <div class="column">Masala Chai</div>
-                <div class="column">R 12 * 2</div>
-                </div>
-            </div> -->
-
     <div class="box">
       <div class="content">
 
         <div class="columns is-mobile" style="margin-bottom:0%">
-          <h4 class="column">Table 2</h4>
+          <h4 class="column">Table {{(order$ | async).tablecode}}</h4>
           <!-- <div class="column is-narrow has-text-right">
             <a class="button is-small is-rounded is-primary" style="width:100px;margin-bottom: 10px;">Pay
               Now</a>
@@ -167,49 +71,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Tea Powder</td>
-              <td>12</td>
-              <td>2</td>
-              <td>24</td>
-            </tr>
-            <tr>
-              <td>Tripple Schezwan manchurian rice</td>
-              <td>40</td>
-              <td>1</td>
-              <td>40</td>
-            </tr>
-            <tr>
-              <td>Tea Powder</td>
-              <td>12</td>
-              <td>2</td>
-              <td>24</td>
-            </tr>
-            <tr>
-              <td>Tea Powder</td>
-              <td>12</td>
-              <td>2</td>
-              <td>24</td>
-            </tr>
-            <tr>
-              <td>Tea Powder</td>
-              <td>12</td>
-              <td>2</td>
-              <td>24</td>
-            </tr>
-            <tr>
-              <td>Tea Powder</td>
-              <td>12</td>
-              <td>2</td>
-              <td>24</td>
-            </tr>
-            <tr>
-              <td>Tea Powder</td>
-              <td>12</td>
-              <td>2</td>
-              <td>24</td>
-            </tr>
-
+              <tr *ngFor="let item of (order$ | async).items">
+                  <td>{{item.menutitle}}</td>
+                  <td>{{item.menurate}}</td>
+                  <td>{{item.quantity}}</td>
+                  <td>{{item.menurate * item.quantity}}</td>
+                </tr>
+          
 
           </tbody>
         </table>
@@ -230,7 +98,7 @@
               <div class="column">
                 <div class="columns is-mobile">
                   <div class="column" style="padding:0.2rem 0.5rem;">Total Amount</div>
-                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs 156
+                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs {{total}}
                   </div>
                 </div>
                 <!-- <div class="columns is-mobile">
@@ -245,7 +113,7 @@
                 </div> -->
                 <div class="columns is-mobile">
                   <div class="column" style="padding:0.2rem 0.5rem;">Tax(CGST,SGST)</div>
-                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs 7
+                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs {{total* tax}}
                   </div>
                 </div>
                 <!-- <div class="columns is-mobile">
@@ -256,7 +124,7 @@
                 <div class="columns is-mobile">
                   <div class="column" style="padding:0.2rem 0.5rem;"><b>Payable</b></div>
                   <div class="column has-text-right" style="padding:0.2rem 0.5rem;"><b>Rs
-                      160</b>
+                    {{total + total* tax}}</b>
                   </div>
                 </div>
 

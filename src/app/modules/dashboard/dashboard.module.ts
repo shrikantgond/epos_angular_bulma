@@ -20,6 +20,6 @@ import { LoadingContainerComponent } from 'src/app/loading-container/loading-con
     SharedModule
   ],
   declarations: [ 
-    LoadingContainerComponent, DashboardComponent, TileComponent, PaymentChartComponent, OrderChartComponent, PaymentSummeryChartComponent, OrderStatusChartComponent, SaleStatusChartComponent, TopSellingComponent, InventoryStatusComponent]
+     DashboardComponent, TileComponent, PaymentChartComponent, OrderChartComponent, PaymentSummeryChartComponent, OrderStatusChartComponent, SaleStatusChartComponent, TopSellingComponent, InventoryStatusComponent]
 })
 export class DashboardModule { }
