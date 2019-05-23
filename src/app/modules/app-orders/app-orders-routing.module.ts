@@ -11,7 +11,7 @@ const routes: Routes = [
    data: {breadcrumb: 'orders'},
   },
   {
-    path: 'order',
+    path: 'order/:id',
    component: AppOrderComponent,
    data: {breadcrumb: 'order'},
   }

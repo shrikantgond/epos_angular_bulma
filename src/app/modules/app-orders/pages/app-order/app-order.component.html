@@ -27,20 +27,18 @@
       </ul>
     </div>
 
-
-    <div class="columns is-1 is-mobile is-multiline">
-      <div class="column" *ngFor="let item of (menus$ | async)">
-        <div class="box menu-item link" (click)="addmenuitem(item)">
-          <div class="content has-text-centered">
-            <div>{{item.title}}</div>
-            <div style="font-weight:bold;">R {{item.rate}}</div>
+    <loading-container [loadable]="(menustate$ | async)">
+      <div class="columns is-1 is-mobile is-multiline">
+        <div class="column" *ngFor="let item of (menus$ | async)">
+          <div class="box menu-item link" (click)="addmenuitem(item)">
+            <div class="content has-text-centered">
+              <div>{{item.title}}</div>
+              <div style="font-weight:bold;">R {{item.rate}}</div>
+            </div>
           </div>
         </div>
       </div>
-
-
-    </div>
-
+    </loading-container>
 
   </div>
 
@@ -49,7 +47,7 @@
     <div class="box">
       <div class="content">
 
-        <div class="columns is-mobile" style="margin-bottom:0%">
+        <div *ngIf="(order$ | async)" class="columns is-mobile" style="margin-bottom:0%">
           <h4 class="column">Table {{(order$ | async).tablecode}}</h4>
           <!-- <div class="column is-narrow has-text-right">
             <a class="button is-small is-rounded is-primary" style="width:100px;margin-bottom: 10px;">Pay
@@ -70,14 +68,14 @@
               <th>Price</th>
             </tr>
           </thead>
-          <tbody>
-              <tr *ngFor="let item of (order$ | async).items">
-                  <td>{{item.menutitle}}</td>
-                  <td>{{item.menurate}}</td>
-                  <td>{{item.quantity}}</td>
-                  <td>{{item.menurate * item.quantity}}</td>
-                </tr>
-          
+          <tbody *ngIf="(order$ | async)">
+            <tr *ngFor="let item of (order$ | async).items">
+              <td>{{item.menutitle}}</td>
+              <td>{{item.menurate}}</td>
+              <td>{{item.quantity}}</td>
+              <td>{{item.menurate * item.quantity}}</td>
+            </tr>
+
 
           </tbody>
         </table>
@@ -98,7 +96,7 @@
               <div class="column">
                 <div class="columns is-mobile">
                   <div class="column" style="padding:0.2rem 0.5rem;">Total Amount</div>
-                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs {{total}}
+                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">{{total| currency:'INR':'symbol-narrow'}}
                   </div>
                 </div>
                 <!-- <div class="columns is-mobile">
@@ -113,7 +111,7 @@
                 </div> -->
                 <div class="columns is-mobile">
                   <div class="column" style="padding:0.2rem 0.5rem;">Tax(CGST,SGST)</div>
-                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs {{total* tax}}
+                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">{{total* tax| currency:'INR':'symbol-narrow'}}
                   </div>
                 </div>
                 <!-- <div class="columns is-mobile">
@@ -122,9 +120,9 @@
                   </div>
                 </div> -->
                 <div class="columns is-mobile">
-                  <div class="column" style="padding:0.2rem 0.5rem;"><b>Payable</b></div>
-                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;"><b>Rs
-                    {{total + total* tax}}</b>
+                  <div class="column" style="padding:0.2rem 0.5rem;font-size: 20px;"><b>Payable</b></div>
+                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;font-size: 20px;"><b>
+                      {{total + total* tax| currency:'INR':'symbol-narrow'}}</b>
                   </div>
                 </div>
 

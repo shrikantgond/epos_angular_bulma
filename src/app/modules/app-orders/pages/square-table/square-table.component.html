@@ -1,4 +1,4 @@
-<div class="table_square" [ngClass]="{'occupied': occupied}" [routerLink]="['order']" style="cursor:pointer" routerLinkActive="router-link-active">        
+<div class="table_square" [ngClass]="{'occupied': occupied}" [routerLink]="['order',table_no]" style="cursor:pointer" routerLinkActive="router-link-active">        
     <div class="order_time" [ngClass]="{'white': order_time==='un'}">{{order_time}}</div>  
     <div class="table_no" [ngClass]="{'white': table_no==='un'}">{{table_no}}</div>  
     <div class="table_bill" [ngClass]="{'white': table_bill==='un'}">R {{table_bill}}</div>               

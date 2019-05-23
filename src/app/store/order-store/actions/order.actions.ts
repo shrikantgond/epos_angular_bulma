@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import { IOrderModel } from 'src/app/models/order.model';
+import { IOrderModel, IOrderItemModel } from 'src/app/models/order.model';
 
 //#region  Order Order Action Types
 export enum OrderActionsTypes {
@@ -29,7 +29,7 @@ export enum OrderActionsTypes {
 
   export class SaveOrder implements Action {
     readonly type = OrderActionsTypes.Save;
-    constructor(public payload: {order: IOrderModel}) {      
+    constructor(public payload: {tablecode: number, menuitem: IOrderItemModel, actiontype:string}) {      
     }
   }
   export class SaveOrderSuccess implements Action {
