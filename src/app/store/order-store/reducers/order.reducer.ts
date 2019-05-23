@@ -12,67 +12,63 @@ export function OrderReducer(state: OrderState = DefaultOrderState(), action: Or
                 ...state,
                 ...app.LoadingApplicationState(),
             }
-            case OrderActionsTypes.Save:
-                    console.log('orders'); console.log(state.orders);
-                    //console.log(state.orders.concat(action.payload.order).unique()); 
-                    const orderindex = state.orders.findIndex(o => o.tablecode && o.tablecode === action.payload.tablecode);
-                    console.log('order ');  console.log(orderindex);
-                    if (orderindex > -1) {
-                        state.orders.map(order => {
-                            console.log('order before'); console.log(order);
-                            if (order.tablecode && order.tablecode === action.payload.tablecode) {
-                                console.log('order before 2'); console.log(order);                                                        
-                                if (order.items && order.items.length >0) {
-                                    const itemindex = order.items.findIndex(i => i.menutitle === action.payload.menuitem.menutitle);
-                                    switch (action.payload.actiontype) {
-                                        case 'ADD':
-                                                if(itemindex > -1){ order.items[itemindex].quantity++; }
-                                                else{ order.items.push(action.payload.menuitem);}                                            
-                                            break;                                    
-                                        default:
-                                            break;
-                                    }
-                                    
-                                } else {
-                                    order.items.push(action.payload.menuitem);
-                                }
-                                console.log('order after'); console.log(order);
-                            }
-                        });
-                        console.log(state.orders);
-                    } else {
-                        const neworder: IOrderModel ={
-                            tablecode: action.payload.tablecode,
-                            items: [action.payload.menuitem]
+        case OrderActionsTypes.Save:
+            const orderindex = state.orders.findIndex(o => o.tablecode && o.tablecode === action.payload.tablecode);
+            if (orderindex > -1) {
+                let itemindex = -1;
+                if (state.orders[orderindex].items && state.orders[orderindex].items.length > 0) {
+                    itemindex = state.orders[orderindex].items.findIndex(i => i.menutitle === action.payload.menuitem.menutitle);
+                }
+
+                switch (action.payload.actiontype) {
+                    case 'ADD':
+                        if (itemindex > -1) {
+                            state.orders[orderindex].items[itemindex].quantity++;
                         }
-                        state.orders = state.orders.concat(neworder);
-                        console.log(state.orders);
-                    }
-                    
+                        else {
+                            state.orders[orderindex].items.push(action.payload.menuitem);
+                        }
+                        break;
+                    case 'UPDATE':
+                        if (itemindex > -1) {
+                            state.orders[orderindex].items[itemindex] = action.payload.menuitem;
+                        }
+                        break;
+                    case 'DELETE':
+                        if (itemindex > -1) {
+                            console.log('wtf');
+                            console.log(state.orders[orderindex].items.filter(item =>
+                                item.menutitle !== action.payload.menuitem.menutitle
+                            ));
+                            state.orders[orderindex].items = state.orders[orderindex].items.filter(item =>
+                                item.menutitle !== action.payload.menuitem.menutitle);
+                            console.log(state.orders);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+            } else { // if order not found add it dont check actiontype
+                const neworder: IOrderModel = { tablecode: action.payload.tablecode, items: [action.payload.menuitem] }
+                state.orders = state.orders.concat(neworder);
+            }
+
             return {
-                ...state,     
-                //...state.orders = 
-                // ...state.orders.map(order => {
-                //     console.log('order before'); console.log(order);
-                //     if (order.tablecode && order.tablecode === action.payload.order.tablecode) {
-                //         console.log('order before'); console.log(order);
-                //         order.items.concat(action.payload.order.items); 
-                //         console.log('order before'); console.log(order);
-                //     }
-                // }),
+                ...state,
                 ...app.LoadedApplicationState(),
             }
-        case OrderActionsTypes.LoadSuccess:        
+        case OrderActionsTypes.LoadSuccess:
             return {
                 ...state,
                 //orders:[...state.orders, action.payload.orders]
                 orders: action.payload.orders,
                 ...app.LoadedApplicationState(),
             }
-          case OrderActionsTypes.LoadError:          
+        case OrderActionsTypes.LoadError:
             return {
-              ...state,
-              ...app.ErrorApplicationState(action.error),
+                ...state,
+                ...app.ErrorApplicationState(action.error),
             };
         default:
             return state;

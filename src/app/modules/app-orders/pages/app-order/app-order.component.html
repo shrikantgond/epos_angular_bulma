@@ -62,18 +62,22 @@
         <table class="table is-hoverable is-fullwidth">
           <thead>
             <tr>
+              <th></th>
               <th>Menu Item</th>
               <th>Rate</th>
               <th>Quantity</th>
-              <th>Price</th>
+              <th class="has-text-right">Price</th>
             </tr>
           </thead>
           <tbody *ngIf="(order$ | async)">
-            <tr *ngFor="let item of (order$ | async).items">
+            <tr *ngFor="let item of (order$ | async).items">              
+              <td class="delete" style="margin-top: 8px;" (click)="removeorder(item)"></td>
               <td>{{item.menutitle}}</td>
               <td>{{item.menurate}}</td>
-              <td>{{item.quantity}}</td>
-              <td>{{item.menurate * item.quantity}}</td>
+              <td><input style="width: 60px" min="0" max="999" class="input is-rounded has-text-right is-small" (change)="updatemenuitem(item)"
+                type="number" placeholder="1" [(ngModel)]="item.quantity">
+              </td>
+              <td class="has-text-right">{{item.menurate * item.quantity| currency:'INR':'symbol-narrow'}}</td>
             </tr>
 
 
@@ -84,9 +88,7 @@
           <div class="content">
             <div class="columns is-mobile">
               <div class="column is-one-third">
-                <div class="block">
-                  <!-- <a class="button is-small is-rounded is-primary"
-                    style="width:100px;margin-top:25px;margin-bottom: 10px;">Add KOT</a> -->
+                <div class="block">                  
                   <a class="button is-small is-rounded is-primary" style="width:100px;margin-bottom: 10px;">Pay
                     Now</a>
                   <a class="button is-small is-rounded is-danger" style="width:100px;margin-bottom: 10px;">Cancel</a>
@@ -98,27 +100,12 @@
                   <div class="column" style="padding:0.2rem 0.5rem;">Total Amount</div>
                   <div class="column has-text-right" style="padding:0.2rem 0.5rem;">{{total| currency:'INR':'symbol-narrow'}}
                   </div>
-                </div>
-                <!-- <div class="columns is-mobile">
-                  <div class="column" style="padding:0.2rem 0.5rem;">Discount</div>
-                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">10%
-                  </div>
-                </div>
-                <div class="columns is-mobile">
-                  <div class="column" style="padding:0.2rem 0.5rem;">Coupon(s)</div>
-                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">-
-                  </div>
-                </div> -->
+                </div>                
                 <div class="columns is-mobile">
                   <div class="column" style="padding:0.2rem 0.5rem;">Tax(CGST,SGST)</div>
                   <div class="column has-text-right" style="padding:0.2rem 0.5rem;">{{total* tax| currency:'INR':'symbol-narrow'}}
                   </div>
-                </div>
-                <!-- <div class="columns is-mobile">
-                  <div class="column" style="padding:0.2rem 0.5rem;">Tax CGST</div>
-                  <div class="column has-text-right" style="padding:0.2rem 0.5rem;">Rs 7
-                  </div>
-                </div> -->
+                </div>                
                 <div class="columns is-mobile">
                   <div class="column" style="padding:0.2rem 0.5rem;font-size: 20px;"><b>Payable</b></div>
                   <div class="column has-text-right" style="padding:0.2rem 0.5rem;font-size: 20px;"><b>

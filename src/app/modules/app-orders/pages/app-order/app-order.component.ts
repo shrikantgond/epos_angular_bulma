@@ -7,7 +7,7 @@ import { LoadMenu } from 'src/app/store/order-store/actions/menu.actions';
 import { map } from 'rxjs/operators';
 import { OrderState } from 'src/app/store/order-store/states/order.state';
 import { LoadOrder, SaveOrder } from 'src/app/store/order-store/actions/order.actions';
-import { IOrderModel } from 'src/app/models/order.model';
+import { IOrderModel, IOrderItemModel } from 'src/app/models/order.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -90,21 +90,28 @@ export class AppOrderComponent implements OnInit {
   }
 
   addmenuitem(menu: IMenuModel){
-
-    console.log('new menu');
-    console.log(menu);
-
-    // let order: IOrderModel = {
-    //   tablecode: 1, customer: { name: 'Shrikant' }
-    //   , items: [
-    //     { 'menutitle': menu.title, 'menurate': menu.rate , 'quantity': 1 , 'kot': 1 }
-    //   ]
-    // };
-    // this.store.dispatch(new SaveOrder({ order }));
     this.store.dispatch(new SaveOrder({ 
       tablecode: this.input_table_no,
     menuitem: {menutitle: menu.title, menurate: menu.rate, quantity: 1, kot:1},
     actiontype: 'ADD'
+    }));
+
+  }
+
+  updatemenuitem(orderitem: IOrderItemModel){
+    this.store.dispatch(new SaveOrder({ 
+      tablecode: this.input_table_no,
+    menuitem: orderitem,
+    actiontype: 'UPDATE'
+    }));
+
+  }
+
+  removeorder(orderitem: IOrderItemModel){
+    this.store.dispatch(new SaveOrder({ 
+      tablecode: this.input_table_no,
+    menuitem: orderitem,
+    actiontype: 'DELETE'
     }));
 
   }

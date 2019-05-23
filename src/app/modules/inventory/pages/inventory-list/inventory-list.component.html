@@ -55,7 +55,7 @@
               [ngClass]="{'is-success': itm.quantity>70 , 'is-info': itm.quantity<71 && itm.quantity>20, 'is-danger': itm.quantity<21}"
               [value]="itm.quantity" max="100"></progress></td>
           <td class="is-hidden-mobile">{{itm.expiry_date}}</td>
-          <td><input style="max-width:100px;" class="input is-rounded is-small" type="number" placeholder="20 KG">
+          <td><input style="max-width:80px;" class="input is-rounded is-small" type="number" placeholder="20 KG">
           </td>
           <td><a class="button is-rounded is-small"
               [ngClass]="{'disabled': itm.quantity>70, 'is-primary': itm.quantity<71 }"
