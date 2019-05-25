@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CustomerState } from 'src/app/store/customer-store/states/customer.state';
+import { LoadCustomer } from 'src/app/store/customer-store/actions/customer.actions';
+import { Store } from '@ngrx/store';
+import { ApplicationState } from 'src/app/store/application.state';
 
 @Component({
   selector: 'app-customer-list',
@@ -7,27 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerListComponent implements OnInit {
 
-  customer_list: ICustomerListItem[];
+  customer$: Observable<CustomerState>;
 
-  constructor() { }
+  constructor(private store: Store<ApplicationState>) {     
+    this.customer$ = this.store.select<CustomerState>((state: any) => state['customer']);
+    this.load();
+  }
+
+  load() {
+    const action = new LoadCustomer();    
+      this.store.dispatch(action); 
+  }
 
   ngOnInit() {
-    this.customer_list = [
-      {name: "Aarti Gond", email:"myaarti@gmail.com", mobile:9067170865},
-      {name: "Shrikant Gond", email:"shrikantgond@gmail.com", mobile:9421883354},
-      {name: "Kishore Tambat", email:"kishoretambat@santabanta.com", mobile:9067170895},
-      {name: "Akshay Kumar", email:"myaarti@gmail.com", mobile:9067170865},
-      {name: "Ranavir Kapoor", email:"ranvir_besharam@gmail.com", mobile:9666666333},
-      {name: "Kishore Tambat", email:"kishoretambat@santabanta.com", mobile:9067170895},
-      {name: "Akshay Kumar", email:"myaarti@gmail.com", mobile:9067170865},
-      {name: "Ranavir Kapoor", email:"ranvir_besharam@gmail.com", mobile:9666666333},
-      {name: "Kishore Tambat", email:"kishoretambat@santabanta.com", mobile:9067170895},
-      {name: "Akshay Kumar", email:"myaarti@gmail.com", mobile:9067170865},
-      {name: "Ranavir Kapoor", email:"ranvir_besharam@gmail.com", mobile:9666666333},
-      {name: "Kishore Tambat", email:"kishoretambat@santabanta.com", mobile:9067170895},
-      {name: "Akshay Kumar", email:"myaarti@gmail.com", mobile:9067170865},
-      {name: "Ranavir Kapoor", email:"ranvir_besharam@gmail.com", mobile:9666666333},
-    ]
   }
 
 }

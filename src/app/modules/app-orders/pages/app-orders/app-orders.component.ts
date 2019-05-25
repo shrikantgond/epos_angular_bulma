@@ -19,6 +19,9 @@ export class AppOrdersComponent implements OnInit {
   //   all:0, available:1, occupied:2, reserved: 3, broken: 4
   // }
 
+  //TODO: Code Cleanup and filters, table data from model
+  //Note: this is sample note
+
   tabindex: number = 0;
 
   constructor(private store: Store<TableState>) {

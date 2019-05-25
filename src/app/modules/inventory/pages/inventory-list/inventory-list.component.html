@@ -33,7 +33,7 @@
       </div>
     </div>
 
-
+    <loading-container [loadable]="(inventory$ | async)">
     <table class="table is-hoverable is-fullwidth">
       <thead>
         <tr>
@@ -47,14 +47,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let itm of inventory_list">
+        <tr *ngFor="let itm of (inventory$ | async).inventorys">
           <td>{{itm.title}}</td>
           <td class="is-hidden-mobile">{{itm.type}}</td>
           <td class="is-hidden-mobile">{{itm.category}}</td>
           <td class="is-hidden-mobile"><progress class="progress"
               [ngClass]="{'is-success': itm.quantity>70 , 'is-info': itm.quantity<71 && itm.quantity>20, 'is-danger': itm.quantity<21}"
               [value]="itm.quantity" max="100"></progress></td>
-          <td class="is-hidden-mobile">{{itm.expiry_date}}</td>
+          <td class="is-hidden-mobile">{{itm.expiry | date}}</td>
           <td><input style="max-width:80px;" class="input is-rounded is-small" type="number" placeholder="20 KG">
           </td>
           <td><a class="button is-rounded is-small"
@@ -64,6 +64,7 @@
 
       </tbody>
     </table>
+    </loading-container>
 
 
     <nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">

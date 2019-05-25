@@ -29,6 +29,8 @@ export class AppOrderComponent implements OnInit {
 
   tabcode: string = '';
 
+//TODO: Code cleanup is remaining, need to add payment, cancel functionality
+
   constructor(private store: Store<MenuState>,private _Activatedroute:ActivatedRoute) {
     _Activatedroute.params.subscribe(params => { 
       this.input_table_no = params['id'];
@@ -47,10 +49,6 @@ export class AppOrderComponent implements OnInit {
     );
 
     
-    
-
-    //this.input_table_no = 1; 
-    //console.log(this.input_table_no); 
     this.total = 0; this.tax = .10;
     this.order$ = this.orderstate$.pipe(
       map(t => t.orders.find(m => m.tablecode.toString() === this.input_table_no.toString()))

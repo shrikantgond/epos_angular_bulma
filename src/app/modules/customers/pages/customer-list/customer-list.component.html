@@ -1,44 +1,43 @@
-
+<loading-container [loadable]="(customer$ | async)">
 <div class="columns is-mobile is-multiline">
 
-    <div class="column" *ngFor="let customer of customer_list">
-      <div class="card" [routerLink]="['profile']">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image is-48x48">
-                <!-- <img src="../../../../../assets/images/profile_pic.jpg" alt="Image"> -->
-                <div id="avatar"></div>
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-5">{{customer.name}}</p>
-              <p class="subtitle is-6">
-                <span class="columns is-mobile is-centered">
-                  <span class="column" style="padding-top: 0px;">
-                    <span>{{customer.email}}</span>
-                  </span>
-                  <span class="column has-text-right is-one-third" style="padding-top: 0px;font-size: .8rem;">
-                    <span>{{customer.mobile}}</span>
-                  </span>
+  <div class="column" *ngFor="let customer of (customer$ | async).customers">
+    <div class="card" [routerLink]="['profile']">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <!-- <img src="../../../../../assets/images/profile_pic.jpg" alt="Image"> -->
+              <div id="avatar"></div>
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-5">{{customer.name}}</p>
+            <p class="subtitle is-6">
+              <span class="columns is-mobile is-centered">
+                <span class="column" style="padding-top: 0px;">
+                  <span>{{customer.email}}</span>
                 </span>
-              </p>
-            </div>
+                <span class="column has-text-right is-one-third" style="padding-top: 0px;font-size: .8rem;">
+                  <span>{{customer.mobile}}</span>
+                </span>
+              </span>
+            </p>
           </div>
         </div>
       </div>
     </div>
-  
-  
   </div>
-  
-  <nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">
-    <a class="pagination-previous">Previous</a>
-    <a class="pagination-next">Next page</a>
-    <ul class="pagination-list" style="margin-top:-.5rem;">
-      <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
-      <li><span class="pagination-ellipsis">&hellip;</span></li>
-      <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
-    </ul>
-  </nav>
-  
+
+</div>
+</loading-container>
+
+<nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next page</a>
+  <ul class="pagination-list" style="margin-top:-.5rem;">
+    <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+  </ul>
+</nav>

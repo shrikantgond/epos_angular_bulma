@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { VendorState } from 'src/app/store/inventory-store/states/vendor.state';
+import { Store } from '@ngrx/store';
+import { ApplicationState } from 'src/app/store/application.state';
+import { LoadVendor } from 'src/app/store/inventory-store/actions/vendor.actions';
 
 @Component({
   selector: 'app-vendor-list',
@@ -11,17 +16,19 @@ export class VendorListComponent implements OnInit {
   vendor_list: IVendorListItem[];
   popup_add_vendor=false;
 
-  constructor() { }
+  vendor$: Observable<VendorState>;
+
+  constructor(private store: Store<ApplicationState>) {     
+    this.vendor$ = this.store.select<VendorState>((state: any) => state['vendor']);
+    this.load();
+  }
+
+  load() {
+    const action = new LoadVendor();    
+      this.store.dispatch(action); 
+  }
 
   ngOnInit() {
-    this.vendor_list = [
-      {title:"Shrikant Pvt. Ltd.",mobile:9421883354,email:"shrikant@gond.com",credit:24,address:"B-603, Ramchandra Nagar Apt..."}
-      ,{title:"Avinash Traders Pvt. Ltd.",mobile:9421883354,email:"shrikant@gond.com",credit:24,address:"B-603, Ramchandra Nagar Apt..."}
-      ,{title:"Minutai Caterers",mobile:9421883354,email:"shrikant@gond.com",credit:24,address:"B-603, Ramchandra Nagar Apt..."}
-      ,{title:"Tukamram Pande mithai",mobile:9421883354,email:"shrikant@gond.com",credit:24,address:"B-603, Ramchandra Nagar Apt..."}
-      ,{title:"Mohani traders",mobile:9421883354,email:"shrikant@gond.com",credit:24,address:"B-603, Ramchandra Nagar Apt..."}
-      ,{title:"Akshay mills",mobile:9421883354,email:"shrikant@gond.com",credit:24,address:"B-603, Ramchandra Nagar Apt..."}
-    ];
   }
 
 
