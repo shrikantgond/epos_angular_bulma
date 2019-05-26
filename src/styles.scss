@@ -71,6 +71,7 @@ html {
   overflow: hidden;
   transform: translate3d(0, 0, 0);
   cursor: pointer;
+  user-select: none;
 }
 .button:after,a:after,.link:after , .pagination-previous:after, .pagination-next:after ,
 .pagination-link:after{

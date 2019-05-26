@@ -8,20 +8,20 @@
         <div class="column is-narrow">
           <div class="columns is-mobile is-multiline">
             <div class="column is-narrow">
-                <div class="field has-addons">
-                    <p class="control has-icons-left">
-                        <input class="input is-rounded is-small" style="padding-left:2.5rem;" type="password"
-                            placeholder="From Date">
-                        <span class="icon is-small is-left">
-                            <fa-icon icon="search"></fa-icon>
-                        </span>
-                    </p>
-                    <p class="control">
-                      <a class="button is-primary is-small is-rounded">
-                        Search
-                      </a>
-                    </p>
-                  </div>
+              <div class="field has-addons">
+                <p class="control has-icons-left">
+                  <input class="input is-rounded is-small" style="padding-left:2.5rem;" type="password"
+                    placeholder="From Date">
+                  <span class="icon is-small is-left">
+                    <fa-icon icon="search"></fa-icon>
+                  </span>
+                </p>
+                <p class="control">
+                  <a class="button is-primary is-small is-rounded">
+                    Search
+                  </a>
+                </p>
+              </div>
             </div>
             <div class="column is-narrow">
               <a class="button is-small is-rounded" (click)="popup_add_menu=true">
@@ -33,53 +33,26 @@
       </div>
     </div>
 
-
-    <table class="table is-hoverable is-fullwidth">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th class="is-hidden-mobile">Type</th>
-          <th>Price</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr [routerLink]="['menu-details']" routerLinkActive="router-link-active" >
-          <td>Nimbu Pani</td>
-          <td class="is-hidden-mobile">Cold Beverages</td>
-          <td>20</td>
-          <td><progress class="progress is-danger" value="25" max="100">45%</progress></td>
-        </tr>
-        <tr>
-          <td>Nimbu Pani</td>
-          <td class="is-hidden-mobile">Cold Beverages</td>
-          <td>20</td>
-          <td><progress class="progress is-danger" value="25" max="100">45%</progress></td>
-        </tr>
-        <tr>
-          <td>Nimbu Pani</td>
-          <td class="is-hidden-mobile">Cold Beverages</td>
-          <td>20</td>
-          <td><progress class="progress is-danger" value="25" max="100">45%</progress></td>
-        </tr>
-        <tr>
-          <td>Nimbu Pani</td>
-          <td class="is-hidden-mobile">Cold Beverages</td>
-          <td>20</td>
-          <td><progress class="progress is-danger" value="25" max="100">45%</progress></td>
-        </tr>
-
-        <tr>
-          <td>Nimbu Pani</td>
-          <td class="is-hidden-mobile">Cold Beverages</td>
-          <td>20</td>
-          <td><progress class="progress is-danger" value="25" max="100">45%</progress></td>
-        </tr>
-
-
-      </tbody>
-    </table>
-
+    <loading-container [loadable]="(menus$ | async)">
+      <table class="table is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th class="is-hidden-mobile">Type</th>
+            <th class="has-text-right">Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of (menus$ | async).menus" [routerLink]="['menu-details']" routerLinkActive="router-link-active">
+            <td>{{item.title}}</td>
+            <td class="is-hidden-mobile">Cold Coffee{{item.typecode}}</td>
+            <td class="has-text-right">{{item.rate | currency:'INR':'symbol-narrow'}}</td>
+            <td><progress class="progress is-primary" [value]="item.quantity" [max]="item.maxquantity">{{item.quantity}}%</progress></td>
+          </tr>          
+        </tbody>
+      </table>
+    </loading-container>
     <nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">
       <a class="pagination-previous">Previous</a>
       <a class="pagination-next">Next page</a>
@@ -93,58 +66,58 @@
   </div>
 </div>
 
-  <!-- Model Popup for Add Inventory -->
-  <div class="modal" [ngClass]="{'is-active': popup_add_menu}" style="z-index:9999;">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">Add Menu</p>
-          <button class="delete" aria-label="close" (click)="popup_add_menu=false"></button>
-        </header>
-        <section class="modal-card-body">
-          <!-- Content ... -->
-          <div class="columns field is-mobile is-multiline">
-  
-            <div class="column field is-full" style="width: 100%;">
-              <label class="label">Title</label>
-              <p class="control">
-                <input class="input is-rounded is-small" type="text" placeholder="Text input">
-              </p>
-            </div>
-  
-            <div class="column field is-half">
-              <label class="label">Type</label>
-              <p class="control">
-                <span class="select is-rounded is-small" style="width: 100%;">
-                  <select style="width: 100%;">
-                    <option>Ingredient</option>
-                    <option>Utensil</option>
-                  </select>
-                </span>
-              </p>
-            </div>            
-  
-            <div class="column field is-half">
-              <label class="label">Price</label>
-              <p class="control" style="width: 100%">
-                <input class="input is-rounded is-small" type="number" placeholder="Text input" maxlength="2">
-              </p>
-            </div>
-  
-            <div class="column field is-half">
-              <label class="label">Max Quantity</label>
-              <p class="control" style="width: 100%;">
-                <input class="input is-rounded is-small" type="number" placeholder="Text input" maxlength="2">
-              </p>
-            </div>
-  
-          </div>
-  
-        </section>
-        <footer class="modal-card-foot">
-          <button class="button is-success" (click)="popup_add_menu=false">Add Menu</button>
-          <button class="button" (click)="popup_add_menu=false">Cancel</button>
-        </footer>
+<!-- Model Popup for Add Inventory -->
+<div class="modal" [ngClass]="{'is-active': popup_add_menu}" style="z-index:9999;">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Add Menu</p>
+      <button class="delete" aria-label="close" (click)="popup_add_menu=false"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+      <div class="columns field is-mobile is-multiline">
+
+        <div class="column field is-full" style="width: 100%;">
+          <label class="label">Title</label>
+          <p class="control">
+            <input class="input is-rounded is-small" type="text" placeholder="Text input">
+          </p>
+        </div>
+
+        <div class="column field is-half">
+          <label class="label">Type</label>
+          <p class="control">
+            <span class="select is-rounded is-small" style="width: 100%;">
+              <select style="width: 100%;">
+                <option>Ingredient</option>
+                <option>Utensil</option>
+              </select>
+            </span>
+          </p>
+        </div>
+
+        <div class="column field is-half">
+          <label class="label">Price</label>
+          <p class="control" style="width: 100%">
+            <input class="input is-rounded is-small" type="number" placeholder="Text input" maxlength="2">
+          </p>
+        </div>
+
+        <div class="column field is-half">
+          <label class="label">Max Quantity</label>
+          <p class="control" style="width: 100%;">
+            <input class="input is-rounded is-small" type="number" placeholder="Text input" maxlength="2">
+          </p>
+        </div>
+
       </div>
-    </div>
-    <!-- Model Popup for Add Inventory -->
+
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success" (click)="popup_add_menu=false">Add Menu</button>
+      <button class="button" (click)="popup_add_menu=false">Cancel</button>
+    </footer>
+  </div>
+</div>
+<!-- Model Popup for Add Inventory -->

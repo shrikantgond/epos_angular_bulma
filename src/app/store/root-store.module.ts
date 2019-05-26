@@ -7,6 +7,7 @@ import { DashboardStoreModule } from './dashboard-store/dashboard-store.module';
 import { OrderStoreModule } from './order-store/order-store.module';
 import { InventoryStoreModule } from './inventory-store/inventory-store.module';
 import { CustomerStoreModule } from './customer-store/customer-store.module';
+import { BillStoreModule } from './bill-store/bill-store.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { CustomerStoreModule } from './customer-store/customer-store.module';
     OrderStoreModule,
     InventoryStoreModule,
     CustomerStoreModule,
+    BillStoreModule,
     StoreModule.forRoot({}),//(initialReducerMap, { initialState: getInitialState }),
     EffectsModule.forRoot([]),//.forRoot([NewsEffects]),
     StoreDevtoolsModule.instrument({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuState } from 'src/app/store/order-store/states/menu.state';
 import { IMenuModel } from 'src/app/models/menu.model';
-import { Observable } from 'rxjs';
+import { Observable, Subscribable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { LoadMenu } from 'src/app/store/order-store/actions/menu.actions';
 import { map } from 'rxjs/operators';
@@ -22,6 +22,7 @@ export class AppOrderComponent implements OnInit {
   orderstate$: Observable<OrderState>;
   order$: Observable<IOrderModel>;
 
+  ordersubscription: Subscription;
   input_table_no: 1;
 
   total: number;
@@ -33,16 +34,13 @@ export class AppOrderComponent implements OnInit {
 
   constructor(private store: Store<MenuState>,private _Activatedroute:ActivatedRoute) {
     _Activatedroute.params.subscribe(params => { 
-      this.input_table_no = params['id'];
-      //console.log("this.input_table_no"); 
-      //console.log(this.input_table_no); 
-      }
-      );
+        this.input_table_no = params['id'];
+      });
 
     this.menustate$ = this.store.select<MenuState>((state: any) => state['menu']);
     this.orderstate$ = this.store.select<OrderState>((state: any) => state['order']);        
 
-      this.load();
+    this.load();
 
     this.menus$ = this.menustate$.pipe(
       map(t => t.menus.filter(m => m.typecode === this.tabcode || this.tabcode === ''))
@@ -54,8 +52,7 @@ export class AppOrderComponent implements OnInit {
       map(t => t.orders.find(m => m.tablecode.toString() === this.input_table_no.toString()))
     );
 
-    //this.orderstate$.subscribe((chart: any) => { console.log('orderstate'); console.log(chart); });
-    this.order$.subscribe((order: IOrderModel) => {
+    this.ordersubscription = this.order$.subscribe((order: IOrderModel) => {
       this.total=0;
       if (order) {
         order.items.forEach(i => {
@@ -63,28 +60,13 @@ export class AppOrderComponent implements OnInit {
         });
       }      
     });
-
-    //console.log(this.total);
-    // this.orderstate$.subscribe((chart: any) => 
-    // { console.log('orderstate'); console.log(chart); });
-
-    // this.order$.subscribe((chart: any) => 
-    // { console.log('order'); console.log(chart); });
-
   }
 
   load() {
     const action = new LoadMenu();
     this.store.dispatch(action);
-
     const actionorders = new LoadOrder();
-    this.store.dispatch(actionorders);   
-    // this.store.dispatch(new SaveOrder({ 
-    //   tablecode: this.input_table_no,
-    //   menuitem: {menutitle: 'Masala Chai', menurate: 20, quantity: 1, kot:1},    
-    //   actiontype: 'ADD'
-    // }));
-    
+    this.store.dispatch(actionorders);       
   }
 
   addmenuitem(menu: IMenuModel){
@@ -124,5 +106,12 @@ export class AppOrderComponent implements OnInit {
 
   ngOnInit() {
   }
+
+ngOnDestroy(): void {
+  //Called once, before the instance is destroyed.
+  //Add 'implements OnDestroy' to the class.
+  this.ordersubscription.unsubscribe();
+
+}
 
 }

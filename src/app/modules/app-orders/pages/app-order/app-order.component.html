@@ -48,15 +48,7 @@
       <div class="content">
 
         <div *ngIf="(order$ | async)" class="columns is-mobile" style="margin-bottom:0%">
-          <h4 class="column">Table {{(order$ | async).tablecode}}</h4>
-          <!-- <div class="column is-narrow has-text-right">
-            <a class="button is-small is-rounded is-primary" style="width:100px;margin-bottom: 10px;">Pay
-              Now</a>
-          </div>
-          <div class="column is-narrow has-text-right delete" style="    margin-top: .8rem;
-    margin-right: .5rem;">            
-          </div> -->
-
+          <h4 class="column">Table {{(order$ | async).tablecode}}</h4>          
         </div>
 
         <table class="table is-hoverable is-fullwidth">
@@ -71,7 +63,7 @@
           </thead>
           <tbody *ngIf="(order$ | async)">
             <tr *ngFor="let item of (order$ | async).items">              
-              <td class="delete" style="margin-top: 8px;" (click)="removeorder(item)"></td>
+              <td class="delete is-danger" style="margin-top: 8px;" (click)="removeorder(item)"></td>
               <td>{{item.menutitle}}</td>
               <td>{{item.menurate}}</td>
               <td><input style="width: 60px" min="0" max="999" class="input is-rounded has-text-right is-small" (change)="updatemenuitem(item)"
