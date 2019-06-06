@@ -58,6 +58,7 @@ export function BillReducer(state: BillState = DefaultBillState(), action: BillA
         //         ...app.LoadedApplicationState(),
         //     }
         case BillActionsTypes.LoadSuccess:
+            console.log(action.payload.bills);
             return {
                 ...state,
                 //Bills:[...state.Bills, action.payload.Bills]

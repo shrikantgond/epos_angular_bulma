@@ -18,12 +18,11 @@ export class MenuEffects {
   loadMenus = this.actions$.pipe(
     ofType(actions.MenuActionsTypes.Load),
     switchMap(action => {
-      // return this.http.get('some url');      
       console.log('Menu api called');
-      return mocks.mockMenuApiResponse().pipe(
+      return this.http.post('http://localhost:8180/api/menu/getmenus',{}).pipe(
         map((response: any) => new actions.LoadMenuSuccess({menus: response})),
         catchError(error => of(new actions.LoadMenuError(error)))
-      );
+      );      
     }),
   );
 
