@@ -2,7 +2,8 @@
   <!-- This is loading spinner... -->
   <div class="loader"></div>
 </div>
-<div *ngIf="loadable.error">{{loadable?.error?.message || 'Something went wrong'}}</div>
+<!-- <div *ngIf="loadable.error">{{loadable?.error?.message || 'Something went wrong'}}</div> -->
+<div *ngIf="loadable.error">{{'Something went wrong'}}</div>
 <ng-container *ngIf="loadable.success">
   <!-- *ngIf="loadable.success" -->
   <ng-content></ng-content>

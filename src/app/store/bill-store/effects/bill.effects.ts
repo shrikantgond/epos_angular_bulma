@@ -11,8 +11,7 @@ import * as actions from '../actions/bill.actions';
 @Injectable()
 export class BillEffects {
 
-  constructor(private actions$: Actions, private http: HttpClient) {
-    //console.log('hi')
+  constructor(private actions$: Actions, private http: HttpClient) {    
   }
 
   @Effect()

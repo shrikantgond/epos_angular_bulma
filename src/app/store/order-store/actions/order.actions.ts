@@ -33,10 +33,10 @@ export enum OrderActionsTypes {
     }
   }
   export class SaveOrderSuccess implements Action {
-    readonly type = OrderActionsTypes.Load;
+    readonly type = OrderActionsTypes.SaveSuccess;
   }
   export class SaveOrderError implements Action {
-    readonly type = OrderActionsTypes.LoadError;
+    readonly type = OrderActionsTypes.SaveError;
     constructor(public error: any) {}
   }
 
@@ -46,10 +46,10 @@ export enum OrderActionsTypes {
     }
   }
   export class DeleteOrderSuccess implements Action {
-    readonly type = OrderActionsTypes.Load;
+    readonly type = OrderActionsTypes.DeleteSuccess;
   }
   export class DeleteOrderError implements Action {
-    readonly type = OrderActionsTypes.LoadError;
+    readonly type = OrderActionsTypes.DeleteError;
     constructor(public error: any) {}
   }
 

@@ -3,15 +3,13 @@ import {Actions, Effect, ofType} from '@ngrx/effects';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {of} from 'rxjs';
-import * as mocks from 'src/app/mocks/order.mocks';
+//import * as mocks from 'src/app/mocks/menu.mocks';
 import * as actions from '../actions/menu.actions';
-
 
 @Injectable()
 export class MenuEffects {
 
   constructor(private actions$: Actions, private http: HttpClient) {
-    //console.log('hi')
   }
 
   @Effect()
