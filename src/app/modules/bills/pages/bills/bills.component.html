@@ -65,11 +65,11 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let itm of (bill$ | async).bills">
-                    <td>{{itm.billno}}</td>
-                    <td>{{itm.custname}}</td>
-                    <td>{{itm.paymentstate}}</td>
-                    <td class="is-hidden-mobile">{{itm.ammount}}</td>
-                    <td class="is-hidden-mobile">{{itm.date | date}}</td>
+                    <td>{{itm.billnumber}}</td>
+                    <td>{{itm.customerdetails?.name}}</td>
+                    <td>{{itm.paymentstatus}}</td>
+                    <td class="is-hidden-mobile">{{itm.payableamount}}</td>
+                    <td class="is-hidden-mobile">{{itm.billdate | date}}</td>
                   </tr>
 
                 </tbody>

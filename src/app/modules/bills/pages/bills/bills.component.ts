@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BillState } from 'src/app/store/bill-store/states/bill.state';
+import { BillState } from 'src/app/store/bill/states/bill.state';
 import { Store } from '@ngrx/store';
 import { ApplicationState } from 'src/app/store/application.state';
-import { LoadBill } from 'src/app/store/bill-store/actions/bill.actions';
+import { Load_getbills_number_customer } from 'src/app/store/bill/actions/bill.actions';
 
 @Component({
   selector: 'app-bills',
@@ -17,13 +17,13 @@ export class BillsComponent implements OnInit {
   constructor(private store: Store<ApplicationState>) {     
     this.bill$ = this.store.select<BillState>((state: any) => state['bill']);
     this.load();
-    // this.store.select<TopSellingState>((state: any) => state['topselling'])
-    // .subscribe((chart: any) => { console.log('ad'); console.log(chart); }); 
+    this.store.select<BillState>((state: any) => state['bill'])
+    .subscribe((chart: any) => { console.log('bill'); console.log(chart); }); 
 
   }
-
+  
   load() {
-    const action = new LoadBill();    
+    const action = new Load_getbills_number_customer({billnumber:12,customer:12,pagging:{skip:0,take:4,sortby:'payableamount',sortdirection:1}});    
       this.store.dispatch(action); 
   }
 

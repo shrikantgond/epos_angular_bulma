@@ -1,33 +1,16 @@
+import { IBillcustomerModel } from './billcustomer.model';
+
 export interface IBillModel {
-    billno: number;
-    paymentstate:string;
-    custname: string;
-    ammount?: number;
-    date: number;
+	billnumber: number;
+	paymentstatus: string;
+	billdate: number;
+	payableamount: number;
+	customerdetails? : IBillcustomerModel;
 }
 
 
 export function DefaultBills(): IBillModel[] {
-    return [{
-        billno: 1000 + Math.floor(1150 * Math.random()),paymentstate: 'Paid', custname: 'Masala Chai', ammount: Math.floor(50 * Math.random()), date: Date.now()
-    }, {
-        billno: 1000 + Math.floor(1150 * Math.random()),paymentstate: 'Paid', custname: 'Masala Chai', ammount: Math.floor(50 * Math.random()), date: Date.now()
-    },
-    {
-        billno: 1000 + Math.floor(1150 * Math.random()),paymentstate: 'Paid', custname: 'Masala Chai', ammount: Math.floor(50 * Math.random()), date: Date.now()
-    },
-    {
-        billno: 1000 + Math.floor(1150 * Math.random()),paymentstate: 'Paid', custname: 'Masala Chai', ammount: Math.floor(50 * Math.random()), date: Date.now()
-    },
-    {
-        billno: 1000 + Math.floor(1150 * Math.random()),paymentstate: 'Paid', custname: 'Masala Chai', ammount: Math.floor(50 * Math.random()), date: Date.now()
-    },
-    {
-        billno: 1000 + Math.floor(1150 * Math.random()),paymentstate: 'Paid', custname: 'Masala Chai', ammount: Math.floor(50 * Math.random()), date: Date.now()
-    },
-    {
-        billno: 1000 + Math.floor(1150 * Math.random()),paymentstate: 'Paid', custname: 'Masala Chai', ammount: Math.floor(50 * Math.random()), date: Date.now()
-    },
-
-    ]
+    return [
+	{ billnumber: 12, paymentstatus: "Sample1", billdate: 1559825263791, payableamount: 12, customerdetails: {customercode:"",name:""},  },
+	]
 }
